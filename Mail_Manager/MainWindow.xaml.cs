@@ -21,5 +21,10 @@ namespace Mail_Manager
             InitializeComponent();
             
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("hello");
+        }
     }
 }
