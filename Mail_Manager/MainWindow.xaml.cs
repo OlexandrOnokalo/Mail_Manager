@@ -19,6 +19,7 @@ namespace Mail_Manager
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }
