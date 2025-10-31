@@ -1,0 +1,6613 @@
+
+
+
+
+
+
+
+  _____ __        _  _
+ / ____|\ \     _| || |_
+| |      \ \   |_  __  _|
+| |       \ \   _| || |_
+| |____    \ \ |_  __  _|
+ \_____|    \_\  |_||_|
+
+
+
+
+01_IntroToDotNet
+ 
+
+Credential Manager
+
+C# - побудована і працює на платформі .NET
+
+.NET Core дозволяє створюватти кросплатформенні додатки
+
+C#  - це чисто ПОО мова програмування
+
+Середовища виконання: Command langauge Run Time (CLR)
+CLR - менеджер між нашими класами, бібліотеками і операційною системою. Виділяє і чистить память.
+
+
+
+visual studio installer -> modify -> .net deskstop development -> instal
+
+cw + TAB - Console.WriteLine("") - вивести на екран
+
+C# data types  - static
+	Value types  -  unNullable 
+		Simple types (int, float, char, bool
+		enum, 
+		struct 
+		
+	Reference Rypes - dynamic - Nullable 
+		Class, array, interface, delegate
+		
+Типи данних:
+	Цілі:
+		byte  	 0 > 255
+		sbyte	-128>127
+		short	int16   -32 768 > 32767 
+		ushort  0>65535
+		int		- int32
+		uint	
+		long	-int64
+		ulong
+	Дробові:
+		float (single)   - float h = 3.14f;
+		double
+		decimal   -  decimal p = 5.64m;
+		
+Console.Readline()!;
+
+int number = int.Parse(str); 
+
+Console.WriteLine($"Number {numberStr}"); - інтерполяція
+
+
+Console.OutputEncoding = Encoding.Unicode;
+                \'      – single quote, needed for character literals
+                \"      – double quote, needed for string literals
+                \\      – backslash
+                \0      – Unicode character 0
+                \a      – Alert (character 7)
+                \b      – Backspace (character 8)
+                \f      – Form feed (character 12)
+                \n      – New line (character 10)
+                \r      – Carriage return (character 13)
+                \t      – Horizontal tab (character 9)
+                \v      – Vertical quote (character 11)
+                \uxxxx  – Unicode escape sequence for character with hex value xxxx   
+	
+cw + TAB - Console.WriteLine("")
+Console.Readline()!;
+
+            //изменяет цвет фона
+            Console.BackgroundColor = ConsoleColor.Green;
+            //изменяет цвет текста                      
+            Console.ForegroundColor = ConsoleColor.Magenta;
+			Console.ResetColor();
+
+DateTime now = DateTime.Now;
+
+cw + TAB - Console.WriteLine("") - вивести текст
+Console.Write($"Number {i + 1}: "); - без переходу на новий рядок
+	$"..." — це рядкова інтерполяція: дозволяє вставляти значення змінних або виразів прямо всередину рядка.
+	Усередині фігурних дужок {} можна писати змінні або вирази.
+string input = Console.ReadLine(); - зчитати текст
+numbers[i] = int.Parse(Console.ReadLine())!; - int.Parse — перетворює рядок у ціле число
+
+int[] numbers = new int[5]; - массив
+
+	foreach (int num in numbers)
+        {
+		sum += num;
+        product *= num;
+        if (num < min) min = num;
+        if (num > max) max = num;
+        }
+
+
+
+
+
+========================================================
+02_Array
+
+Array - батьківський клас всіх масивів. Зберігаються в динамічній памяті
+
+Створення нового масиву
+Пустий масив:
+	int[] arr = new int[8];
+Пусті комірки зайняті нулями
+
+int[]arr2 = new int[] {1,2,3,4,5}; - список інізіалізації, саме рахує кількість елементів, можна сайз не вказувати
+
+	int []arr4 = [10,20,30]; - коротший варінт
+	
+	arr5.SetValue(77,2;
+	
+	for може редагувати, лізе в кожну комірку по індексу
+	
+	foreach (var elem in arr5) - може тільки виводити, бо кожне значення копіює в змінну елем, немає доступу до оригіналу, і є готовий інумінатор
+
+Двовимірний масив:
+	int[,] array = new int [3,3];
+	
+	array.Length - загальна кількійсть комірок
+	array.GetLength(0) - показує довжину рядка
+
+є тровимірні і так далі
+
+Рваний масив (зубчастий) - двовимірний масив - є рядочкі, але в рідках різна кількість комірок
+	int[][] jagged = new int[3][];
+
+	int[] temparr = (int[]) arr.Clone(); - клонування масива
+
+        Random random = new Random();
+        double res = random.Next(100) + random.NextDouble();
+        Console.WriteLine(res);
+
+		res = Math.Round(res, 2); - обрізати до 2 символів після коми
+        Console.WriteLine(res);
+
+
+static function?
+abstruct ?
+
+	
+========================================================
+03_String
+	
+	string[] array = { "Hello", "From", "Summer", "Sun", "Tree", "Lake" };
+	
+	string message = string.Join(" - ", array); - з масиву стрінг у одну стрінгу
+	
+	string []splictArr = message.Split(new string[] {" - "}, StringSplitOptions.None); - просто порізати по розділювачу
+	
+	string []words = htmlMessage.Split(new char[] { ' ', '.', ',', '!', '/', '-', '?' }, StringSplitOptions.RemoveEmptyEntries); - порізати по купі розділювачів, і з опцією не враховувати пробіли 
+	
+	ConsoleKeyInfo key =  Console.ReadKey(); - бере один "ключ" - кнопку на клавіатурі
+	if(key.Key == ConsoleKey.F12) - от тут нажата ф12
+
+	if (string.IsNullOrEmpty(nullStr) або просто посилання, або стрінга створена з "" (тобто пуста)
+	if (string.IsNullOrWhiteSpace(str2)) - або просто посилання або пробіли
+	
+Зрівнюємо 2 стрінги
+	
+	if (string.Compare(str11, str12) == 0)
+	
+String Contains String
+
+    string str3 = "This is testing";
+    if (str3.Contains("test"))	
+	
+Вирізати частину тексту
+	string substr = str4.Substring(23); - з 23 індексу до кінця
+	string substr = str4.Substring(23,5); - з 23 індексу 5 символів
+	
+Зєднуємо стрінги з массиву в одну
+            string[] starray = new string[]{"Down, the way nights, are dark",
+                                            "And the sun shines daily on the mountain top",
+                                            "I took, a trip, on,a sailing ship",
+                                            "And when I reached Jamaica",
+                                            "I made a stop"};
+
+            string str5 = string.Join("!\n", starray);
+	
+Конкатанація (додавання)
+            string s1 = "hello";
+            string s2 = "world";
+            string s3 = s1 + " " + s2; // = string "hello world"
+	
+03_02_StringBuilder
+
+	StringBuilder stringBuilder = new StringBuilder(); - кожен раз як не влазить новий розмір зарезервованих комірок в 2 р більше
+
+	Console.WriteLine("Capacity : " + stringBuilder.Capacity); - кількість зарезервованих комірок
+	Console.WriteLine("Length : " + stringBuilder.Length); - кількість зайнятих комірок
+	
+	stringBuilder.Append("Hello"); - додаємо в кінець
+	stringBuilder.AppendLine("Hello"); - додає і в кінці \n
+
+========================================================
+04_IntroToOOP
+
+class - можливість зробити свій тип данних
+
+	private, public, protected - так само як на С++
+	internal - дає доступ тільки до цього класу тільки в цьому проєкту
+	protected internal - наслідники в межах цієї збірки (проекта)
+	
+class Point
+{
+	private int numder;   (для кожної змінної прописуємо 
+
+}
+дочірній клас:
+class Child: Point  (public по замовчуванні і змінити не можеш)
+
+
+
+	class Point
+{
+		private int numder;   (для кожної змінної прописуємо 
+		private string name;
+		privat const float PI=3.14f;   - не можна інізіалізувати в 	конструкторі
+		private readonly int id = 1; - можна інізіалізатувати в конструкторі
+
+}
+
+
+
+partial class Point : Object - в любому випадку батьківський класс обж, партіал дає можливість розділити класс на частини
+
+
+Property - це властивість яка робить змінну контрольованою, всередині ми можемо зробити валідацію.
+
+
+fullproperty ---> propfull + Tab
+
+
+
+partial class Point
+    {
+        private int xCoord;   - приватна змінна
+ 
+        public int XCoord      - проперті до цієї змінної (
+        {
+            get { return xCoord; }
+            set
+            {
+                if (value >= 0)			- перевірка для сеттера
+                    xCoord = value;
+                else
+                    xCoord = 0;
+            }
+        }
+        private int yCoord;
+        public int YCoord
+        {
+            get { return yCoord; }
+            set
+            {
+                if (value >= 0)
+                    yCoord = value;
+                else
+                    yCoord = 0;
+            }
+        }
+
+автопроперті:
+Auto property ---> prop + Tab
+
+public string Name { get; set; } - автопроперті
+		
+		
+		
+		
+		
+		public void Print()  - принт по старинці
+        {
+            Console.WriteLine($"X : {xCoord}, Y : {yCoord}");
+            //Console.SetCursorPosition(xCoord, yCoord); Console.WriteLine("*");
+        }
+        public override string ToString() - перевантажена функція від батьківського классу
+        {
+            return $"X : {xCoord}, Y : {yCoord}";
+        }
+		
+		
+		    p.XCoord = 1000;   //value = 1000 - setter
+            Console.WriteLine(p.XCoord);    //getter
+		
+		
+для звернення до проперті в майн:
+
+	
+Worker w = new Worker;
+
+w.Name - якщо немає дорувнює, спрацьовує гетер і виведе значення
+
+w.Age = 18; - є дорівнює, спрацьовує сеттер і запише нове значення
+
+
+
+
+struct NewPoint { -  структура не може мати наслідників
+
+
+поділ на файли
+partial - дозволяє ділити класси на частини
+
+			static
+
+Статичне поле — це змінна, яка:
+	належить не конкретному об’єкту, а всьому класу в цілому;
+	існує в єдиному екземплярі незалежно від кількості створених об'єктів;
+	має спільне значення для всіх екземплярів класу.
+Статичний метод — це метод, який також належить класу, а не окремому об’єкту, і може працювати тільки зі статичними полями або параметрами.
+
+ Что такое статический конструктор в C#?
+Статический конструктор — это специальный конструктор, который:
+	выполняется автоматически один раз, перед первым использованием класса (до создания первого объекта или вызова любого статического члена).
+	не принимает параметров
+	не вызывается вручную
+	используется для инициализации статических полей
+
+========================================================
+05_StructRefOut
+
+struct NewPoint { -  структура не може мати наслідників, все що є в середині паблік
+Містить конструктор і прінт
+
+
+
+Якщо треба мати два класса з однією назваою, можна розбивати на namespase
+
+_2D_Object.Point p   - вказуємо найм спейс якщо мейн не в цьому неймспейсі
+
+Ref - references - створює посилання по якій буде давати доступ до оригіналу
+
+Point point = new Point() {X = 10, Y = 15}  - створення обєкту без конструктора
+
+        static void Modify(int num, string str, Point point)
+        {
+            num += 1;
+            str += "!!!";    просто копії і стираються, оригінал не зміниться, бо це валує тип
+            point.X++;
+            point.Y++;   приходить копія посилання, оригінал зміниться
+        }
+
+
+	!!!Дуже важливо копію чого ми передаємо
+
+в валує просто копія
+в референс передається копія адреси
+для стрінги і масивів не підходить, бо перевидається память і нова адреса
+
+ref - це посилання, замість & в плюсах
+Це ключеве слово, яке передає доступ до оригіналу з середини методу
+
+!!!Може дозволяє змінити тількі інізіалізовану змінну
+
+        }
+        static void Modify(ref int num, ref string str, ref Point point)
+        {
+            num += 1;
+            str += "!!!";
+            point.X++;
+            point.Y++;  
+        }
+	
+ref - працює з оригіналом, якщо змінна не ініціалізована, помилка
+
+Out  - працює з оригіналом, але може сам ініціалізувати змінні, навіть якщо вони не ініціалізована, або навіть не створена
+
+
+        static void GetCurrentTime(out int hour,out  int minute ,out int second)
+        {
+            hour = DateTime.Now.Hour;
+            minute = DateTime.Now.Minute;
+            second = DateTime.Now.Second;
+                    
+        }
+main
+            GetCurrentTime(out h,out m, out s);
+            
+            Console.WriteLine($"{h}:{m}:{s}");
+
+Змінних h, m, s не існувало в мейні. Коли визвалась функція static void GetCurrentTime(out int hour,out  int minute ,out int second), всередині функції були зроблені змінні hour, minute, second, ініціалізовані, і збережені у вигляді нових змінних ззовні (у мейн) h,m,s
+
+
+Структури зберігається в стекі
+Класси в динамічній памяті, АЛЕ:
+
+	new
+
+Коли ми робимо пустий КЛАСС,  запускається ДЕФОЛТНИЙ КОНСТРУКТОР і створюється послання і точно виділяється динамічна память і заповнюються нулями
+
+в СТРУКТУРІ дефолтний конструктор чипати не можна, бо він запускається і записує в СТЕК дефлотні значення
+
+	
+========================================================
+06_Exception
+
+
+if (y==0)
+{
+	throw new Exception ("описуємо від себе помилку")
+}
+
+
+try  -запускає код
+{
+	ризикований код
+}
+catch (Exception ex) - ловить помилку
+{
+    Console.WriteLine($"Error: {ex.Message}");
+}
+
+finaly   - це такий блок який запускається безумовно в кінці трай, туди пишемо закриття файлів, підключень і тд
+{
+	
+}  
+
+
+	byte b = 100;
+	b = (byte)(b+200); - переповнено, ма
+	
+try
+	checked   - перевіряє
+		b++;
+		
+		
+	unchked
+	
+	byte b = 100;
+	
+	
+				Namespace
+				
+Можна робити різні неймспейси, і розміщювати класи з одним імям в кожному і через неймспейси посилатись
+
+A.Incrementer()  - функція з неймспейс А
+
+using A;   - підключяаємо просто цей нейспейс А
+
+    https://github.com/IliushynOlena/Exceptions
+    https://github.com/IliushynOlena/c_charp_namespaces
+
+========================================================
+07_OverloadOperator
+
+
+    class _3D_Point
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Z { get; set; }
+		.........
+
+
+       class Point
+    {
+        public int X { get; set; }
+        public int Y { get; set; }
+        public Point() : this(0, 0) { }
+
+        public Point(int x, int y)
+        {
+            this.X = x;
+            this.Y = y;
+        }
+        public override string ToString()
+        {
+
+            return $"X: {X}. Y : {Y}";
+        }
+
+        public override bool Equals(object? obj) - наводим на слово клас, лампоча і пункт меню
+        {
+
+            return obj is Point point &&
+                   X == point.X &&
+                   Y == point.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(X, Y);
+        }
+
+        // ref and out not allowed
+        //public static return_type operator [symbol](parameters )
+        //{
+        //code
+        //}
+		
+		
+		
+			Унарні оператори
+			-	не змінює оригінал а повертає новий поінт
+		
+			
+        public static Point operator -(Point point)
+        {
+            Point res = new Point
+            {
+                X = -point.X,
+                Y = -point.Y
+            };
+            return res;
+        }
+        public static Point operator ++(Point point)    -завжди міняє оригінал, виводить ++point (все одно спрацьовує префіксна форма, навіть коли вказується point++
+        {
+            //a++
+            //a = a + 1
+            point.X++;
+            point.Y++;
+            return point;
+        }
+        public static Point operator --(Point point)
+        {
+            point.X--;
+            point.Y--;
+            return point;
+        }
+
+        
+			Бінарні оператори
+		
+		
+        public static Point operator +(Point p1, Point p2)
+        {
+            Point res = new Point
+            {
+                X = p1.X + p2.X,
+                Y = p1.Y + p2.Y
+            };
+            return res;
+        }
+        public static Point operator -(Point p1, Point p2)
+        {
+            Point res = new Point
+            {
+                X = p1.X - p2.X,
+                Y = p1.Y - p2.Y
+            };
+            return res;
+        }
+        public static Point operator *(Point p1, Point p2)
+        {
+            Point res = new Point
+            {
+                X = p1.X * p2.X,
+                Y = p1.Y * p2.Y
+            };
+            return res;
+        }
+        public static Point operator /(Point p1, Point p2)
+        {
+            Point res = new Point
+            {
+                X = p1.X / p2.X,
+                Y = p1.Y / p2.Y
+            };
+            return res;
+        }
+        
+        
+			Оператори порівняння < >  <= >=
+			
+					
+        public static bool operator <(Point p1, Point p2)
+        {
+            return p1.X + p1.Y < p2.X + p2.Y;
+        }
+        
+        public static bool operator >(Point p1, Point p2)   - для перезавантаження треба зробити ще оператор >, вони працюють в парі
+        {
+            //return p1.X + p1.Y > p2.X + p2.Y;
+            return !(p1 < p2);
+        }
+        public static bool operator <=(Point p1, Point p2)
+        {
+            return p1.X + p1.Y <= p2.X + p2.Y;
+        }
+        
+        public static bool operator >=(Point p1, Point p2)
+        {
+            //return p1.X + p1.Y > p2.X + p2.Y;
+            return !(p1 <= p2);
+        }
+
+		
+		
+			Оператори рівності ==, !=
+			
+
+        public static bool operator ==(Point p1, Point p2)
+        {
+            return p1.Equals(p2);
+        }
+
+        public static bool operator !=(Point p1, Point p2)
+        {
+            return !(p1 == p2);
+        }
+
+
+			true/false operators
+			
+        public static bool operator true(Point p)
+        {
+            return p.X != 0 || p.Y != 0;
+        }
+        //in pair
+        public static bool operator false(Point p)
+        {
+            return p.X == 0 && p.Y == 0;
+        }
+
+			Overload types - перезавантаження типів даних
+			
+			
+        public static implicit operator int(Point p)
+        {
+            return p.X+ p.Y ;
+        }
+        public static explicit operator double(Point p)
+        {
+            return p.X + p.Y;
+        }
+        public static explicit operator _3D_Point(Point p)  -   _3d_Point це і назва оператора і результат ретурна
+        {
+            return new _3D_Point(p.X, p.Y, 100);
+        }
+        #endregion
+    }
+	
+
+========================================================
+08_01_Inheritance
+Наслідування
+
+Питання - чи являється?
+Лев являється твариною? Так
+велосипед являється твариною? ні
+
+В C# не підтримує множинне наслідування, клас може мати тільки один батьківській клас
+
+new DateTime();  -  save 01.01.0001
+DataTime.Now  - це час на данний момент
+
+
+abstract class Person  (завжди є наслідником Object) - абстрактний класс (не можна створювати обєкт)
+
+sealed - забороняє перевизначати наслідниками цього методу, або забороняє наслідування классу
+	print 
+        
+		//abstract method the same  void DoWork() = 0;
+		
+        public abstract void DoWork();
+		- асбтрактний метод (пустий де немає ніякої реалізації)
+
+
+///
+class Name : BaseClass, Interface1, (батьківський клас тільки один, інтерфейсів може бути безліч)
+///
+
+class sealed Name: worker  сиалед- забороняє унаслідувати цей клас
+
+class Worker : Person  -  наслідування за персон
+{
+	....
+
+        public Worker(string name, DateTime b, int salary):base(name, b)
+        {
+            Salary = salary;
+        }  - конструттор з делегуванням до батьківського класу, по ключовому слові бейс
+	
+        public override void DoWork()  - - override писати обовязково
+        {
+            Console.WriteLine("Doing some work....");
+        }
+        // new  - create new member and stop virtual
+        //override - перевизначаємо метод батьківського класу
+		
+        public override void Print()
+        {
+            base.Print();
+            Console.WriteLine($"Salary : {Salary}");
+        }
+    
+	- base.Print(); - делегуємось до батьківського клас. 
+	
+class Programmer : Worker  
+...
+
+class TeamLead : Programmer
+        public override void DoWork()
+        {
+            Console.WriteLine("Manage team project!!!");
+        }
+
+
+main 
+	
+            // ----------- 3 - use IS and AS
+
+            if (persons[1] is Programmer)
+            {
+                pr = persons[1] as Programmer;
+                pr.DoWork();
+            }
+            else
+            { Console.WriteLine("Object is null"); }
+			
+			-якщо він реально є програмістом, то виконується код   
+	
+	
+	
+property не може бути virtual 
+
+Механізм пізнього зв'язування (Late Binding) у C# — це можливість викликати методи або отримувати властивості об’єкта під час виконання програми (runtime), а не під час компіляції (compile-time). У C# пізнє зв’язування реалізується через ключове слово dynamic або інтерфейс System.Reflection.
+
+
+========================================================
+08_02_Indexers
+Індекскатор
+
+
+class Laptop 
+		...
+		
+class Shops
+{
+	Laptop[] laptops;
+	
+	!!!!!
+
+
+        public Laptop this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < laptops.Length)
+                {
+                    return laptops[index];
+                }
+                throw new IndexOutOfRangeException();
+            }
+            set
+            {
+                if (index >= 0 && index < laptops.Length)
+                {
+                    laptops[index] = value;
+                }
+            }
+        }
+		- двохсторонній
+		-value це new Laptop і тд
+		
+        public Laptop this[string name]
+        {
+            get 
+            {
+                foreach (var l in laptops)
+                {
+                    if(l.Model == name)
+                        return l;
+                }
+                return null;
+            }  
+			- по назві
+	
+========================================================
+09_Interfaces
+
+Інтерфейс - це клас який маює методи тільки без реалізації (чисто віртуальні)
+
+Імплементація - обіцяю зробити все методи що в інтерфейсах.
+НЕ НАСЛІДУВАННЯ а імплементація 
+
+Всередині інтерфейсу ми можемо прописувати протиотипи методів без їхньої реалізації. Тип повернення будь який, кількість параметрів будь яка
+
+проперті, але вони мають бути тільки порожні 
+Також event 
+
+Всередині специфікатор доступу паблік, не можна робити приватні змінні
+
+class Human
+{
+	...
+	!!!!to string      - зробили принт тільки з своєю реалізаціїєю
+}
+
+
+abstract class Employee : Human -вказуємо абстракт щоб заборонити робити обєкти цього класу
+{
+	!!! ту стрінг   - в цьому методі вже використовуємо реалізацією від басе (хуман) і доповнили своїми новим рядочком
+}
+
+interface IWorkable
+{
+	string Work();
+	bool IsWorking{get, } 
+}
+
+interface IManager  - прийнято інтерфейси починати з І
+{
+	List<Employee> ListOfWorkers {get,set;}
+	void Organize();
+	...
+}
+
+class Director: Employee, IManager - імплемінтація чи реалізація
+Нажимаєм лампочку і шаблони вискачать
+
+class Seller:Employee, Iworkable {...}
+
+class Cashier : Employee, IWorkable
+
+class Administrator : Employee, IWorkable, IManager 
+	
+
+
+main 
+{		інтерефейсне посилання - дає доступ тільки до методів іменежер
+	IManager director = new Director - має доступ тільки до методів і змінних IMnager
+	
+	(бо Director director = new Director - дає доступ до всього)
+	
+	
+	
+	director.ListOfWorkers = new List<Employee> { ....}
+	
+	по дефолту воно директора сприймає як манагер, а якщо так написати
+	
+	(director as Director)!.Salary = 30000; - тепер маєм доступ як до директору
+	
+	
+	Administrator	admin = new Administrator(); 
+	
+	IManager manager = admin;   - інтерфейсне посилання (даємо доступ до цього інтерфейсу)
+	
+	
+	manager.   - тільки з ІМанажер
+		
+}
+
+========================================================
+10_StandartInterfaces
+Стандартні інтерфейси
+
+    class StudentCard :ICloneable 
+    {
+        public int Number { get; set; }
+        public string Series { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
+        public override string ToString()
+        {
+            return $"Students Card : {Number} . {Series}";
+        }
+    }
+
+ class Student : IComparable<Student>, ICloneable 
+    {
+	
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime Birthdate { get; set; }
+        public StudentCard StudentCard { get; set; }
+
+        public object Clone() - скопіювати обєктор
+        {
+            temp.StudentCard =(StudentCard) this.StudentCard.Clone();
+            return temp;
+        }
+       public int CompareTo(Student? other) - зрівнюємо
+        {
+            return FirstName.CompareTo(other!.FirstName);
+        }
+
+        public override string ToString()
+        {
+            return $"Fullname : {FirstName} {LastName}. Birthdate : " +
+                $"{Birthdate.ToLongDateString()}. {StudentCard.ToString()}";
+        }
+    }
+
+    class Auditory : IEnumerable
+    {
+    
+        Student[] students;
+        public Auditory()
+        {
+            students = [
+                new Student
+                {
+                     FirstName = "Ivan",
+                     LastName = "Popchuk",
+                     Birthdate = new DateTime(2000,12,7),
+                     StudentCard = new StudentCard { Number = 123456, Series = "AAA" }
+                },
+                 new Student
+                {
+                     FirstName = "Olga",
+                     LastName = "Oliunuk",
+                     Birthdate = new DateTime(2005,12,7),
+                     StudentCard = new StudentCard { Number = 111111, Series = "BB" }
+                },
+                  new Student
+                {
+                     FirstName = "Mukola",
+                     LastName = "Ivanchuk",
+                     Birthdate = new DateTime(1999,8,17),
+                     StudentCard = new StudentCard { Number = 222222, Series = "CC" }
+                },
+                   new Student
+                {
+                     FirstName = "Mira",
+                     LastName = "Polishuk",
+                     Birthdate = new DateTime(2002,12,7),
+                     StudentCard = new StudentCard { Number = 333333, Series = "DD" }
+                },
+                    new Student
+                {
+                     FirstName = "Yura",
+                     LastName = "Popchuk",
+                     Birthdate = new DateTime(2001,12,7),
+                     StudentCard = new StudentCard { Number = 444444, Series = "FF" }
+                }
+            ];
+        }
+
+        public IEnumerator GetEnumerator()    - вказуємо що від арея брати інумінатор
+        {
+            return students.GetEnumerator();  - ми берем від студентів інумінатор (смарт поінт), для того щоб можна було форічем
+        }
+
+        public void Print()
+        {
+            foreach (Student st in students)
+            {
+                Console.WriteLine(st);
+            }
+        }
+        public void Sort() - для стандартного сортування від арей
+        {
+            Array.Sort(students); 
+        }
+        public void Sort(IComparer<Student> comparer) - для іншого сортування, IComparer<Student> або IComparer<Student>
+        {
+            Array.Sort(students,comparer);
+        }
+    }	
+    class LastNameComparer : IComparer<Student> - створюємо comparer
+    {
+        
+        public int Compare(Student? x, Student? y)
+        {
+            return x!.LastName.CompareTo(y!.LastName);
+        }
+    }
+    class BirthdateComparer : IComparer<Student> створюємо comparer
+    {
+        public int Compare(Student? x, Student? y)
+        {
+            return x!.Birthdate.CompareTo(y!.Birthdate);
+        }
+    }
+	
+    internal class Program
+    {
+        static void Main(string[] args)
+        {	
+			Auditory auditory = new Auditory();
+			
+            foreach (Student st in auditory) - для цього ми в класі аудиторія робили гет інумінатор (смарт поінтер)
+            {
+                Console.WriteLine(st.ToString());
+            }			
+	
+            Console.WriteLine("-------------- Sort array -------------");
+            auditory.Sort(); - 	звичайне сортування від арей
+            foreach (Student st in auditory)
+            {
+                Console.WriteLine(st.ToString());
+            }	
+            Console.WriteLine("-------------- Sort array by last name -------------");
+            auditory.Sort(new LastNameComparer()); 
+			
+			- робимо новий обєкт comparer і передаємо його одразу в функцію Sort(IComparer<Student> comparer)
+			
+            foreach (Student st in auditory)
+            {
+                Console.WriteLine(st.ToString());
+            }
+
+
+	
+
+може бути може не бути - агрегація
+має обовязково бути - композиція
+так от тут StudentCard має бути обовязково
+
+
+
+
+========================================================
+10_01
+
+Enum  - набір цілочисельний констант 
+
+
+
+    enum DayOfWeek//const int Monday = 0, Tuesday = 1 і тд
+    {
+        Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+    }
+	
+	
+main 
+
+            string[] names = Enum.GetNames(typeof(DayOfWeek));
+            foreach (var item in names)  
+            {
+                Console.WriteLine(item);
+            }  - вивід назв в енамі
+
+
+            DayOfWeek[] values = (DayOfWeek[])Enum.GetValues(typeof(DayOfWeek));
+
+            foreach (DayOfWeek item in values)
+            {
+                Console.WriteLine($"{item} - {(int)item}");
+            } - вивід чисел в енамі 
+	
+========================================================
+11_Delegates
+
+Вказівники на функцію
+
+Делегат - це ссилочний тип який дозволяє зберігати посилання на методи або функції заданої сигнатури. Це иакож "класс", але єдине що може - зберігати посилання
+
+Сигнатура =  прототип  - void Print() 
+
+Назва методу без () це завжди адреса
+
+Перше, специфікатор доступу
+тип повернення
+
+те саме що public class VoidDElegate : MulticastDelegate 
+
+от так:
+
+public delegate void VoidDelegate();
+
+
+
+public void Print(string str) {}
+робимо делегат:
+
+public delegate void SetStringDelegate(string s);
+на делегат можна записати декількох методів, аби тип повернення був такий же і тип кількість аргументів. 
+Назва методу і назва делегату немає значення
+
+DoubleDelegate delog = SuperClass.GetKoef; - вказівник на фунццію, тип данних DoubleDelegate - це створений нами делегат з певним типом повернення і кількістью аргументів
+
+Делегати необхідність для віконних додатків. Ми не можемо передбачити що вибере користувач.
+
+На кожну кнопку має бути делігат, який зберігає посилання на метод, що має запуститись
+
+deleg?.Invoke() - перевірка на null
+
+
+робимо масив делегатів:
+
+DoublDelegate [] doubleDelegate = new DoubleDelegate[2[ {
+	SuperClass.GetKoef,
+	superClass.GetNumber
+}
+
+SetStringDelegate setString = new SetStringDelegate(superClass.Print);
+setString.Invoke("Hello");
+
+VoidDelegate voidDelegate = super.DoWork; - записали один метод
+VoidDelegate.Invoke();  - запустили посилання
+
+Записати пару методів на один делегат:
+
+voidDelegate += superClass.Test;  - обєднуються разом в перший делегат
+
+voidDelegate.Invoke(); - запустились обидва методі в делегаті
+
+
+Лямбда вирази
+
+
+public delegate int ChangeDelegate(int a);
+
+static void ChangeArr(int[]arr)
+{
+	for	(int i = 0; i<arr.Length; i++)
+	{
+		arr[i] = change(arr[i]);
+	}
+}
+static int SQRT(n)
+{...}
+
+
+main
+
+	int[] arr = new int {...}
+	ChangeArr(arr,SQRT); - в функцію ченж вставив функцію яку використовувати
+	
+Анонімний делегат - anonymus delegate
+
+	ChangeArr(arr, delegate (int n) {return n*n;});
+	
+lambda expresion - лямбда вирази
+
+	ChangeArr(arr, (n)=> n*n);
+	
+	
+========================================================
+12_EventCallBackFunction
+
+CallBackFunction - це передача в метод делегата, який має запуститись в кінці нашого методу
+
+	HardWork(delegate () {Console.WriteLine("Good");});
+
+Коли відбувається подія, ПІДПИСНИК на неї реагує
+
+
+
+		private делегат + public event
+		
+	public event ExamDelegate ExamDelegate;
+
+
+Подія
+Event - Створює приватний делегат і дає публічний доступ через += і -=. Іншими словами, беспечний делегат.
+
+
+main
+	
+	можемо в делегат додавляти чи видаляти методи завдяки += і -=
+	
+Розгорнутий ивент - full property
+
+
+        private ExamDelegate _examDelegate;
+        public event ExamDelegate ExamEvent
+        {
+            add 
+            { 
+                _examDelegate += value;
+                Console.WriteLine(value.Method.Name + " was added");
+            }
+            remove 
+            { 
+                _examDelegate -= value;
+                Console.WriteLine(value.Method.Name + " was removed");
+            }
+        }
+	
+
+public Action TestEvent; - це вбудованний варінт делегата
+========================================================
+12_01_ExtensionMetod
+
+Метод розширення - це 
+
+
+Нам треба в бібліотеку додати свій метод, щоб він відображався як з тої бібліотеки
+
+Для додавання методу до стрінги
+
+static class ExampleExtension
+	{
+		public static int NumberWords(this string data)
+		{
+			тут описуємо потрібний функціонал
+		}	
+	}
+
+	і тепер моє можливість визивати str.NumberWords
+	
+1. Метод должен быть static
+2. Метод должен быть внутри static класса
+3. Первый параметр метода должен иметь ключевое слово this:
+Ключевое слово this указывает компилятору, что этот метод можно вызывать как будто он встроен в тип string.
+
+    public static class StringExtensions
+    {
+        public static bool IsPalindrome(this string str)
+        {
+            string reversed = new string(str.Reverse().ToArray());
+            return reversed == str;
+        }
+	}
+	
+	
+========================================================
+13_GarbageCollector_Dictionary
+
+Garbage Collector - автоматичний механізм очищення памяті.
+Він є недермінованим обєктом, ми не знаєм коли CLR вирішить стерти память
+
+Обєкт існує в хіпі поки є хоч одне посилання на цей обєкт у стеці
+
+Виділення памяті в хіпі робить ComandLanguaheRuntime
+
+Для визначення  використовується graph ????
+
+Розділяється хіп на три покоління
+Коли покоління заповнюється до кінця, тоді збирач сміття знищує
+
+При процесі чистки нульового покоління, якщо залишилось посилання, переносяться на перше покоління
+
+Аналогічно потім чиститься перше і обєкти на які є посилання переноситься у 2 покоління.
+
+З другого вже нічого не переноситься, просто перевіряється чи є посилання
+
+в C# дескруктор називається фіналізатор
+
+
+========================================================
+14_Dictionary
+
+Словник - асоциативний контейнер. Є ключик і значення.  Він не складає відсортовано, Складає так як ми додаєм
+
+Dictionary <string, string> countries = new Dictionary<string, string>();
+
+foreach (KeyValuePair<string,string> country in countries ) - щоб пробіжатися по словнику
+
+з домашки
+
+            var voidOperations = new Dictionary<string, VoidOperation>
+            {
+                ["2.1"] = ops.ReplaceNegativesWithZero,
+                ["2.2"] = ops.SortArray,
+                ["2.3"] = ops.MoveEvensToStart,
+            };
+			
+countries.Add(....)  - якщо такий ключ уже був, викине помилку
+
+counties["CA"] = "Canada"; - додасть в словник, якщо ключа немає, а якщо ключ є то змінить значення
+
+========================================================
+15_01_Collection
+
+Колекція - це об'єкт, який зберігає групу елементів, зазвичай одного типу. Колекції забезпечують механізми для зберігання, доступу, вставки, видалення та маніпулювання даними.
+
+
+using System.Collections; 
+
+Не женерік:
+
+Вони не шаблонні, тобто все що додається стає обжект
+
+ArrayList arrayList = new ArreyList();
+Можна додавати все що є ОБЖЕКТОМ
+але витягувати, дивитись це вже складно
+
+Stack stack1 = new Stack(); - стек
+first in last out
+
+Boxing - переміщення обєктів із стека в хіп
+- коли приводите один тип даних до іншого (перетворення)
+
+Unboxing - це процес распаковки, із хіпа перенесення в стек
+
+Із хіпа в стек, можуть бути проблеми
+
+НЕ ДЖЕНЕРІКІ майже не використовуються
+
+SortedList - словник, є ключ і значення, але замість ключа і значення можна покласти все що обжект
+при ключиках 
+І якщо використовувати різні типи данних то відсортувати не вийде і вибє помилку
+
+
+
+
+
+========================================================
+15_02_Generics
+
+using System.Collections;
+
+Generic collections
+Вони шаблонні, вказується тип данних.
+
+Collection<T>
+List<T>
+Dictionary<Tkey, TValue>
+SortedList<Tkey, TValue> - сразу сортується по ключу
+Stack<T>
+Queue<T>
+LinkedList<T>
+
+що можна зробити генерік:
+class
+Structures
+Collestion
+Method
+interfase
+delegate
+
+	Робимо делегат дженеріком (шаблонним)
+
+public delegate Type SummaTemplate<Type>(Type a, Type b);
+public delegate bool CompereDelegate<T1,T2>(T1 a, T2 b);
+
+main
+	CompereDelegate<double, decimal> compare = Compare; (Compare - функція що створена вручну, compare - назва обєкту)
+	
+	Дженерік інтерфейс
+interface IMyComparable<T>
+
+	Дженерік класс 
+class MyClass<Type> 
+	{
+		private Type[] array;
+
+Limit - в лімітах прописуємо що може бути під Т1 і Т2
+
+class Point<T1,T2> where T1:
+
+	Дженерік функції
+	
+        static void ShowObject<T>(T obj)
+        {
+            //Console.WriteLine(obj);
+            Console.WriteLine(obj.ToString());
+        }
+	
+========================================================
+16_WorkWithFile
+
+Робота з файлами
+
+System IO - дає нам класи, делегати, енами для роботи з файлами
+
+Головний класс:
+
+Stream =>
+	FileStream
+	MemoryStream
+	BufferesStream
+
+	static void WriteFile(string path)
+	{
+		FileStream fileStream = new FileStream("text.txt, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read | FileShare.Write);
+		
+		try{
+			doing...
+		}
+		finally
+		{
+			FileStream.Close();
+		}
+		
+	}
+
+
+FileMode - вибір методу роботи з файлом
+FileAccess - вид доступу
+FileShare - режим спільного користування
+
+або краще використовувати юсінг. В дужках створюємо класс і працюємо всередині функції, потім сам юзінг і почистить память. Робимо запис в файл з стрінги, перетвоючі її в байти
+
+
+
+	write file:
+
+        static void WriteFile(string path)
+        {
+			using(FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.none))
+	       using (FileStream fs = new FileStream(path, FileMode.Create, 
+                FileAccess.Write,FileShare.None))
+            {
+
+                Console.WriteLine("Enter some text : ");
+                string writeText = Console.ReadLine();
+
+                byte[] writeBites = Encoding.Default.GetBytes(writeText);
+                fs.Write(writeBites,0, writeBites.Length);
+
+                Console.WriteLine("File was recorded!!!!");
+	
+	}
+        static string ReadFile(string path)
+        {
+            using (FileStream fs = new FileStream(path, FileMode.Open,
+                FileAccess.Read))
+            {
+                byte[]readBytes = new byte[fs.Length];
+                fs.Read(readBytes, 0, readBytes.Length);
+                return Encoding.Default.GetString(readBytes);
+            }
+        }
+		
+	А це вже стрінга без перетворення на байти	
+	
+        static void WriteTextFormat(string path)
+        {
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                sw.Write("Hello!");
+                sw.Write("Hello!");
+                sw.Write("Hello!");
+                sw.Write("Hello!");
+                sw.WriteLine("How are you?");
+                sw.WriteLine("How are you?");
+                sw.WriteLine("How are you?");
+            }
+        }
+        static void ReadTextFormat(string path)
+        {
+            using (StreamReader sr = new StreamReader(path))
+            {
+                //sr.Read();
+                //sr.ReadBlock();
+                //sr.ReadLine();
+                //sr.ReadToEnd();
+
+                while (!sr.EndOfStream)
+                {
+                    Console.WriteLine(sr.ReadLine() + "!!!");
+                }
+            }
+        }
+
+File.WriteAllText(@"test3.txt", "Hello"); - і відкрило і записало і закрило  - це по стринзі
+
+
+Binary Writer, Binary Reading
+
+            //file = File.Create(@"test1.txt");
+
+    
+            //// 1.
+            //var writer = new StreamWriter(file);
+            //writer.Write("Hello");
+            //writer.WriteLine("\tworld");
+            //writer.Close();
+            //file?.Close(); // null-conditional operator
+
+            //// 2.
+            //writer = File.CreateText(@"test2.txt");
+            //writer.WriteLine("Hello");
+            //writer.Close();
+
+            //// 3.
+            //File.WriteAllText(@"test3.txt", "Hello");
+			
+do
+{
+
+	DirectoryInfo dir = new DirectoryInfo(path);
+	???????
+}
+
+
+========================================================
+17_01_Attributes
+Атрибути
+
+Додаткові дані що ставляться у квадратних дужках перед классом
+
+[AttributeUsage(AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Class)] - вказується де цей атрибут можна використовувати
+
+class CoderAttribute : Attribute    - тепер це клас атрибут
+
+	public string Name
+	
+	public Data Time
+	
+		
+
+[Obsolete] - застарілий, він не є актуальним і його не варто використовутати
+
+[Serializable] - помічає клас таким, який можна сиролізувати
+
+
+main 
+
+            Console.WriteLine("Attributes of class Employee");
+            foreach (var item in typeof(Employee).GetCustomAttributes(true))
+            {
+                Console.WriteLine(item);
+            } - достає всі атриьбути в чьому атрибуті
+	
+            Console.WriteLine("Attributes of members of class Employee"); 
+            foreach (MemberInfo item in typeof(Employee).GetMembers()) - всі мембери (всі сетери гетери, змінні, проперті)
+            {
+                Console.WriteLine("\t" + item.ToString());
+                foreach (var attr in item.GetCustomAttributes<CoderAttribute>(true)) - все що є в мемберах ( у кожного проперті і або метода може бути всередині ще атрибут
+                {
+                    Console.WriteLine("\t\t" + attr);
+                }
+            }
+
+
+========================================================
+17_2_BinarySerialize
+
+
+Серіалізація - це процес збереження стану обєкта в будь якому потоці з можливістю його відновлення. 
+Беремо обєкт, перетворюємо в масив байтів, і записуємо до файлу
+
+бінарна серіалізація вимагає атрибут [Serializable], а не скрізь його можна указати
+
+
+========================================================
+17_3_XML_JsonSerialization
+
+в XML or JSON, не треба ставити атрибут [Serializable]
+
+main
+
+            List<Person> persons = new List<Person>()
+            {
+              new Person(123654){ Name="Jack", Age = 15},
+              new Person(123654){ Name="Tom", Age = 12},
+              new Person(123654){ Name="Bill", Age = 35},
+              new Person(123654){ Name="John", Age = 47}
+            };
+            string fileName = "Person.json";
+            string jsonString = JsonSerializer.Serialize(persons);
+            File.WriteAllText(fileName, jsonString);
+
+
+            List<Person> newPersons = null;
+            jsonString = File.ReadAllText(fileName);
+            newPersons = JsonSerializer.Deserialize<List<Person>>(jsonString)!;
+         
+            foreach (var item in newPersons)
+            {
+                Console.WriteLine(item);
+            }
+
+========================================================
+17_4_DataAnnotation
+
+Data Annotation — це спеціальні атрибути (attributes) в C#, які застосовуються до властивостей (properties), класів або методів, щоб описати правила валідації, форматування або відображення даних.
+
+Для валідації
+
+[Required] — властивість обов’язкова для заповнення.
+[StringLength(max, MinimumLength = min)] — обмеження довжини рядка.
+[MaxLength(n)] / [MinLength(n)] — максимальна/мінімальна довжина рядка.
+[Range(min, max)] — значення повинно бути в діапазоні.
+[RegularExpression("pattern")] — перевірка по регулярному виразу.
+[EmailAddress] — перевірка, що рядок є email.
+[Phone] — перевірка, що рядок є номером телефону.
+[Url] — перевірка, що рядок є посиланням.
+
+✅ Для роботи з БД (Entity Framework)
+[Key] — визначає первинний ключ.
+[ForeignKey("PropertyName")] — задає зовнішній ключ.
+[DatabaseGenerated(DatabaseGeneratedOption.None/Identity/Computed)] — спосіб генерації значення (наприклад, автоінкремент).
+[Column("Name")] — змінює назву стовпця в таблиці.
+[Table("TableName")] — задає назву таблиці для класу.
+[NotMapped] — властивість не зберігається в БД.
+
+✅ Для відображення (UI)
+[Display(Name = "Назва")] — як відображати поле у формі.
+[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] — формат показу значення.
+[ScaffoldColumn(false)] — приховує поле в UI.
+
+реално використовуються 
+	Атрибути 
+	серіалізація
+
+    class User
+    {
+        [Required(ErrorMessage ="Id not defined")]
+        public int Id { get; set; }
+
+        [Required(ErrorMessage ="Name not setted")]
+        [StringLength(50,MinimumLength =3, ErrorMessage = "Wrong lenght")]
+        public string Name { get; set; }
+        [Required(ErrorMessage ="Age not setted")]
+        [Range(1,125,ErrorMessage ="Wrong age")]
+        public int Age { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
+        [Required]
+        public string Login { get; set; }
+        [Required]
+        public string Password { get; set; }
+        [Required]
+        [Compare(nameof( Password),ErrorMessage ="Not confirm password")]
+        public string ConfirmPassword { get; set; }
+        [Phone]
+        public string Phone { get; set; }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            User user = new User();
+            bool isValid = true;
+            do
+            {
+                Console.WriteLine("Enter name:");
+                string name = Console.ReadLine()!;
+
+                Console.WriteLine("Enter age");
+                int age = int.Parse(Console.ReadLine()!);
+
+                Console.WriteLine("Enter Login");
+                string login = Console.ReadLine()!;
+
+                Console.WriteLine("Enter password");
+                string password = Console.ReadLine()!;
+
+                Console.WriteLine("Confirm password");
+                string confirmPassword = Console.ReadLine()!;
+
+                Console.WriteLine("Enter email");
+                string email = Console.ReadLine()!;
+
+                Console.WriteLine("Enter phone");
+                string phone = Console.ReadLine()!;
+
+
+                user.Id = 1;
+                user.Name = name;
+                user.Age = age;
+                user.Password = password;
+                user.ConfirmPassword = confirmPassword;
+                user.Email = email;
+                user.Phone = phone;
+                user.Login = login;
+
+
+
+
+                var result = new List<ValidationResult>();
+                var context = new ValidationContext(user);
+                if (!(isValid = Validator.TryValidateObject(user, context, result, true)))
+                {
+                    foreach (ValidationResult error in result)
+                    {
+                        Console.WriteLine(error.MemberNames.FirstOrDefault() + ": " + error.ErrorMessage);
+                    }
+                }
+
+
+            } while (!isValid);
+
+            Console.WriteLine("Model is valid");
+        }
+    }
+
+========================================================
+18_RegularExpression
+
+Regex перевіряє чи по віпдовідає стрінга паттерну
+
+string pattern2 = "....";
+Redex redex2 = new Redex (pattern2);
+bool flag =  redex2.IsMatch(str2);  (true or false)
+
+Match m = Regex.Match(str2,@"\d");
+
+
+            string value1 = "saidsaid said shed shed see sprear spread super";
+            MatchCollection coll =  Regex.Matches(value1, @"s\w+d");
+            foreach (Match match in coll)
+            {
+                Console.WriteLine($"Index = {match.Index}. Value : {match.Value}");
+            }
+            string inputString = "Don't replace Dot Net replaced Net Net dots";
+
+            string output = Regex.Replace(inputString, "N.t", "NET");
+            Console.WriteLine(output);
+
+
+"^[A-Z][a-z]*$"    ^ на початку і $ в кінці значить щоб буквально всьому паттерну відповідає
+
+saschadens.github.io
+
+.		any character except newline
+\w \d \s	word, digit, whitespace
+\W \D \S	not word, not digit, not whitespace
+[abc]	any of a, b, or c
+[^abc]	not a, b, or c
+[a-g]	character between a & g
+^abc$	start / end of the string
+\b		word boundary
+\. \* \\	escaped special characters
+\t \n \r	tab, linefeed, carriage return
+
+a* a+ a?	0 or more, 1 or more, 0 or 1
+a{5} a{2,}	exactly five, two or more
+a{1,3}		between one & three
+a+? a{2,}?	match as few as possible
+ab|cd		match ab or cd
+
+
+                СПЕЦ. СИМВОЛИ
+                \d - Визначає символи цифр. 
+                \D - Визначає любий символ, який не є цифрою. 
+                \w - Визначає любий символ цифри, букви або нижнє підкреслення. 
+                \W - Визначає любий символ, який не є цифрою, буквою або нижнім 
+                     підкресленням.. 
+                \s - Визначає любий недрукований символ, включаючи пробіл. (таб і 
+                     перехід на новий рядок)
+                \S - Визначає любий символ, крім символів табуляции, нового рядка 
+                     и повернення каретки.
+                .  - Визначає любий символ крім символа нового рядка.  
+                \. - Визначає символ крапки.
+
+            КВАНТИФИКАТОРЫ
+            ^ - з початку рядка. 
+            $ - з кінця рядка. 
+            * - нуль і більше входжень підшаблону в сторці.  
+            + - одне і більше  входжень підшаблону в сторці.  
+            ? - нуль чи одне  входження підшаблону в сторці.  
+
+========================================================
+19_LINQ
+
+Language Integrated Quary - інтегрована мова запитів, набір стандартних методів роботи з колекціями
+
+Має обовязково інтерфейс IEnumerable
+
+    LINQ to Objects:        применяется для работы с массивами и коллекциями    
+    LINQ to Entities:       используется при обращении к базам данных через технологию Entity Framework
+    LINQ to Sql:      технология доступа к данным в MS SQL Server
+    LINQ to XML:   применяется при работе с файлами XML
+    LINQ to DataSet:  применяется при работе с объектом DataSet
+    Parallel LINQ (PLINQ):  используется для выполнения параллельной запросов 
+	
+	
+
+
+            // Список используемых методов расширения LINQ
+
+Select: определяет проекцию выбранных значений
+
+Where: определяет фильтр выборки
+
+OrderBy: упорядочивает элементы по возрастанию
+
+OrderByDescending: упорядочивает элементы по убыванию
+
+ThenBy: задает дополнительные критерии для упорядочивания элементов возрастанию
+
+ThenByDescending: задает дополнительные критерии для упорядочивания элементов по убыванию
+
+Join: соединяет две коллекции по определенному признаку
+
+GroupBy: группирует элементы по ключу
+
+ToLookup: группирует элементы по ключу, при этом все элементы 
+          добавляются в словарь
+
+GroupJoin: выполняет одновременно соединение коллекций и группировку элементов по ключу
+
+Reverse: располагает элементы в обратном порядке
+
+All: определяет, все ли элементы коллекции удовлятворяют определенному условию
+
+Any: определяет, удовлетворяет хотя бы один элемент коллекции определенному условию
+
+Contains: определяет, содержит ли коллекция определенный элемент
+
+Distinct: удаляет дублирующиеся элементы из коллекции
+
+Except: возвращает разность двух коллекцию, то есть те элементы, которые содератся только в одной коллекции
+
+Union: объединяет две однородные коллекции
+
+Intersect: возвращает пересечение двух коллекций, то есть те элементы, 
+           которые встречаются в обоих коллекциях
+
+Count: подсчитывает количество элементов коллекции, которые удовлетворяют определенному условию
+
+Sum: подсчитывает сумму числовых значений в коллекции
+
+Average: подсчитывает cреднее значение числовых значений в коллекции
+
+Min: находит минимальное значение
+
+Max: находит максимальное значение
+
+Take: выбирает определенное количество элементов
+
+Skip: пропускает определенное количество элементов
+
+TakeWhile: возвращает цепочку элементов последовательности, до тех пор, пока условие истинно
+
+SkipWhile: пропускает элементы в последовательности, пока они удовлетворяют заданному условию, и затем возвращает оставшиеся элементы
+
+Concat: объединяет две коллекции
+
+Zip: объединяет две коллекции в соответствии с определенным условием
+
+First: выбирает первый элемент коллекции
+
+FirstOrDefault: выбирает первый элемент коллекции или 
+возвращает значение по умолчанию
+
+Single: выбирает единственный элемент коллекции, если коллекция содердит больше или меньше одного элемента, то генерируется исключение
+
+SingleOrDefault: выбирает первый элемент коллекции или возвращает значение по умолчанию
+
+ElementAt: выбирает элемент последовательности по определенному индексу
+
+ElementAtOrDefault: выбирает элемент коллекции по определенному индексу или возвращает значение по умолчанию, если индекс вне допустимого диапазона
+
+Last: выбирает последний элемент коллекции
+
+LastOrDefault: выбирает последний элемент коллекции 
+       или возвращает значение по умолчанию
+
+
+
+синтаксист запиту і синтаксиз методу
+
+	
+res = from elem in sourse  - схожий на форіч
+select elem;
+
+var auery = from i in arr select i; - оригінал не змінюється, працюємо з копіями
+
+
+		!Процес відкладеного завантаження !
+- якщо зробити квері, і потім не використовувати, то власне запит не буде оброблятися. І тільки якщо використовується то повертається до квері і виконує запит
+
+
+синтаксист запиту:
+
+		IEnumerable<int> query = from i in arr select i*-1;
+або
+            var Query = from i in arrInt
+                        where i%2 == 0
+                        select i * -1; 
+	- селект працює як ретурн, в цьому випадку кожен елемент множиться на -1. оригінал не змінюється, працюємо з копіями
+
+синтаксист методу:
+
+	var result2 = words.Where(word=>word.Length == 4; 		
+	- якщо нічного не змінюємо то select можна не писати
+
+	
+	
+	            Product[] products = { 
+                new Product(){ Name = "Apple", Category ="Food"},
+                new Product(){ Name = "Phone", Category ="Tech"},
+                new Product(){ Name = "Laptop", Category ="Tech"},
+                new Product(){ Name = "Banana", Category ="Food"},
+                new Product(){ Name = "Pelmen", Category ="Food"}
+            };
+            var results = products.GroupBy(p => p.Category);
+            foreach (IGrouping<string, Product> item in results)
+            {
+                Console.Write(item.Key + " - ");
+                foreach (Product elem in item)
+                {
+                    Console.Write(elem + " ");
+                }
+                Console.WriteLine();
+            }  групування по категории, потом вывод на экран. Получается колекция обектов кколекций. Колекция категорий, обэктами которой являются продукты
+			
+
+	групування завжди словник
+	
+	Всі  вертають колекцію, крім:
+	Агрегаційні функції - вертають один результат
+Count: подсчитывает количество элементов коллекции, которые удовлетворяют определенному условию
+
+Sum: подсчитывает сумму числовых значений в коллекции
+
+Average: подсчитывает cреднее значение числовых значений в коллекции
+
+Min: находит минимальное значение
+
+Max: находит максимальное значение
+	
+	Sum, Average працює тільки з числами
+	
+	soft.Except(hard); - чим відрізняються хард від софта
+	
+	
+            // Except -----------------------        
+            // знаходимо різницю між двома колекціями
+            //чим колекція hard відрізняється від soft
+            //result3 = soft.Except(hard);           
+            //result3 = hard.Except(soft);
+            // Intersect ---------------------------
+            // отримуємо елементи колекції А, які присутні в колекції В (без дублікатів)
+            //result3 = soft.Intersect(hard);           
+
+            // Union ---------------------------
+            // з'єднує елементи двох колекцій (без дублікатів)
+            //result3 = soft.Union(hard);
+          
+
+            // Concat -------------
+            // з'єднує елементи двох колекцій
+            //result3 = soft.Concat(hard);
+
+            // Distinct ----------------
+            // видаляє дублікати
+            result3 = soft.Distinct();
+
+========================================================
+20_
+
+UML - Unified Modeling Language - уніфікована мова що дозволяє нам створювати діаграми, не привязана до мови програмування.
+
+Сайти для створення діаграм
+
+https://online.visual-paradigm.com/drive/#proj=0&dashboard
+
+https://app.diagrams.net/
+
+
+========================================================
+21_
+Патерни проектування
+
+Патерн - приклад, шаблон, продуманий, роками оптимізований код
+
+https://refactoring.guru/design-patterns
+
+
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+
+
+  _____   ____   _
+ / ____| / __ \ | |
+| (___  | |  | || |
+ \___ \ | |  | || |
+ ____) || |__| || |____
+|_____/  \___\_\|______|
+
+
+========================================================
+01_Databases_SQL
+
+SQL - Structured Query Language або мова структурованих запитів, це стандартна мова, яка використовується для управління та обробки даних у реляційних базах даних. SQL дозволяє створювати, модифікувати, отримувати, оновлювати та видаляти дані в базах даних. 
+
+Ми будемо виористовувати MS Sql
+
+без акаунта ажуре
+
+Реляційна база даних - це база данних що зберігає в собі обєкти, а ці обєкти мають між собою звязок
+
+В базі даних таблиці. Немає словників, лістів і тд
+
+Типи даних	:
+	
+Типи даних:
+
+- Цілочисельні
+    BIGINT    – дуже великі цілі числа (від -9,223,372,036,854,775,808 до 9,223,372,036,854,775,807)
+    INT       – стандартні цілі числа (від -2,147,483,648 до 2,147,483,647)
+    SMALLINT  – менші цілі числа (від -32,768 до 32,767)
+    TINYINT   – дуже малі цілі числа (від 0 до 255)
+    BIT       – логічний тип, приймає 0 або 1 (аналог bool)
+
+- Для зберігання тексту
+    CHAR(n)     – рядок фіксованої довжини (n символів)
+    VARCHAR(n)  – рядок змінної довжини (до n символів, економить місце)
+    NCHAR(n)    – фіксований рядок з підтримкою Unicode (n символів)
+    NVARCHAR(n) – змінна довжина з підтримкою Unicode (до n символів)
+
+- Дрібні (числа з плаваючою крапкою)
+    FLOAT(p)      – дійсні числа з плаваючою точкою (p – точність)
+    REAL          – менш точний варіант float
+    DECIMAL(p,s)  – фіксована точність (p – всього цифр, s – кількість після коми)
+    NUMERIC(p,s)  – аналог DECIMAL (ідентична поведінка)
+
+- Для часу і дат
+    DATETIME       – дата і час (діапазон: 01.01.1753 до 31.12.9999, точність до 3 мс)
+    DATETIME2      – новіший тип дати/часу (діапазон: 01.01.0001 до 31.12.9999, точність до 100 нс)
+    DATETIMEOFFSET – дата/час із зсувом по часовому поясу (наприклад: '2025-08-20 15:30:00 +03:00')
+    DATE           – тільки дата (рік-місяць-день, від 01.01.0001 до 31.12.9999)
+    TIME           – тільки час (години, хвилини, секунди, долі секунди, точність до 100 нс)
+
+		
+		
+		
+		
+		
+		
+		
+
+groups
+students
+Teachers
+TeacherGroups
+
+
+========================================================
+02_SQL_Queries
+
+скрипт
+
+
+SQL:
+
+- DDL (Data Definition Language) – мова визначення даних, описує структуру БД (таблиці, колонки, індекси, уявлення)
+    CREATE   – створює об’єкти БД (таблиці, бази, індекси, уявлення)
+    ALTER    – змінює існуючу структуру (колонки, типи даних, обмеження) - змінити тип данних
+    DROP     – видаляє об’єкти БД (таблиці, бази, індекси)
+    RENAME   – перейменовує об’єкт
+    TRUNCATE – швидко очищає таблицю від усіх даних без журналу транзакцій
+    COMMENT  – додає коментар до об’єкта БД
+
+- DML (Data Manipulation Language) – мова маніпуляції даними, робота з даними у таблицях
+    SELECT       – отримати дані з таблиці
+    INSERT       – додати новий запис
+    UPDATE       – змінити існуючі дані
+	
+	update Students
+	set AverageMark = 11
+	where Id in (11,15,47,9,6)
+	
+    DELETE       – видалити записи з таблиці
+    MERGE        – оновлює або вставляє дані (поєднання INSERT і UPDATE)
+    CALL         – виклик збереженої процедури
+    EXPLAIN PLAN – показує план виконання SQL-запиту
+    LOCK TABLE   – блокує таблицю для певного доступу
+
+- DCL (Data Control Language) – мова керування доступом, робота з правами користувачів
+    GRANT  – надати права доступу (читання, вставка, оновлення)
+    REVOKE – відкликати раніше надані права
+
+- TCL (Transaction Control Language) – мова керування транзакціями
+    COMMIT        – зберегти всі зміни в БД
+    ROLLBACK      – відмінити зміни до останнього COMMIT або SAVEPOINT
+    SAVEPOINT     – створює "контрольну точку" всередині транзакції
+    SET TRANSACTION – задає властивості транзакції (ізоляція, доступ)
+
+	create database University_PD_411; нажимаем F5 и рефреш
+
+	drop database University_PD_411; - видалення
+
+Обовязково !!!!!!!! перевіряти в якій базі знаходишся
+Для того щоб вибрати базу даних, зліва зверху 	вибираємо
+	або написати:
+
+	use University_PD_411;
+
+1. Column parameters (параметри для колонок таблиці)
+
+- NULL (default) / NOT NULL
+    NULL – дозволяє зберігати "порожнє" значення
+    NOT NULL – обов’язково потрібно вказати значення (не може бути пустим)
+
+- UNIQUE
+    Значення в колонці не можуть повторюватися (унікальні)
+
+- PRIMARY KEY (unique / NOT NULL)
+    Основний ключ, який однозначно ідентифікує рядок у таблиці
+    Автоматично поєднує властивості UNIQUE і NOT NULL
+
+- IDENTITY(start, step)
+    Автоматичне автоінкрементне поле (лічильник)
+    start – з якого числа почати
+    step  – на скільки збільшувати
+    За замовчуванням: IDENTITY(1,1) → починає з 1 і збільшує на 1
+    (аналог: автоінкремент / АВТОЗБІЛЬШЕННЯ)
+
+- DEFAULT(value)
+    Значення за замовчуванням, яке встановлюється, якщо користувач не вкаже іншого
+
+- CHECK(condition)
+    Обмеження, яке перевіряє умову перед додаванням/оновленням
+    Наприклад: CHECK (age >= 18)
+
+
+
+
+=============================
+Ключові слова для SQL
+=============================
+
+### Створення таблиці (CREATE TABLE)
+CREATE TABLE – створення нової таблиці
+PRIMARY KEY – первинний ключ (унікальність + not null)
+FOREIGN KEY – зовнішній ключ (зв’язок з іншою таблицею)
+IDENTITY (MS SQL) / AUTO_INCREMENT (MySQL) – автоінкремент для числових полів
+UNIQUE – унікальне значення (але може бути null)
+NOT NULL – поле обов’язкове (не може бути порожнім)
+DEFAULT – значення за замовчуванням
+CHECK – обмеження (наприклад CHECK (age > 18))
+CONSTRAINT – іменування обмежень (наприклад ключів)
+
+
+
+--------------------------------
+Оператори (logic operator):
+
+>   – більше  
+<   – менше  
+>=  – більше або дорівнює  
+<=  – менше або дорівнює  
+<> або != – не дорівнює  
+==  – дорівнює (альтернативний запис)  
+!   – логічне НЕ  
+!<  – не менше ніж (рідко використовується)
+
+Логічні оператори (logic):
+
+&&  : AND  (логічне "і")  
+||  : OR   (логічне "або")  
+
+
+створюємо таблицю:
+	
+	create table Students( 
+		Id int primary key identity, 
+		
+		Name nvarchar(50) not null check(Name <>''),
+		Lastname nvarchar(50) not null chek(Name <>''),
+		
+		Birthdate date not null check(Birthdate <GETDATE()),
+		
+		Phone char(13) not null,
+		
+		Adress nvarchar(50) null,
+		
+		AverageMark float not null check(AverageMark between 1 and 12),
+		
+		IsDebtor bit not null default(0),
+		
+		Lessons int not null check(Lessons>=0),
+		
+		Failse int not null chek(Fails>=0),
+		
+		Visiting as Lessons - Fails
+		
+		check( Fails < Lessons)
+
+	);
+	
+select * from Students;   - відкрити таблицю	
+
+
+Додати інформацію до таблиці:
+
+
+	insert into Students
+	value('Oleg','Petrovich','Oliunuk','1990-12-15,'+380671212','Rivne',7.9,default,120,15),
+	('Mira','Petrovich','Polishyk','1990-12-15,'+380671212','Rivne',7.9,default,120,15)
+
+
+========================================================
+03_Query_Comands
+
+Змінити тип даних або нот нал або інше у колонці:
+
+ALTER table Student
+alter column Name nvarchar(100) not null 
+
+Додати колонку:
+
+alter table Student
+add DegreeDate date not null default(getdate())
+
+null --> not null - видасть помилку
+not null --> null - спрацює
+
+Змінити назву колонки
+
+execute sp_rename 'Students.Phone', 'PhoneNumber', 'COLUMN'
+
+
+select *  - що саме
+from table1 - звідки 
+where - умова фільтрації
+order by - ключ сортування
+
+
+select Name, Surname, AverageMark 
+from Students - виведе вказані колонки а не все
+
+Select Name +' ' + Surname as 'Full Name', AverageMark*10 as 'mark' - Виводить name surname разом в першій колонці з назвою колонки 'Full Name', в другій AverageMark помножене на 10
+
+При запиті select оригінал не змінюється, виводиться копія по вказаних параметрах
+
+select 'Student' + Surname + ' has ' + CAST(nvarchar(10),AverageMark) as [Full info]
+from Students   - для того щоб вивести як nvarchar(10) колонку AverageMark в одній колонці яка буде називатися Full info
+
+select TOP(3) 'Student' + Surname + ' has ' + CAST(nvarchar(10),AverageMark) as [Full info] - виводить 3 перших по списку TOP(3)
+або TOP 50 PERSENT - вибирає перші 50% записів
+
+select Distinct Name -  урізає дублікати
+
+select *
+from Students
+where AverageMark >= 10         - фільтрує дані по заданій умові
+
+
+
+### Ключові слова у запитах (SELECT ...)
+SELECT – вибірка даних
+FROM – з якої таблиці
+WHERE – умова
+AND / OR / NOT – логічні оператори
+IN – входить у список значень
+BETWEEN – між двома значеннями
+LIKE – пошук по шаблону (% – будь-яка кількість символів, _ – один символ)
+IS NULL / IS NOT NULL – перевірка на null
+ORDER BY – сортування
+GROUP BY – групування
+HAVING – умови після групування
+DISTINCT – унікальні значення
+JOIN – об’єднання таблиць
+  INNER JOIN – тільки спільні записи
+  LEFT JOIN – всі зліва + збіги справа
+  RIGHT JOIN – всі справа + збіги зліва
+  FULL JOIN – всі записи з обох таблиць
+UNION / UNION ALL – об’єднання результатів запитів
+EXISTS – перевірка наявності підзапиту
+ALL / ANY – порівняння з множиною значень
+
+
+Оператори (logic operator):
+
+>   – більше  
+<   – менше  
+>=  – більше або дорівнює  
+<=  – менше або дорівнює  
+<> або != – не дорівнює  
+=  – дорівнює 
+!   – логічне НЕ  
+!<  – не менше ніж (рідко використовується)
+
+Логічні оператори (logic):
+
+&&  : AND  (логічне "і")  
+||  : OR   (логічне "або") 
+
+/********** Функції для отримання значення дати
+	DAY(date) - повертає день з дати
+	MONTH(date) - повертає місяць з дати
+	YEAR(date) - повертає рік з дати 
+*/
+select *
+from Students
+where MONTH(Birthdate) >= 6 and MONTH(Birthdate)<= 8
+
+select *
+from Students
+where MONTH(Birthdate) between 6 and 8
+
+select *
+from Students
+where YEAR(Birthdate) = 2000 or
+      YEAR(Birthdate) = 1999
+
+--------------- In-------------
+select *
+from Students
+where YEAR(Birthdate) in (2000,1999)
+
+select *
+from Students
+where MONTH(Birthdate) between 6 and 8 and AverageMark >= 10
+
+/******** [value] LIKE 'pattern' - перевіряє значення [value] на відповідність шаблону
+	%	- будь-яка кількість символів
+	_	- будь-який один символ
+	[]	- будь-який символ, який наявний в дужках
+	[^]	- будь-який символ, який НЕ наявний в дужках
+*/
+
+-- студенти прізвище яких починається на 'A' та закінчуватися на 'a'
+SELECT * FROM Students
+WHERE Name LIKE 'O%g'
+
+SELECT * FROM Students
+WHERE Name LIKE 'I%a'
+
+SELECT * FROM Students
+WHERE EmailAddress LIKE '%@gmail.com'
+
+-- студенти ім'я яких має передостанню букву 'a'
+
+
+SELECT * FROM Students
+WHERE Name LIKE '%a_'
+
+-- студенти ім'я яких починається на головну літеру (велику або маленьку)
+SELECT * FROM Students
+WHERE Name LIKE '[aoiueAOIUE]%'
+
+SELECT * FROM Students
+WHERE Name LIKE 'Oleg'
+
+-- студенти ім'я яких починається велику літеру
+SELECT * FROM Students
+WHERE Name LIKE '[a-k]%'
+
+-- з врахуванням регістру
+SELECT * FROM Students
+WHERE Name COLLATE Latin1_General_BIN LIKE '[A-M]%'
+
+-- студенти ім'я яких не починається на літеру 'A' або 'O'
+SELECT * FROM Students
+WHERE Name LIKE '[^A O]%'
+
+-- студенти ім'я яких починається на голосну літеру і закінчується не на голосну літеру
+SELECT * FROM Students
+WHERE Name LIKE '[a o i u e y A O I U E Y]%[^a o i u e y A O I U E Y]'
+
+------------- Order by----------
+SELECT * FROM Students
+order by AverageMark desc--asc
+
+SELECT * 
+FROM Students
+where AverageMark in (11, 8.5,9)
+order by AverageMark desc--asc
+
+SELECT * FROM Students
+order by Surname, Name
+
+
+
+
+========================================================
+04_Relation
+
+Види звязків
+- zero or one to many 0/1...*
+- one to one 1...1
+- one to many 1..*
+- many to many  *...*
+
+
+
+=============================
+Зв’язки між таблицями в SQL (короткий синтаксис)
+=============================
+
+### 1. One-to-Many (Один до багатьох)
+Приклад: Клієнт має багато замовлень
+
+CREATE TABLE Clients (
+    client_id INT PRIMARY KEY,
+    name NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    client_id INT NOT NULL REFERENCES Clients(client_id),
+    order_date DATE
+);
+
+
+### 2. Many-to-Many (Багато до багатьох)
+Приклад: Студенти відвідують багато курсів, а курс має багато студентів
+
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    name NVARCHAR(100)
+);
+
+CREATE TABLE Courses (
+    course_id INT PRIMARY KEY,
+    title NVARCHAR(100)
+);
+
+CREATE TABLE StudentCourses (
+    student_id INT REFERENCES Students(student_id),
+    course_id INT REFERENCES Courses(course_id),
+    PRIMARY KEY (student_id, course_id)
+);
+
+
+### 3. One-to-One (Один до одного)
+Приклад: Користувач має лише один профіль
+
+CREATE TABLE Users (
+    user_id INT PRIMARY KEY,- первинний ключ
+    username NVARCHAR(100)
+);
+
+CREATE TABLE Profiles (
+    profile_id INT PRIMARY KEY,
+    user_id INT UNIQUE REFERENCES Users(user_id), - зовнішній ключ
+    bio NVARCHAR(200)
+);
+
+
+
+багатотабличний запит - Вибірка всіх студентів з даними груп 
+
+select *
+from Student, Groups
+where Students.GroupId = Groups.Id
+
+select Student.Name, Groups.Name
+from Student as s, Groups as g   - даєм псевдонім, щоб писати коротше
+where s.GroupId = g.Id
+
+
+alter table Wards
+add foreign key(DepartmentId) REFERENCES Departments(Id)
+
+
+========================================================
+05_JoinOperators
+Багатотабличні запити
+
+ALTER    – змінює існуючу структуру (колонки, типи даних, обмеження) - змінити тип данних
+
+UPDATE       – змінити існуючі дані а не назви колонок
+
+
+update Students      вносимо значення в ячейки  
+set CountryID = 2
+where Id in(2,3,6,7)
+
+
+Витягуємо данні від таблиць по умові, варінт один, не зовсім правильний (where не для зього робився)
+
+select  top 5 s.Name, s.Lastname, s.AverageMark, g.Name, g.StarDate
+from Students as s, Groups as g
+where s.Group = g.Id and s.AverageMark >=10
+order by s.AverageMark desc
+
+
+а тут ми правильно використовуємо JOIN
+
+JOIN  -   зєднує дві таблиці між собою, але після 
+on  - ми вказуємо включі чим звязані 
+
+
+
+
+
+
+id int primary key identity  - первинний ключ
+
+WomanId int not null references  - зовнішній ключ
+
+
+
+
+
+
+
+
+select  top 5 s.Name, s.Lastname, s.AverageMark, g.Name, g.StarDate
+from Students as s JOIN Groups as g on s.GroupId = g.Id
+where s.AverageMark >=10
+order by s.AverageMark desc
+
+===всі студенти в певній групі
+select s.Name, s.LastName, s.AverageMark, s.GroupId
+from Students as s JOIN Groups as g on s.GroupId = g.Id
+where g.Name = 'група 5' 
+
+---------get all teachers in 'Group 5'------------
+select t.Name, t.Lastname, g.Name
+from Teachers as t JOIN TeachersGroups as tg on t.Id = tg.TeacherId
+					JOIN Groups as g on tg.GroupId = g.Id
+where g.Name = 'Група 5'
+
+
+
+---------get all students by Teacher 'Ковальчук' 'Олександр'------------
+select * from Teachers
+
+select s.Name, s.Lastname, t.Name,t.Lastname
+from Students as s join Groups as g on s.GroupId = g.Id
+					join TeachersGroups as tg on g.Id = tg.GroupId
+					join Teachers as t on tg.TeacherId = t.Id
+where t.Name = 'Олександр' and t.Lastname = 'Ковальчук'
+
+
+========================================================
+06_DB_-_Aggregation_Grouping
+Агрегаційні функції і групування
+
+
+	Агрегаційні функції - вертають !!один результат!!
+	Агрегаційні функції враховує тільки ячейки що не пусті!!
+	
+	COUNT() - обчислює кількість записів (працює з символьними та числовими типами)
+	SUM()	- обчислює суму всіх значень (працює з числовими типами)
+	AVG()	- обчислює середнє значення по всіх записах (працює з числовими типами)
+	MIN()	- обчислює мінімальне значення (працює з символьними та числовими типами)
+	MAX()	- обчислює максимальне значення (працює з символьними та числовими типами)
+
+
+Агрегаційні функції враховує тільки ячейки що не пусті!!
+
+select Max(AverageMark) as 'Average Mark'
+from Students
+where AverageMark between 7 and 9.9
+
+
+
+select AVG(AverageMark) as 'Average Mark'
+from Students
+
+
+select AVG(AverageMark) as 'Average Mark'
+from Students
+where YEAR(Birthdate) >= 2000
+
+select COUNT(s.Id) as 'Count Students', AVG(s.AverageMark) as 'Average Mark'
+from Students as s JOIN Groups as g on s.GroupId = g.Id
+where g.Name = 'Група 5'
+
+
+
+
+select COUNT(s.Id) as 'Count Students',
+AVG(s.AverageMark) as 'Average Mark',
+Sum(s.Lessons) as 'Count lessons'
+from Students as s JOIN Groups as g on s.GroupId = g.Id
+where g.Name = 'Група 6'
+
+
+-- ROUND() - rounds a number to a specified number of decimal places. - заокруглює до вказанної кількості символів
+-- FLOOR() - returns the largest integer value that is smaller than or equal to a number. - в нижню стоону
+-- CEILING() - returns the smallest integer value that is larger than or equal to a number. - до більшого
+
+при групування селекті можна вказувати тільки агреційну функцію і або ключик групування (поле по якому групуємо)
+
+
+select COUNT(s.Id) as 'Count Students',
+ ROUND(AVG(s.AverageMark),2) as 'Average Mark',
+Sum(s.Lessons) as 'Count lessons'
+from Students as s JOIN Groups as g on s.GroupId = g.Id
+where g.Name = 'Група 6'
+
+
+
+-------------------- Grouping -------------------
+select * from Students
+
+select * from Groups
+
+select AverageMark, COUNT(Id) --, Name
+from Students
+group by AverageMark
+
+update Students
+set AverageMark = 10
+where Id in (11,15,47,9,6)
+
+
+select s.Id, s.Name, s.GroupId, g.Id, g.Name 
+from Students as s JOIN Groups as g on s.GroupId = g.Id
+
+
+select g.Name ,COUNT(s.Id)--, s.Id--, s.Name-- COUNT(s.Id)
+from Students as s JOIN Groups as g on s.GroupId = g.Id
+group by g.Name
+
+
+
+------------------------------------------------------
+-- GROUP BY - групування елементів по певному критерію
+-- для згрупованих записів, агрегаційні функції обраховують значення для кожної групи окремо
+
+-- групування студентів по назві групи в якій вони навчаються та обчислення кількості студентів в кожній з них
+select GroupId, COUNT(Id)
+from Students
+group by GroupId
+
+-- групування по середньому балу та визначення кі-сті студентів для кожної групи
+select AverageMark, COUNT(Id)
+from Students
+group by AverageMark
+
+-- фільтрація записів перед повинна виконуватися перед групуванням
+select AverageMark, COUNT(Id)
+from Students
+where YEAR(BirthDate) >= 2003
+group by AverageMark
+
+-- обрахунок середнього балу студентів кожної групи
+select g.Id, g.Name,COUNT(s.Id), AVG(s.AverageMark) -- при групуванні selec може містити тільки ключі групи або агрегаційні функції
+from Students as s JOIN Groups as g ON g.Id = s.GroupId
+GROUP BY g.Id, g.Name
+
+-- при сортуванні записів в якості ключа можна вказувати значення будь-якої колонки
+select AverageMark, 
+		COUNT(Id) as 'Student Count',
+		MIN(BirthDate) as 'Oldest Student'
+from Students
+where AverageMark >= 9
+group by AverageMark
+order by MIN(BirthDate) -- 'Oldest Student'
+--where YEAR(MIN(BirthDate)) > 2000
+
+
+
+select g.Name, COUNT(s.Id)
+from Students as s JOIN Groups as g ON s.GroupId = g.Id
+--where
+group by g.Name
+order by COUNT(s.Id) desc
+--where COUNT(Id) >= 5
+
+
+
+-- отримати групу з найбільшою к-стю студентів
+select top 1  g.Name, COUNT(s.Id)
+from Students as s JOIN Groups as g ON s.GroupId = g.Id
+--where
+group by g.Name
+order by COUNT(s.Id) desc
+--where COUNT(Id) >= 3
+
+-- отримати групу з найбільшою к-стю студентів
+select  g.Name, COUNT(s.Id)
+from Students as s JOIN Groups as g ON s.GroupId = g.Id
+--where COUNT(Id) >= 3
+group by g.Name
+order by COUNT(s.Id) desc
+--where COUNT(Id) >= 5
+
+
+
+
+--------------------------------------------
+-- HAVING - фільтрує вже згруповані елементи
+
+-- так як оператор WHERE виконується ще до групування, то профільтрувати групи там неможливо
+-- для цього використовуємо оператор HAVING після GROUP BY
+
+select * 
+from  Students
+where Lessons >= 10
+
+-- визначаєтся кі-сть студентів для кожної групи та відбираємо лише ті, де кі-сть > 3
+select g.Name, COUNT(s.Id) as CountOfStudents
+from Students as s JOIN Groups as g ON s.GroupId = g.Id
+where s.Lessons >= 10
+--order by
+group by g.Name
+--order by
+having COUNT(s.Id) > 4 -- використовувати можна ключ групи або агрегаційну ф-ю
+order by CountOfStudents
+
+-- відбираємо групи, які мають середній бал студентів >= 9
+select	g.Name, 
+		AVG(s.AverageMark) as 'Group Average Mark', 
+		SUM(s.AverageMark) as 'Group Total Mark', 
+		COUNT(s.Id) as 'Students Count'
+from Groups as g JOIN Students as s ON s.GroupId = g.Id
+where s.AverageMark >= 7
+group by g.Name
+having AVG(s.AverageMark) >= 10
+--order by SUM(s.AverageMark) desc
+order by 'Group Total Mark' desc
+
+
+========================================================
+07_SQL_Subquery
+
+Підзапит - Запит в запиті 
+
+select Wards.Name as 'Ward Name'
+from Wards
+where Wards.Places = (select min(Places) from Wards); - підзапит
+
+
+Робимо змінну
+declare @min_mark float = (select Min(AverageMark) from Students);
+
+select  MIN(AverageMark)
+from Students
+
+
+declare @min_mark float = (select  MIN(AverageMark) from Students);
+--print 'Min Mark = '  + Convert( nvarchar(20), @min_mark)
+
+select  *
+from Students
+where AverageMark =  @min_mark
+
+-------показати всіх студентів, які навчаються в групі, де 5 і більше людей---
+
+select *
+from Students as s
+where (select COUNT(Id)
+		from Students
+		where GroupId = s.GroupId) >= 5
+
+
+select COUNT(Id)
+		from Students
+		where GroupId = 5
+
+
+select *
+from Students as s
+where AverageMark = 12
+
+
+-- показати кількість всіх студентів та їх середній бал
+select 'Students Count', COUNT(Id)
+from Students
+union
+select 'Average Mark', AVG(AverageMark)
+from Students
+
+
+-- UNION ALL - об'єднує декілька запитів в одну результуючу таблицю
+--			   при цьому дублікати не видаляються
+select Id, Name, AverageMark
+from Students
+where AverageMark >= 10
+UNION ALL
+select Id, Name, AverageMark
+from Students
+where AverageMark >= 7
+
+
+========================================================
+08_DB_Views_Table_Commands
+
+	VIEW (представлення) - - це об'єкт БД, який має зовнішній
+вид таблиці, але на відміну від неї не має своїх власних даних.
+Представлення лише надає доступ до даних однієї або декількох таблиць, на яких воно базується
+
+--CREATE VIEW excellent_students
+--as 
+--	select Name, Email, AverageMark
+--	from Students
+--	where AverageMark >= 10;
+
+--create view good_students
+create or alter view good_students
+as 
+	select top 5 Name, Email, AverageMark
+	from Students
+	where AverageMark >= 7
+	order by AverageMark desc;
+
+select  Name as 'First name'
+from good_students
+order by AverageMark desc;
+
+
+
+
+
+------------ CREATE VIEW
+create view GoodStudents
+as
+	select Name, Email, AverageMark as Mark
+	from Students
+	where AverageMark >= 7;
+
+select * from GoodStudents
+
+select * from Students
+
+drop view GoodStudents;
+
+
+
+
+
+------------- ALTER VIEW
+alter view GoodStudents(FirstName,LastName,  Email, Mark)
+as
+	select Name, Lastname, Email, AverageMark
+	from Students
+	where AverageMark >= 10;
+
+select FirstName, Mark 
+from GoodStudents
+where FirstName like '[A-G]%';
+
+-- для view можна вказати деякі параметри:
+--		encryption		- view буде зберігатися в зашифрованому вигляді
+--		schemabinding	- забороняє видалення таблиць, представлень та функцій які використовує дане view
+--		view_metadata	- вказує на те, що view в режимі перегляду буде повертати його метадані,
+--						  тобто інформацію про його структуру, а не записи таблиць
+
+
+-- ORDER BY дозволяється всередині view лише разом з оператором TOP 
+create view Top3GoodStudents (Name, Email, Mark)
+as
+	select top 3 Name, Email, AverageMark
+	from Students
+	where AverageMark >= 9
+	order by AverageMark DESC
+
+select * from Top3GoodStudents
+order by Name
+
+
+
+
+-------------- DROP VIEW
+drop view Top3GoodStudents; -- видалення представлення
+
+-- дозволяється використовувати багатотабличні запити
+create view StudentFullInfo(StudentName, Email, Mark, GroupName)
+as
+	select s.Name, s.Email, s.AverageMark, g.Name
+	from Students as s JOIN Groups as g ON g.Id = s.GroupId
+
+select * 
+from StudentFullInfo
+
+
+
+
+
+------------------------------------------------------
+-- До представлення можна застосовувати DML команди: INSERT, UPDATE, DELETE
+
+/* За виключенням тих представлень, які містять багатотабличі запити
+	або коли присутні дані оператори: 
+	AVG, COUNT, SUM, MIN, MAX, GROUPING, STDEV, STDEVP, VAR, VARP;
+	substring, UNION, UNION ALL, CROSSJOIN, EXCEPT, INTERSECT;
+	GROUP BY, HAVING и DISTINCT, TOP;
+*/
+
+select * from Students
+
+select * from Students
+
+select * from GoodStudents
+
+insert into GoodStudents
+values ('Inna', 'Oliunuk', 'inna@gmail.com',3.7);
+
+delete from GoodStudents
+where FirstName = 'Аліна'
+
+alter table Students
+	alter column Phone char(20) null
+
+alter table Students
+	alter column Birthdate date null
+
+alter table Students
+	alter column GroupId int null
+
+alter table Students
+	alter column Lessons int null
+
+select * from GoodStudents
+
+
+
+
+
+----------------- UPDATEABLE VIEW (оновлююче представлення)
+create or alter view GoodStudentsWithCheck
+as
+	select Name, Lastname, Email, AverageMark
+	from Students
+	where AverageMark >= 7
+	with check option; -- забороняє модифікувати записи (INSERT, UPDATE, DELETE) для записів, які не підлягають результату VIEW 
+
+insert into GoodStudentsWithCheck
+values ('Olga', 'Amirov', 'olia@gmail.com', 12);
+
+insert into GoodStudentsWithCheck
+values ('Bob', 'hsjhsdkjg', 'OLGA123@gmail.com',3.7);
+
+select * from Students
+
+select * from GoodStudentsWithCheck
+
+delete from GoodStudentsWithCheck
+where Name = 'Катерина'
+
+
+
+
+
+--------------- Transact-SQL (T-SQL)
+
+if (3 <> 4)--SQL
+
+if (3 != 4)--T-SQL
+
+declare @number int;
+set @number = 10;
+
+print 'Number = ' +  cast(@number as varchar);--SQL
+print 'Number = ' +  convert( varchar,@number);--T-SQL
+
+declare @result bigint = @number + 999;
+--set @result = @result + 3;
+set @result += 3;
+set @result+=1;
+print @result;
+
+if(@result > @number)
+begin
+	print 'Bigger than number'
+	print 'Bigger than number'
+	print 'Bigger than number'
+	print 'Bigger than number' 
+end
+else
+	print 'Less than number'
+
+
+
+
+
+--------cycles-----------
+declare @i int = 10;
+while(@i > 0)
+begin
+	print @i;
+	set @i -= 1;
+end
+
+declare @@global_var int = 333;
+
+select @number as 'Local', @@global_var as 'Global'
+
+
+
+
+
+----------------variables
+declare @number INT = 0;
+set @number = 11;
+
+declare @date_now date;
+select @date_now = GETDATE(), @number = 12
+
+-- show
+--select @date_now as 'Current Date', @number as 'Number';
+--print @date_now  + ' ' +  @number;
+
+------------------- print
+print 'Current date: ' + cast(@date_now as nvarchar(20));
+print 'Current date: ' + convert(nvarchar(20), @date_now);
+
+
+
+
+
+------------------- raiserror
+raiserror('Something went wrong! File: %s, Id: %d', 15, 1, 'main_bd.md', 34);
+
+declare @number INT = 777;
+RAISERROR ('Number: %d %s', 11, 1, @number, 'value')
+-- Severity: 1-10 - warnings (not errors)
+--			11-15 - user errors
+--			16-24 - system errors (18 > fatal error)
+-- %d, %i - digit
+-- %s - string
+-- %u - unsigned digit
+
+select * from sys.messages
+where message_id = 29300
+
+raiserror (29300, 16, 1, 'windows.exe');
+
+
+
+
+------------------- set in select
+use Hospital;
+use University;
+
+declare @number money;
+select @number = MAX(Salary)
+from Doctors
+
+print 'Max Salary: ' + cast(@number as nvarchar(10));
+
+declare @oldest_st nvarchar(30)
+
+--select  Name
+--from Students 
+--order by BirthDate DESC
+
+select @oldest_st = Name
+from Students 
+order by BirthDate DESC
+
+print @oldest_st;
+
+
+
+
+----------------- conditions
+
+declare @date date =  GETDATE();
+print @date
+declare @minutes int = datepart(minute, GETDATE());
+
+print @minutes
+
+declare @weekday nvarchar(10) = datename(weekday, GETDATE());
+print @weekday
+
+if (@minutes > 30)
+begin
+	print 'Bigger';
+end;
+else
+begin
+	print 'Less';
+end;
+go
+--cycles
+declare @i INT = 0;
+
+while (@i < 10)
+begin
+	if (@i = 7)
+	begin
+		Raiserror('%d - Error message...', 11, 0, @i);
+		--break;
+	end;
+	else
+	begin
+		PRINT(CAST(@i as nvarchar(2)) + ' - Element: ');
+	end
+	--set @i = @i + 1;
+	set @i += 1
+end;
+
+--case
+GO
+declare @i INT = -2;
+
+declare @msg NVARCHAR(30)
+
+set @msg = case	
+	when @i > 0 then 'Positive'
+	when @i = 0 then 'Zero'
+	when @i < 0 then 'Negative'
+	end;
+
+PRINT @msg;
+
+declare @i INT = 2;
+print (
+	case @i
+		when 1 then 'One'
+		when 2 then 'Two'
+		when 3 then 'Three'
+		else 'Invalid' --спрацює, якщо жодна умова when не виконалася
+		end);
+
+select Id, Name
+from Students
+where Id = @i
+
+-- insert select - вставка даних, які повертає select запит
+create table VeryGoodStudents
+(
+	Id int primary key identity,
+	Name nvarchar(100) NOT NULL, 
+	Surname nvarchar(100) NOT NULL
+)
+
+insert into VeryGoodStudents(Name, Surname)
+	select Name, Surname
+	from Students
+	where AverageMark >= 10
+
+select * from VeryGoodStudents
+
+-- select into - вставка даних, які повертає select запит в окрему таблицю, яка створюється автоматично
+select Name, Surname, AverageMark
+into BadStudents
+from Students
+where AverageMark < 10
+
+select * from BadStudents
+
+SELECT CONVERT(VARCHAR(8),GETDATE(),108)
+
+========================================================
+09_
+
+Процедури
+Programmability-->Stored Procedures
+
+--------------- STORAGE PROCEDURES
+use University2021;
+
+create procedure ShowHello
+as
+begin
+	print 'Hello world'
+end;
+
+execute ShowHello;
+
+drop procedure ShowHello;
+
+select *
+from good_students
+
+create or alter procedure ShowHello1
+as 
+begin--{
+	print 'Hello world'
+	print 'Hello world'
+	print 'Hello world'
+	print 'Hello world'
+end--}
+execute ShowHello1
+
+drop procedure ShowHello1
+
+
+create procedure ShowHello
+as
+begin
+	print 'Hello world'
+end;
+
+execute ShowHello
+
+----------------------------
+create or alter procedure MyFirstProc
+as
+	print 'Hello World!';
+	print 'Hello World!';
+	print 'Hello World!';
+
+execute MyFirstProc;
+
+drop procedure MyFirstProc;
+
+----------------------------
+-- with params
+create proc sp_students_list 
+@mark int
+as
+	select * from Students
+	where AverageMark >= @mark
+
+exec sp_students_list 10
+
+----------------------------
+create or alter proc sp_summ
+@a int,
+@b int = 1  -- значення по замовчуванню для параметра
+as
+	--code
+	--declare @res bigint
+	--set @res = @a + @b
+	--select @res;
+	--print @a + @b;
+	select @a + @b;
+GO
+
+-- implicit 
+exec sp_summ 7, 3
+exec sp_summ 7
+-- explicit
+exec sp_summ @b=3, @a=7
+
+----------------------------
+-- return values with output params
+create proc sp_substruct
+@a int,
+@b int,
+@res int output--ref out
+as
+	--code
+	set @res = @a - @b
+GO
+
+declare @out_value int = 0;
+-- implicit 
+exec sp_substruct 7, 3, @out_value output
+print @out_value;
+-- explicit
+exec sp_substruct @b=3, @a=12, @res = @out_value output
+print @out_value;
+
+-- use variable
+select * 
+from Students 
+where AverageMark >= @out_value
+
+select @out_value;
+
+-------------------------------
+-- get max and min student mark
+create proc sp_get_max_min_mark
+@max float output,
+@min float output
+as
+	--set @max = (select MAX(AverageMark) from Students);
+	--set @min = (select MIN(AverageMark) from Students);
+
+	select @max = MAX(AverageMark), @min = MIN(AverageMark)
+	from Students
+
+select MAX(AverageMark),MIN(AverageMark)
+	from Students
+-- execution
+declare @max float, @min float;
+
+exec sp_get_max_min_mark @max output, @min output
+
+select @max as 'Maximum Mark', @min as 'Minimum Mark'
+
+----------------------------------------
+-- update students mark by email
+create proc sp_update_mark
+@new_mark float,
+@email nvarchar(50)
+as
+	update Students
+		set AverageMark = @new_mark
+		where Email = @email
+
+-- execution
+exec sp_update_mark 9.1, 'dmytro.gonchar@example.com';
+
+select * from Students
+
+----------------------------
+-- get students count
+create proc sp_student_count
+as
+	declare @res int;
+	select @res = count(Id) from Students
+	return @res; -- дозволяє повернути результат типу int
+GO
+
+declare @res int
+exec @res = sp_student_count
+print @res
+
+----------------------------
+-- процедура, яка повертає студентів які мають середній бал в переданому діапазоні
+create or alter proc sp_students_by_mark
+@mark_from int,
+@mark_to int --= @mark_from -- робе
+as
+	select Name + ' ' + Lastname as [Full Name], Email, AverageMark
+	from Students
+	where AverageMark between @mark_from and @mark_to
+	order by AverageMark desc;
+GO
+--------------------------------------------------------------
+-- виклик процедури
+exec sp_students_by_mark 2, 5
+
+-- процедура повертає найстаршого та наймолодшого студента певної групи
+create or alter proc sp_get_oldest_and_youngest_st
+@group_name nvarchar(100),
+@oldest date output,
+@youngest date output
+as
+	select @oldest = MIN(BirthDate), @youngest = MAX(BirthDate)
+	from Students as s JOIN Groups as g ON s.GroupId = g.Id
+	where g.Name = @group_name -- AND s.BirthDate IS NOT NULL -- for avoid warning
+GO
+--------------------------------------------------------------
+-- виклик процедури
+declare @oldest date, @youngest date
+exec sp_get_oldest_and_youngest_st 'Група 6', @oldest output, @youngest output
+
+print 'Oldest: ' + convert(nvarchar(30), @oldest);
+print 'Youngest: ' + convert(nvarchar(30), @youngest);
+
+select * from Groups
+-- повна інформація про студентів
+create or alter proc sp_show_students_info
+as
+	select s.Id, s.Name + ' ' + s.Lastname as [Full Name], s.Email, g.Name as [Group Name], s.AverageMark--, s.BirthDate
+	from Students as s JOIN Groups as g ON s.GroupId = g.Id
+
+exec sp_show_students_info
+
+-- процедура змінює оцінку студента по email
+create or alter proc sp_change_mark
+@email nvarchar(100),
+@new_mark int
+as
+	if (@new_mark not between 1 and 12)
+		raiserror ('Mark %d must be in range from 1 to 12', 13, 1, @new_mark);
+	else
+		update Students
+		set	AverageMark = @new_mark
+		where Email = @email
+GO
+
+-- EXECUTE --
+select * from Students
+
+exec sp_change_mark 'dmytro.gonchar@example.com', 15
+
+-- системна процедура, яка повертає список таблиць БД
+execute sys.sp_tables
+
+-- процедура переводить студента в певну групу по імені
+create or alter proc sp_move_student
+@st_id int,
+@group_name nvarchar(50)
+as
+	if not exists (select Id 
+				   from Groups
+				   where Name = @group_name)
+	begin
+		raiserror('Invalid group name.',11,1)
+		return;
+	end;
+
+	declare @group_id int;
+
+	select @group_id = Id
+	from Groups
+	where Name = @group_name
+
+	update Students
+	set GroupId = @group_id
+	where Id = @st_id
+
+-- execution
+exec sp_show_students_info
+exec sp_move_student 4, 'Група 10'
+
+exec sp_show_students_info
+
+--------------- Database Music Collection
+use MusicCollection
+
+-- Task 4:
+alter proc sp_get_most_popular_disk
+@style_name nvarchar(50)
+as
+	select top 1 d.Name, COUNT(s.Id)
+	from Songs as s JOIN MusicDiscs as d ON s.MusicDiscId = d.Id	
+					JOIN Styles as st ON d.StyleId = st.Id
+	where @style_name = 'all' OR st.Name = @style_name
+	group by d.Id, d.Name
+	order by COUNT(s.Id) desc
+
+select * from Styles
+select * from MusicDiscs
+select * from Songs
+
+exec sp_get_most_popular_disk 'Lizard, mexican beaded'
+
+-- Task 7:
+declare @part_name nvarchar(50) = 'ol'
+ 
+-- ol eg olga bla ol egbla rozola
+Name like '% ' + @part_name + ' %'
+
+
+
+
+
+			Функції---------------
+
+/* User-Defined Functions
+	Returned value:
+		scalar-valued function	- повертає скалярне значення (1, 4.7, 'Hello')
+		table-valued function	- результатом такої функції є таблиця
+			inline table-valued function		 - повертає таблицю за допомогою одного SELECT запиту
+			multistatement table-valued function - повертає таблицю, яка містить нові імена та типи колонок
+	Indexing:
+		determinate		- завжди повертає однакове значення при однакових параметрах. Таку функцію можна проіндексувати
+		non-determinate	- може повертати різні значення при однакових параметрах. Така функція не піддається індексуванню
+*/
+execute MyFirstProc
+
+USE University;
+GO
+
+int GetDay()
+{
+	return 29;
+}
+
+
+create or alter function GetCurrentDay()
+returns int 
+as
+begin
+	declare @day int = Day(GETDATE());
+	return @day;
+end
+
+print dbo.GetCurrentDay();
+
+
+
+
+
+
+
+
+create function GetCurrentMonth()
+returns int
+as
+begin
+	declare @month int = MONTH(GETDATE());
+	return @month
+end
+print dbo.GetCurrentMonth();
+
+select dbo.GetCurrentMonth() as 'Month';
+
+
+
+---------- Scalar Functions
+-- функція завжди повинна повертати якесь значення
+
+-- function that return current month
+create function GetCurrentMonth ()
+returns int
+as
+begin
+	declare @date date = GETDATE();
+	return MONTH(@date);
+end;
+
+-- invoke
+select dbo.GetCurrentMonth() as 'Current month'
+print dbo.GetCurrentMonth()
+
+select *
+from Students
+where MONTH(BirthDate) = dbo.GetCurrentMonth()
+
+-- returns pow of number
+create or alter function Pow (@number bigint, @step int)--2..10
+returns bigint
+as
+begin
+	declare @i int = 0;
+	declare @result bigint = 1;
+
+	while (@i < @step)
+	begin
+		set @result *= @number;
+		set @i += 1;
+	end;
+
+	return @result;
+end;
+
+-- invoke
+print 'Result: ' + cast(dbo.Pow(2, 10) as varchar);
+
+-- summa of two numbers
+create or alter function GetSumma(@n1 int, @n2 int = 0)
+returns int
+as
+begin
+	declare @res int = @n1 + @n2
+	return @res; 
+end;
+
+select [dbo].GetSumma(3,5) as 'Result'
+
+select [dbo].GetSumma(3, default) as 'Result'
+
+use SportShop;
+select * from Products
+select * from Salles
+
+-- get total price of salles by product id
+create function GetTotalSalles(@prod_id int)
+returns money
+as
+begin
+return (select SUM(Price)
+		from Salles
+		where ProductId = @prod_id);
+end;
+
+-- invoke
+select [dbo].GetTotalSalles(1) as [Total Salles]
+
+
+-- get count of salles by client name
+create or alter function GetSallesCount(@client_email nvarchar(50))
+returns int
+as 
+begin
+return
+	(select COUNT(s.Id)
+	from Salles as s JOIN Clients as c ON s.ClientId = c.Id
+	where c.Email = @client_email)
+end;
+
+select * from Clients
+-- invoke
+select [dbo].GetSallesCount('ss@c.com') as 'Count of salles'
+
+
+
+
+-- convert time to total seconds
+create function GetTotalSeconds (@duration time, @text nvarchar(20))
+returns int
+as 
+begin
+return
+
+	(DATENAME(second, @duration) + 
+	 DATENAME(minute, @duration) * 60 + 
+	 DATENAME(hour, @duration) * 3600)
+end;
+
+-- invoke
+print dbo.GetTotalSeconds('01:01:20','test');
+
+
+ create or alter function GetStudetnsByName (@text nvarchar(50))
+returns table
+--WITH ENCRYPTION
+as
+return (
+	select s.Id, s.Name, s.Surname, s.Email, s.AverageMark
+	from Students as s JOIN Groups as g ON s.GroupId = g.Id
+	where s.Name Like '%'+@text+'%'
+);
+select * 
+from Students
+
+select * 
+from GetStudetnsByName('Tar')
+where Name LIKE '[A-D]%'
+---------------- Inline Table Valued Functions
+use University;
+
+-- get students by group name
+create function GetStudetns (@group_name nvarchar(50))
+returns table
+--WITH ENCRYPTION
+as
+return (
+	select s.Id, s.Name, s.Lastname, s.Email, s.AverageMark
+	from Students as s JOIN Groups as g ON s.GroupId = g.Id
+	where g.Name = @group_name
+);
+
+-- invoke
+select * 
+from GetStudetns('Група 6')
+where Name LIKE '[A-D]%'
+
+select * 
+from GetStudetns('Група 2')
+use SportShop;
+-- return products in price range
+create or alter function GetProducts (@min int, @max int)
+returns table
+as
+return 
+(
+	select * 
+	from Products
+	where Price between @min and @max
+);
+
+-- invoke
+select * from GetProducts(200, 1000);
+
+-- delete function
+drop function GetProducts;
+
+----------------- Multi-Statement Table-Valued Functions
+-- table variable
+
+declare @var bit = 0;
+
+declare @cities table
+(
+	Id int PRIMARY KEY IDENTITY,
+	Name NVARCHAR(50) NOT NULL
+)
+
+insert into @cities (Name)
+values  ('Rivne'),
+		('Lviv'),
+		('Kharkiv')
+
+select * from @cities
+
+use University;
+
+-- return students or teachers
+create function GetStudentsOrTeachers(@is_teach bit)--bool
+returns @elements table 
+(
+	Id int,
+	Name nvarchar(50) NOT NULL
+)
+as
+begin
+	if (@is_teach = 1)
+		insert into @elements 
+			select Id, Name from Teachers
+	else
+		insert into @elements
+			select Id, Name from Students
+
+	return; -- повертає результуючу таблицю
+end;
+
+-- invoke
+select * from GetStudentsOrTeachers(0)
+
+-- return even numbers from '@from' to '@to'
+create or alter function GetEvenNumbers (@from int, @to int)
+returns @result table (number int)
+as 
+begin
+	declare @i int = @from
+	while (@i <= @to)
+	begin
+		if (@i % 2 = 0)
+			insert into @result
+			values (@i);
+
+		set @i += 1;
+	end;
+
+	return;
+end;
+
+-- invoke
+select * from GetEvenNumbers(1, 200)
+
+declare @table table 
+(
+	Id int NOT NULL PRIMARY KEY IDENTITY,
+	Name nvarchar(50) NOT NULL
+)
+
+insert into @table (Name)
+values ('Name1'),
+	   ('Name2'),
+	   ('Name3'),
+	   ('Name4'),
+	   ('Name2'),
+	   ('Name3'),
+	   ('Name3')
+
+select * from @table
+
+-- return all dublicated values
+select distinct t1.Name
+from @table as t1, @table as t2
+where t1.Name = t2.Name AND t1.Id <> t2.Id
+
+
+
+
+
+
+
+
+
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+
+				ADO.NET
+           _____    ____      _   _  ______  _______
+    /\    |  __ \  / __ \    | \ | ||  ____||__   __|
+   /  \   | |  | || |  | |   |  \| || |__      | |
+  / /\ \  | |  | || |  | |   | . ` ||  __|     | |
+ / ____ \ | |__| || |__| | _ | |\  || |____    | |
+/_/    \_\|_____/  \____/ (_)|_| \_||______|   |_|
+
+
+========================================================
+01_ADO.NET_Intro_Connected_Mode
+
+ADO.NET - це технологія місточок що звязує SQL і C#
+
+
+string connectionString = @"Data Source = DESKTOP-1LCG8OH\SQLEXPRESS; 
+    Initial Catalog = SportShop;
+    Integrated Security = true; TrustServerCertificate=True;";
+	
+
+SqlConnection sqlConnection = new SqlConnection(connectionString);
+sqlConnection.Open();          - підключаємо до сервера
+Console.WriteLine("Connected success!");
+
+
+  Execute Non-Query  виконати дію (insert, update etc), не отримавши назад таблицю, але метод повертає кількітсь рядків, які були задіяні
+  
+string cmdText = @"INSERT INTO Products
+      VALUES ('Gloves', 'Equipment', 50, 500, 'Ukraine', 50)";
+
+SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+int rows = command.ExecuteNonQuery();
+
+
+	Execute Scalar - виконує команду, яка повертає одне значення
+	
+string cmdText = @"select AVG(Price) from Products";
+SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+
+int res = (int)command.ExecuteScalar();
+
+Console.WriteLine("Result: " + res);
+
+
+
+
+int id = 2;
+string cmdText = $@"select * from Products
+      where Id = '{id}'";
+
+SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+
+	//// ExecuteReader - виконує команду select та повертає результат у вигляді обєкту DbDataReader
+
+SqlDataReader reader = command.ExecuteReader();
+Console.OutputEncoding = Encoding.UTF8;
+
+    //// відображається назви всіх колонок таблиці
+for (int i = 0; i < reader.FieldCount; i++)
+{
+    Console.Write($" {reader.GetName(i),14}");
+}
+Console.WriteLine("\n---------------------------------------------------------------------------------------------------------------------");
+
+     //////// відображаємо всі значення кожного рядка
+while (reader.Read())
+{
+    for (int i = 0; i < reader.FieldCount; i++)
+    {
+        Console.Write($" {reader[i],14} ");
+    }
+    Console.WriteLine();
+}
+
+reader.Close();
+sqlConnection.Close();
+			
+				
+========================================================
+02_CRUD_Interface
+
+	CRUD Interface - create read update delete
+
+	Підєднаний режим:  connected mode
+Суть підєднаного режиму роботи з базою даних полягає в тому що ми на початку створюємо обєкт що буде працювати з юазою даних і там підключаємося до сервера
+Дала ми виконуємо create read update delete
+Коли вже не потрібен, ми закриваємо конектіон
+
+	Відєднаний режим  disconnected mode
+Суть відєднаного режиму роботи полягає в тому що ми на початку кожної дії підключилися до бази даних, дію виконали і відключилися від бази
+
+
+
+using System.Data.SqlClient;
+using System.Text;
+using System.Xml.Linq;
+using System.Xml;
+
+namespace _02_CRUD_Interface
+{
+    class SportShopDb: IDisposable
+    {
+        private SqlConnection sqlConnection;
+      
+        public SportShopDb(string connectionString)
+        {
+            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+        }
+
+        //C       R    U       D 
+        //Create Read Update Delede
+
+        public void Create_As_Insert(Product product) 
+        {
+            string cmdText = $@"INSERT INTO Products
+                              VALUES ('{product.Name}', 
+                                      '{product.Type}',
+                                       {product.Quantity}, 
+                                       {product.Cost}, 
+                                      '{product.Producer}', 
+                                       {product.Price})";
+
+            SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+            command.CommandTimeout = 5; // default - 30sec
+           
+            int rows = command.ExecuteNonQuery();
+            Console.WriteLine(rows + " rows affected!");
+        }
+        public List<Product> Read_Get_All() 
+        {
+            string cmdText = $@"select * from Products";
+
+            SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+             SqlDataReader reader = command.ExecuteReader();
+            Console.OutputEncoding = Encoding.UTF8;
+
+            List<Product> products = new List<Product>();   
+         
+            while (reader.Read())
+            {
+                products.Add(
+                    new Product()
+                    {
+                        Id = (int)reader[0],
+                        Name = (string)reader[1],
+                        Type = (string)reader[2],
+                        Quantity = (int)reader[3],
+                        Cost = (int)reader[4],
+                        Producer = (string)reader[5],
+                        Price = (int)reader[6]
+                    });
+
+             
+            }
+
+            reader.Close();
+            return products;    
+        }
+        public Product GetOne(int id)
+        {
+            string cmdText = $@"select * from Products where Id = {id}";
+
+            SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+            SqlDataReader reader = command.ExecuteReader();
+            Console.OutputEncoding = Encoding.UTF8;
+
+            Product product = new Product();
+            while (reader.Read())
+            {
+                product.Id = (int)reader[0];
+                product.Name = (string)reader[1];
+                product.Type = (string)reader[2];
+                product.Quantity = (int)reader[3];
+                product.Cost = (int)reader[4];
+                product.Producer = (string)reader[5];
+                product.Price = (int)reader[6];                  
+
+            }
+
+            reader.Close();
+            return product;
+        }
+        public void Update(Product product) 
+        {
+            string cmdText = $@"UPDATE Products
+                              SET Name ='{product.Name}', 
+                                  TypeProduct ='{product.Type}', 
+                                  Quantity ={product.Quantity}, 
+                                  CostPrice ={product.Cost}, 
+                                  Producer ='{product.Producer}', 
+                                  Price ={product.Price}
+                                  where Id = {product.Id}";
+
+            SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+            command.CommandTimeout = 5; // default - 30sec
+
+            command.ExecuteNonQuery();
+
+        }
+        public void Delete(int id) 
+        {
+            string cmdText = $@"delete Products where Id = {id}";
+
+            SqlCommand command = new SqlCommand(cmdText, sqlConnection);       
+            command.ExecuteNonQuery();
+        }
+
+        public void Dispose()
+        {
+            sqlConnection.Close();  
+        }
+
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string connectionString = @"Data Source = DESKTOP-1LCG8OH\SQLEXPRESS; 
+                                        Initial Catalog = SportShop;
+                                        Integrated Security = true; 
+                                        TrustServerCertificate=True;";
+
+           
+           
+            Product product = new Product()
+            {
+                 Name = "Кроси",
+                 Type = "Взуття",
+                 Quantity = 4,
+                 Cost = 40000,
+                 Producer = "Італія",
+                 Price = 30000
+            };
+           // product.Cost = 5000;
+            using (SportShopDb shopDb = new SportShopDb(connectionString))
+            {
+                //shopDb.Create_As_Insert(product);
+
+                var products = shopDb.Read_Get_All();
+                foreach (var p in products)
+                {
+                    Console.WriteLine(p.ToString());
+                }
+
+                Product p1 = shopDb.GetOne(56);
+                Console.WriteLine(p1.Name + "   " + p1.Cost);
+                p1.Cost -= 15000;
+                Console.WriteLine(p1.Name + "   " + p1.Cost);
+
+                shopDb.Update(p1);
+
+                products = shopDb.Read_Get_All();
+                foreach (var p in products)
+                {
+                    Console.WriteLine(p.ToString());
+                }
+
+
+
+
+            }//shopDb.Dispose()
+
+
+
+
+
+        }
+    }
+}
+
+========================================================
+03_
+
+SQL Injection
+
+select * from Products where Name = '{name}';
+
+замість імені вставляємо і імя і додаткову команду, -- в кінці щоб закоментити другу '
+
+Виходить:
+
+select * from Products where Name = 'Ball'; drop database SportShop; --'
+
+Для захисту ми маємо вказати що нейм стрінга
+
+
+----------------Варіант 1:
+
+public List<Product> Get_By_Name(string _user_name)	
+{
+    string cmdText = $@"select * from Products where Name = @name";
+    SqlCommand command = new SqlCommand(cmdText, sqlConnection);	
+	command.Parameters.Add("name", System.Data.SqlDbType.NVarChar).Value = _user_name;
+	
+-------------Варіант 2:
+	
+    SqlParameter parameter = new SqlParameter
+    {
+        ParameterName = "name",
+        SqlDbType = System.Data.SqlDbType.NVarChar,
+        Value = _user_name
+    };
+    command.Parameters.Add(parameter);  
+
+    SqlDataReader reader = command.ExecuteReader();
+    return GetProductsByQuery(reader);
+}	
+	
+в іншому методі:
+
+        public void Update(Product product) 
+        {
+            string cmdText = $@"UPDATE Products
+                              SET Name =@name, 
+                                  TypeProduct =@type, 
+                                  Quantity =@quantity, 
+                                  CostPrice =@cost, 
+                                  Producer =@producer, 
+                                  Price =@price
+                                  where Id = {product.Id}";
+
+            SqlCommand command = new SqlCommand(cmdText, sqlConnection);
+            command.Parameters.AddWithValue("name", product.Name);
+            command.Parameters.AddWithValue("type", product.Type);
+            command.Parameters.AddWithValue("quantity", product.Quantity);
+            command.Parameters.AddWithValue("cost", product.Cost);
+            command.Parameters.AddWithValue("producer", product.Producer);
+            command.Parameters.AddWithValue("price", product.Price);
+            command.CommandTimeout = 5; // default - 30sec
+
+            command.ExecuteNonQuery();
+
+        }
+	
+	
+	WPF Application
+	
+	MainWindow.xaml - конструктор, разметка там  и тд
+	MainWindow.xaml.cs   - код
+	
+
+	F7 - перейти с конструктора странички к коду
+	F12 - перестий с партиал класса к его основе
+	
+	CTRL + .    - переніс клас в окремий файл
+	
+========================================================
+05_Entity_Framework - конвертує між C# і SQL базою даних
+
+ORM - object relational mapping  
+
+
+Database First - за SQL to C#
+
+Model First - from data model (діаграми) to SQL
+
+	Ми використовуємо:
+Code First  - ми пишемо код: класи, і він по цим класам формує БД
+
+data annotation = Attribute
+
+
+Робимо клас для доступу до бази даних, що дає можливість CRUD 
+	add new item --> class --> AirportDBcontext
+
+Класс AirportDBcontext:DbContext - підключення і відключення до сервера, і методи CRUD (для внесення змін)
+
+
+там робимо  
+public DBSet<Clients> Clients {get;set}   - замість Ліста, власне таблицю клієнтів
+
+
+ENtities - сущности, обєкти, влане класи, які відповідають за звязок з базою данних
+
+створюємо клас пилот, літак, і польот
+
+Коли робиш 1 до *, той один створюємо як обєкт і ІД того обєкта
+а * - це вже ICollection<Clients>
+
+
+	 ______         _    _  _
+	|  ____|       | |  (_)| |
+	| |__    _ __  | |_  _ | |_  _   _
+	|  __|  | '_ \ | __|| || __|| | | |
+	| |____ | | | || |_ | || |_ | |_| |
+	|______||_| |_| \__||_| \__| \__, |
+								  __/ |
+								 |___/
+ ______
+|  ____|
+| |__    _ __   __ _  _ __ ___    ___
+|  __|  | '__| / _` || '_ ` _ \  / _ \
+| |     | |   | (_| || | | | | ||  __/
+|_|     |_|    \__,_||_| |_| |_| \___|
+							_
+						   | |
+	__      __  ___   _ __ | | __
+	\ \ /\ / / / _ \ | '__|| |/ /
+	 \ V  V / | (_) || |   |   <
+	  \_/\_/   \___/ |_|   |_|\_\
+
+	Сущности (Entities)
+Сначала создаются классы-сущности, такие как Album, Artist, Genre, Track, Country, Playlist, PlaylistTrack и другие. Каждый класс соответствует отдельной таблице в базе данных и описывает структуру данных, а также связи между таблицами (например, коллекции, навигационные свойства).
+
+
+
+	Звязок 1 до багатьох (1...*) між Category та Playlist     one to many
+
+є дві ентіті, плейліст
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace _05_Entity_Framework.Entytis
+{
+    [Table("Playlists")]
+    class Playlist
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required, MaxLength(200)]
+        public string Name { get; set; }
+
+        public int? CategoryId { get; set; }
+        public Category Category { get; set; }
+
+        public ICollection<PlaylistTrack> PlaylistTracks { get; set; }
+    }
+}
+
+
+і категорія
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace _05_Entity_Framework.Entytis
+{
+    [Table("Categories")]
+    class Category
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required, MaxLength(100)]
+        public string Name { get; set; }
+
+        public ICollection<Playlist> Playlists { get; set; }
+    }
+}
+
+1.1. Опис у класах
+•	У класі Category є властивість:
+
+	public ICollection<Playlist> Playlists { get; set; }
+
+Це означає, що **одна категорія може містити багато плейлістів**.
+
+•	У класі Playlist є властивості:
+
+	public int? CategoryId { get; set; }
+    public Category Category { get; set; }
+
+Це означає, що **кожен плейліст належить до однієї категорії** (або не має категорії, бо `CategoryId` може бути null).
+
+
+
+
+
+
+	Крок 2. Звязок "багато-до-багатьох" (1...*) між Playlist та Track через PlaylistTrack
+	many to many
+
+Playlist є вище, а трек ось:
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace _05_Entity_Framework.Entytis
+{
+    [Table("Tracks")]
+    class Track
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required, MaxLength(200)]
+        public string Title { get; set; }
+
+        public int AlbumId { get; set; }
+        public Album Album { get; set; }
+
+
+        public int DurationSeconds { get; set; }
+
+        public int Rating { get; set; }
+
+        public int Listens { get; set; }
+        [MaxLength(200)]
+        public string? Lyrics { get; set; }
+
+        public ICollection<PlaylistTrack> PlaylistTracks { get; set; }
+    }
+}
+
+
+2.1. Опис у класах
+
+•	Кожен плейліст може містити багато записів PlaylistTrack (тобто багато треків).
+
+public ICollection<PlaylistTrack> PlaylistTracks { get; set; }
+
+•	Кожен трек може бути у багатьох плейлістах.
+
+public ICollection<PlaylistTrack> PlaylistTracks { get; set; }
+
+
+
+
+А це проміжна таблиця, яка містить зовнішні ключі до Playlist та Track.
+
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace _05_Entity_Framework.Entytis
+{
+    [Table("PlaylistTracks")]
+    class PlaylistTrack
+    {
+        public int PlaylistId { get; set; }
+        public Playlist Playlist { get; set; }
+
+        public int TrackId { get; set; }
+        public Track Track { get; set; }
+    }
+}
+
+2.2. Як це виглядає у базі даних
+•	Таблиця PlaylistTracks має два стовпці: PlaylistId та TrackId.
+•	Вони разом утворюють складний (комбінований) ключ.
+•	Кожен рядок у цій таблиці означає, що певний трек входить у певний плейліст.
+
+
+
+2.3. Як працювати з цим зв’язком у коді
+Отримати всі треки певного плейліста:
+
+var playlist = context.Playlists
+    .Include(p => p.PlaylistTracks)
+    .ThenInclude(pt => pt.Track)
+    .FirstOrDefault(p => p.Id == playlistId);
+
+foreach (var pt in playlist.PlaylistTracks)
+{
+    Console.WriteLine(pt.Track.Title);
+}
+
+
+
+Отримати всі плейлісти, в яких є певний трек:
+
+var track = context.Tracks
+    .Include(t => t.PlaylistTracks)
+    .ThenInclude(pt => pt.Playlist)
+    .FirstOrDefault(t => t.Id == trackId);
+
+foreach (var pt in track.PlaylistTracks)
+{
+    Console.WriteLine(pt.Playlist.Name);
+}
+
+
+
+Додати трек у плейліст:
+
+var playlistTrack = new PlaylistTrack
+{
+    PlaylistId = playlistId,
+    TrackId = trackId
+};
+context.PlaylistTracks.Add(playlistTrack);
+context.SaveChanges();
+
+
+
+========================================================
+06_Migration 
+ ______         _    _  _
+|  ____|       | |  (_)| |
+| |__    _ __  | |_  _ | |_  _   _
+|  __|  | '_ \ | __|| || __|| | | |
+| |____ | | | || |_ | || |_ | |_| |
+|______||_| |_| \__||_| \__| \__, |
+                              __/ |
+                             |___/
+ __  __  _                      _    _
+|  \/  |(_)                    | |  (_)
+| \  / | _   __ _  _ __   __ _ | |_  _   ___   _ __
+| |\/| || | / _` || '__| / _` || __|| | / _ \ | '_ \
+| |  | || || (_| || |   | (_| || |_ | || (_) || | | |
+|_|  |_||_| \__, ||_|    \__,_| \__||_| \___/ |_| |_|
+             __/ |
+            |___/
+
+
+	1. Створення класу контексту даних (DbContext)
+	
+Створіть новий файл, наприклад, MusicDbContext.cs.
+Він має наслідуватися від DbContext:
+
+
+using _05_Entity_Framework.Entytis;
+using Microsoft.EntityFrameworkCore;
+
+namespace _05_Entity_Framework
+{
+    internal class MusicDbContext : DbContext
+    {
+        // Конструктор класу  -  це по суті лишнє, просто іноді треба використати для для ініціалізації або тестування
+		
+        public MusicDbContext()
+        {
+            // Можна використати для ініціалізації або тестування:
+            // this.Database.EnsureDeleted();
+            // this.Database.EnsureCreated();
+        }
+
+
+
+
+        // Налаштування підключення до бази даних
+		
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer(@"Data Source=(localDB)\MSSQLLocalDb;
+                                        Initial Catalog=MusicAppDb;
+                                        Integrated Security=True;
+                                        Connect Timeout=5;
+                                        Encrypt=False;TrustServerCertificate=True;
+                                        Application Intent=ReadWrite;Multi Subnet Failover=False");
+        }
+		
+		
+		
+		
+		
+		
+		
+
+        // ОПИСУЄМО СТРУКТУРУ МОДЕЛІ, ЗВ'ЯЗКИ ТА ПОЧАТКОВІ ДАНІ
+		
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Складний ключ для PlaylistTrack  - це звідна таблиця для звязку плейлістів з треками
+			
+            modelBuilder.Entity<PlaylistTrack>().HasKey(pt => new { pt.PlaylistId, pt.TrackId });
+
+            // Початкові дані для Country
+            modelBuilder.Entity<Country>().HasData(
+                new Country { Id = 1, Name = "USA" },
+                new Country { Id = 2, Name = "UK" },
+                new Country { Id = 3, Name = "Sweden" },
+                new Country { Id = 4, Name = "Ukraine" },
+                new Country { Id = 5, Name = "Canada" }
+            );
+
+            // Початкові дані для Genre
+            modelBuilder.Entity<Genre>().HasData(
+                new Genre { Id = 1, Name = "Rock" },
+                new Genre { Id = 2, Name = "Pop" },
+                new Genre { Id = 3, Name = "Jazz" },
+                new Genre { Id = 4, Name = "Classical" },
+                new Genre { Id = 5, Name = "Electronic" },
+                new Genre { Id = 6, Name = "HipHop" }
+            );
+
+            // Початкові дані для Artist
+            modelBuilder.Entity<Artist>().HasData(
+                new Artist { Id = 1, FirstName = "John", LastName = "Smith", CountryId = 1 },
+                new Artist { Id = 2, FirstName = "Emma", LastName = "Brown", CountryId = 2 },
+                new Artist { Id = 3, FirstName = "Max", LastName = "Johansson", CountryId = 3 },
+                new Artist { Id = 4, FirstName = "Oleg", LastName = "Ivanov", CountryId = 4 },
+                new Artist { Id = 5, FirstName = "Alice", LastName = "Green", CountryId = 5 }
+            );
+
+            // Початкові дані для Album
+            modelBuilder.Entity<Album>().HasData(
+                new Album { Id = 1, Title = "Greatest Hits", ArtistId = 1, Year = 2010, GenreId = 1 },
+                new Album { Id = 2, Title = "Soft Sounds", ArtistId = 2, Year = 2015, GenreId = 2 },
+                new Album { Id = 3, Title = "Nordic Beats", ArtistId = 3, Year = 2018, GenreId = 5 },
+                new Album { Id = 4, Title = "Folk Tales", ArtistId = 4, Year = 2012, GenreId = 4 },
+                new Album { Id = 5, Title = "Green Days", ArtistId = 5, Year = 2020, GenreId = 2 },
+                new Album { Id = 6, Title = "Smooth Jazz", ArtistId = 2, Year = 2016, GenreId = 3 }
+            );
+
+            // Початкові дані для Track
+            modelBuilder.Entity<Track>().HasData(
+                new Track { Id = 1, Title = "Hit One", AlbumId = 1, DurationSeconds = 240 },
+                new Track { Id = 2, Title = "Hit Two", AlbumId = 1, DurationSeconds = 200 },
+                new Track { Id = 3, Title = "Soft Intro", AlbumId = 2, DurationSeconds = 180 },
+                new Track { Id = 4, Title = "Soft Ballad", AlbumId = 2, DurationSeconds = 210 },
+                new Track { Id = 5, Title = "Nordic Storm", AlbumId = 3, DurationSeconds = 300 },
+                new Track { Id = 6, Title = "Nordic Calm", AlbumId = 3, DurationSeconds = 260 },
+                new Track { Id = 7, Title = "Folk Song 1", AlbumId = 4, DurationSeconds = 220 },
+                new Track { Id = 8, Title = "Folk Song 2", AlbumId = 4, DurationSeconds = 195 },
+                new Track { Id = 9, Title = "Green Day 1", AlbumId = 5, DurationSeconds = 230 },
+                new Track { Id = 10, Title = "Green Day 2", AlbumId = 5, DurationSeconds = 205 },
+                new Track { Id = 11, Title = "Smooth Flow", AlbumId = 6, DurationSeconds = 250 },
+                new Track { Id = 12, Title = "Jazz Night", AlbumId = 6, DurationSeconds = 275 }
+            );
+
+            // Початкові дані для Category
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Workout" },
+                new Category { Id = 2, Name = "Chill" },
+                new Category { Id = 3, Name = "Party" },
+                new Category { Id = 4, Name = "Focus" }
+            );
+
+            // Початкові дані для Playlist
+            modelBuilder.Entity<Playlist>().HasData(
+                new Playlist { Id = 1, Name = "Morning Boost", CategoryId = 1 },
+                new Playlist { Id = 2, Name = "Evening Chill", CategoryId = 2 },
+                new Playlist { Id = 3, Name = "Party Hits", CategoryId = 3 }
+            );
+
+            // Початкові дані для PlaylistTrack
+            modelBuilder.Entity<PlaylistTrack>().HasData(
+                new PlaylistTrack { PlaylistId = 1, TrackId = 1 },
+                new PlaylistTrack { PlaylistId = 1, TrackId = 5 },
+                new PlaylistTrack { PlaylistId = 1, TrackId = 9 },
+                new PlaylistTrack { PlaylistId = 2, TrackId = 3 },
+                new PlaylistTrack { PlaylistId = 2, TrackId = 6 },
+                new PlaylistTrack { PlaylistId = 2, TrackId = 11 },
+                new PlaylistTrack { PlaylistId = 2, TrackId = 12 },
+                new PlaylistTrack { PlaylistId = 3, TrackId = 2 },
+                new PlaylistTrack { PlaylistId = 3, TrackId = 4 },
+                new PlaylistTrack { PlaylistId = 3, TrackId = 10 },
+                new PlaylistTrack { PlaylistId = 3, TrackId = 5 }
+            );
+        }
+
+
+
+        // DbSet — це властивості для кожної сутності, які дозволяють працювати з таблицями
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Artist> Artists { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Track> Tracks { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Playlist> Playlists { get; set; }
+        public DbSet<PlaylistTrack> PlaylistTracks { get; set; }
+    }
+}
+
+
+
+		2. Встановлення NuGet-пакетів
+	
+2.1. Відкрийте менеджер пакетів NuGet
+	У Visual Studio перейдіть у меню Tools > NuGet Package Manager > Manage NuGet Packages for Solution.
+
+2.2. Знайдіть потрібні пакети
+	У вкладці "Browse" (Пошук) введіть у пошуковому полі:
+	Microsoft.EntityFrameworkCore.SqlServer
+	Microsoft.EntityFrameworkCore.Tools
+
+2.3. Встановіть пакети
+	Виберіть ваш проект (наприклад, 05_Entity_Framework) у списку проектів.
+	Натисніть кнопку "Install" (Встановити) для кожного пакета.
+	Підтвердіть встановлення та прийміть ліцензію.
+2.4. Перевірте, що пакети додані
+•	Перейдіть у вкладку "Installed" (Встановлені) та переконайтеся, що обидва пакети є у списку.
+
+
+---
+2.5. Альтернативний спосіб — через консоль диспетчера пакетів
+•	Відкрийте Tools > NuGet Package Manager > Package Manager Console.
+•	Виконайте команди по черзі:
+
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+
+
+
+			3. Створення та застосування міграції
+			
+3.1. Відкрийте консоль диспетчера пакетів
+•	У Visual Studio перейдіть у меню Tools > NuGet Package Manager > Package Manager Console.
+
+3.2. Створіть першу міграцію
+•	У консолі введіть команду:
+
+Add-Migration Init
+
+•	Пояснення:
+•	Init — це назва міграції (можна обрати будь-яку, наприклад, InitialCreate).
+•	Після виконання команди у вашій папці Migrations з’явиться файл міграції (наприклад, 20250919141323_Init.cs) та оновиться файл MusicDbContextModelSnapshot.cs.
+
+3.3. Перевірте створену міграцію
+•	Відкрийте файл міграції у папці Migrations.
+•	У ньому буде описано, які таблиці та зв’язки створюються на основі ваших сутностей та конфігурації.
+
+3.4. Застосуйте міграцію до бази даних
+•	У консолі введіть команду:
+
+Update-Database
+
+•	Пояснення:
+•	Ця команда створить базу даних (якщо її ще немає) та всі таблиці згідно з вашою моделлю.
+•	Якщо ви додали початкові дані через HasData, вони також будуть додані у відповідні таблиці.
+
+3.5. Перевірте базу даних
+•	Відкрийте SQL Server Object Explorer (View > SQL Server Object Explorer).
+•	Знайдіть вашу базу даних (MusicAppDb).
+•	Переконайтеся, що всі таблиці створені, а початкові дані додані.
+
+3.6. Додаткові міграції
+•	Якщо ви змінюєте моделі (наприклад, додаєте нову властивість), створіть нову міграцію:
+
+Add-Migration New_Variables
+		і застосовуєм
+Update-Database
+
+
+
+			4. Робота з даними через MusicDbContext
+			
+	роботу з даними через контекст у коді (наприклад, у файлі Program.cs). Це дозволить додавати, читати, змінювати та видаляти записи у вашій базі даних.		
+
+
+Program.cs
+
+	4.1. Додавання нового запису
+
+using var context = new MusicDbContext();
+
+// Створюємо новий плейліст
+var playlist = new Playlist
+{
+    Name = "My Favorite Songs",
+    CategoryId = 2 // наприклад, "Chill"
+};
+
+// Додаємо плейліст у базу
+context.Playlists.Add(playlist);
+context.SaveChanges();
+
+	4.2. Отримання даних (читання)
+
+// Отримати всі плейлісти
+var playlists = context.Playlists.ToList();
+
+foreach (var pl in playlists)
+{
+    Console.WriteLine($"{pl.Id}: {pl.Name}");
+}
+
+	4.3. Зміна даних
+	
+// Знайти плейліст за Id
+var playlistToUpdate = context.Playlists.FirstOrDefault(p => p.Id == 1);
+if (playlistToUpdate != null)
+{
+    playlistToUpdate.Name = "Updated Playlist Name";
+    context.SaveChanges();
+}
+
+	4.4. Видалення даних
+
+// Знайти плейліст за Id
+var playlistToDelete = context.Playlists.FirstOrDefault(p => p.Id == 2);
+if (playlistToDelete != null)
+{
+    context.Playlists.Remove(playlistToDelete);
+    context.SaveChanges();
+}
+
+	4.5. Робота з навігаційними властивостями
+	
+// Отримати плейлісти разом з категоріями
+var playlistsWithCategory = context.Playlists
+    .Include(p => p.Category)
+    .ToList();
+
+foreach (var pl in playlistsWithCategory)
+{
+    Console.WriteLine($"{pl.Name} - {pl.Category?.Name}");
+}	
+
+Пояснення
+•	Add — додає новий об'єкт у базу.
+•	ToList — отримує всі записи з таблиці.
+•	FirstOrDefault — знаходить перший запис, що відповідає умові.
+•	SaveChanges — зберігає всі зміни у базі даних.
+•	Remove — видаляє об'єкт з бази.
+•	Include — дозволяє завантажити пов'язані дані (наприклад, категорію для плейліста).
+
+
+
+Міграція - це можливість гуманним чином змінити базу даних, оновити колонки і т.д. без видаленням вже існуючої інформації
+
+перевірка змін, опис 
+
+консолька тулс - ну гет менеджер - паскаж консоль
+
+робимо зміни
+
+add-migration Initial   (інітіал це назва, внятно прописуємо які зміни внесені)
+
+робиться папка міграції
+читаємо нашу міграцію
+
+update-database    - вносить зміни в базу данних
+
+
+========================================================
+07_Fluent_API  i data annotation
+
+Data Annotation — це спеціальні атрибути (attributes) в C#, які застосовуються до властивостей (properties), класів або методів, щоб описати правила валідації, форматування або відображення даних.
+
+Для валідації
+
+[Required] — властивість обов’язкова для заповнення.
+[StringLength(max, MinimumLength = min)] — обмеження довжини рядка.
+[MaxLength(n)] / [MinLength(n)] — максимальна/мінімальна довжина рядка.
+[Range(min, max)] — значення повинно бути в діапазоні.
+[RegularExpression("pattern")] — перевірка по регулярному виразу.
+[EmailAddress] — перевірка, що рядок є email.
+[Phone] — перевірка, що рядок є номером телефону.
+[Url] — перевірка, що рядок є посиланням.
+
+✅ Для роботи з БД (Entity Framework)
+[Key] — визначає первинний ключ.
+[ForeignKey("PropertyName")] — задає зовнішній ключ.
+[DatabaseGenerated(DatabaseGeneratedOption.None/Identity/Computed)] — спосіб генерації значення (наприклад, автоінкремент).
+[Column("Name")] — змінює назву стовпця в таблиці.
+[Table("TableName")] — задає назву таблиці для класу.
+[NotMapped] — властивість не зберігається в БД.
+
+✅ Для відображення (UI)
+[Display(Name = "Назва")] — як відображати поле у формі.
+[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] — формат показу значення.
+[ScaffoldColumn(false)] — приховує поле в UI.
+
+ ______  _                      _
+|  ____|| |                    | |
+| |__   | | _   _   ___  _ __  | |_
+|  __|  | || | | | / _ \| '_ \ | __|
+| |     | || |_| ||  __/| | | || |_
+|_|     |_| \__,_| \___||_| |_| \__|
+           _____   _____
+    /\    |  __ \ |_   _|
+   /  \   | |__) |  | |
+  / /\ \  |  ___/   | |
+ / ____ \ | |      _| |_
+/_/    \_\|_|     |_____|
+
+
+Fluent API — це спосіб налаштування моделей і зв’язків у Entity Framework Core за допомогою ланцюгового виклику методів (method chaining).
+На відміну від Data Annotations (атрибутів над класами/властивостями), Fluent API використовується у методі OnModelCreating класу DbContext.
+
+Fluent API - можливість винести data anotation в одне місце
++ модельки будуть чисті
++ можна ясно прописати звязки між класами (в data annotation чітко не пропишеш)
+
+Він реалізується в DbContext, у методі OnModelCreating(ModelBuilder modelBuilder).
+
+// 🔹 Конфігурація властивостей (Properties)
+modelBuilder.Entity<User>()
+    .Property(u => u.Name)
+    .IsRequired()                  // аналог [Required]
+    .HasMaxLength(50)              // аналог [MaxLength(50)]
+    .HasColumnName("UserName")     // аналог [Column("UserName")]
+    .HasDefaultValue("Unknown")    // значення за замовчуванням
+    .HasColumnType("nvarchar(100)"); // явний тип стовпця в БД
+
+// 🔹 Первинні ключі (Primary Keys)
+modelBuilder.Entity<User>()
+    .HasKey(u => u.Id);            // аналог [Key]
+
+modelBuilder.Entity<Order>()
+    .HasKey(o => new { o.OrderId, o.ProductId }); // складений ключ
+
+// 🔹 Індекси (Indexes)
+modelBuilder.Entity<User>()
+    .HasIndex(u => u.Email)        // створює індекс
+    .IsUnique();                   // унікальний індекс (аналог [Index(IsUnique=true)] у старих EF)
+
+// 🔹 Зв’язки (Relationships)
+// One-to-Many
+modelBuilder.Entity<Album>()
+    .HasMany(a => a.Tracks)        // альбом має багато треків
+    .WithOne(t => t.Album)         // трек належить одному альбому
+    .HasForeignKey(t => t.AlbumId) // аналог [ForeignKey("AlbumId")]
+    .OnDelete(DeleteBehavior.Cascade); // каскадне видалення
+
+// One-to-One
+modelBuilder.Entity<User>()
+    .HasOne(u => u.Profile)
+    .WithOne(p => p.User)
+    .HasForeignKey<Profile>(p => p.UserId); // FK у Profile
+
+// Many-to-Many (EF Core 5+)
+modelBuilder.Entity<Student>()
+    .HasMany(s => s.Courses)
+    .WithMany(c => c.Students)
+    .UsingEntity(j => j.ToTable("StudentCourses")); // проміжна таблиця
+
+// 🔹 Налаштування таблиць (Tables)
+modelBuilder.Entity<User>()
+    .ToTable("Users");             // аналог [Table("Users")]
+
+// 🔹 Виключення властивості з маппінгу
+modelBuilder.Entity<User>()
+    .Ignore(u => u.TempData);      // аналог [NotMapped]
+
+
+========================================================
+  _____                  _
+ / ____|                | |
+| (___    ___   ___   __| |  ___  _ __
+ \___ \  / _ \ / _ \ / _` | / _ \| '__|
+ ____) ||  __/|  __/| (_| ||  __/| |
+|_____/  \___| \___| \__,_| \___||_|
+
+Start initialization - Seeder
+
+Seeder (від англ. seed — насіння) у програмуванні — це механізм початкового заповнення бази даних тестовими або необхідними даними.
+
+Створи новий клас, пересем його в папку Helpers
+
+Там треба розташувати ініціалізацію (внесення первинних данних) 
+
+Приклад:
+
+using Microsoft.EntityFrameworkCore;
+using _05_Entity_Framework.Entytis;
+
+namespace _05_Entity_Framework.Helpers
+{
+    // Клас для ініціалізації даних у базі (Seeder)
+    internal static class DbInitalizer
+    {
+        // Ініціалізація жанрів
+        public static void SeedGenres(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Genre>().HasData(
+                new Genre { Id = 1, Name = "Rock" },
+                new Genre { Id = 2, Name = "Pop" },
+                new Genre { Id = 3, Name = "Jazz" }
+            );
+        }
+
+        // Ініціалізація країн
+        public static void SeedCountries(this ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Country>().HasData(
+                new Country { Id = 1, Name = "Великобританія" },
+                new Country { Id = 2, Name = "США" }
+            );
+        }
+
+і так далі
+
+========================================================
+08_LINQ_to_Entity
+
+_       _____  _   _   ____
+| |     |_   _|| \ | | / __ \
+| |       | |  |  \| || |  | |
+| |       | |  | . ` || |  | |
+| |____  _| |_ | |\  || |__| |
+|______||_____||_| \_| \___\_\
+
+ _
+| |
+| |_   ___
+| __| / _ \
+| |_ | (_) |
+ \__| \___/
+
+ ______         _    _  _
+|  ____|       | |  (_)| |
+| |__    _ __  | |_  _ | |_  _   _
+|  __|  | '_ \ | __|| || __|| | | |
+| |____ | | | || |_ | || |_ | |_| |
+|______||_| |_| \__||_| \__| \__, |
+                              __/ |
+                             |___/
+
+	LINQ to Entity 
+
+— це технологія, яка дозволяє писати запити до бази даних у вигляді C#-коду, використовуючи синтаксис LINQ (Language Integrated Query) разом з Entity Framework.
+Вона автоматично перетворює ваші запити у SQL, виконує їх у базі даних і повертає результат у вигляді об'єктів сутностей.
+
+Як працює LINQ to Entity
+•	Ви працюєте з об'єктами (наприклад, DbSet<Track>, DbSet<Playlist>), а не з SQL-рядками.
+•	Запит пишеться як звичайний C#-код, але виконується на сервері бази даних.
+•	Підтримує фільтрацію, сортування, групування, об'єднання, агрегацію тощо.
+
+
+1. Основна структура LINQ-запиту
+LINQ to Entity дозволяє писати запити двома способами:
+•	Метод-синтаксис (найпопулярніший у сучасних проектах)
+•	Запит-синтаксис (схожий на SQL, але рідше використовується)
+
+Метод-синтаксис (Method Syntax)
+
+Використовує ланцюжок методів: Where, Select, OrderBy, Include тощо.
+Приклад:
+
+var tracks = context.Tracks
+    .Where(t => t.Rating > 3)
+    .OrderByDescending(t => t.Rating)
+    .ToList();
+	
+Запит-синтаксис (Query Syntax)
+
+Використовує ключові слова: from, where, select, join тощо.
+Приклад:
+
+var tracks = (from t in context.Tracks
+              where t.Rating > 3
+              orderby t.Rating descending
+              select t).ToList();
+
+
+	далі на основі Метод-синтаксис (Method Syntax)
+
+
+
+	1. Джерело даних
+Це об'єкт типу DbSet<T>, наприклад:
+•	context.Tracks
+•	context.Playlists
+•	context.PlaylistTracks
+Всі запити починаються з джерела даних.
+
+
+
+
+	2. Фільтрація (Where)
+Вибирає тільки ті елементи, які відповідають умові.
+Приклад:
+Вибрати всі треки з рейтингом більше 3:
+
+var tracks = context.Tracks
+    .Where(t => t.Rating > 3)
+    .ToList();
+
+
+
+	3. Сортування (OrderBy, OrderByDescending)
+Впорядковує результати за певним полем.
+Приклад:
+Відсортувати треки за тривалістю:
+
+var tracks = context.Tracks
+    .OrderBy(t => t.DurationSeconds)
+    .ToList();
+
+
+
+	4. Вибірка (Select)
+Вибирає тільки потрібні поля або створює новий об'єкт.
+Приклад:
+Вибрати тільки назви треків:
+
+var titles = context.Tracks
+    .Select(t => t.Title)
+    .ToList();
+	
+	
+	
+	5. Групування (GroupBy)
+Групує елементи за певним критерієм.
+Приклад:
+Групувати треки за альбомом:
+
+var grouped = context.Tracks
+    .GroupBy(t => t.AlbumId)
+    .Select(g => new { AlbumId = g.Key, Count = g.Count() })
+    .ToList();
+	
+	
+	
+	
+	6. Об'єднання (Include)
+Об'єднує дані з різних сутностей.
+Include — Завантажує пов’язані дані (навігаційні властивості).
+Приклад:
+Завантажити плейлісти разом з треками:
+
+var playlists = context.Playlists
+    .Include(p => p.PlaylistTracks)
+    .ThenInclude(pt => pt.Track)
+    .ToList();
+	
+ _____               _             _
+|_   _|             | |           | |
+  | |   _ __    ___ | | _   _   __| |  ___
+  | |  | '_ \  / __|| || | | | / _` | / _ \
+ _| |_ | | | || (__ | || |_| || (_| ||  __/
+|_____||_| |_| \___||_| \__,_| \__,_| \___|
+https://ru.rakko.tools/tools/68/
+
+	
+	JOIN = Include
+	
+var flight = context.Flights
+		.Include(f=>f.Airplane) -  JOIN Airplane 
+		.Where(f=>f.ArrivalCity == "Lviv")
+		.OrderBy(f=>f.DepartureTime);
+	
+	просто инклюд - тягне всю таблицю з усіма данними
+		а можна зробити:
+	
+!!! 	явна підгрузка даних для окремого обєкта
+		Explicit loading data : 
+		//Context.Entry(entity).Collection\Reference.Load
+
+
+	Client cl=context.Clients.Find(3)  - id=3
+	context.Entry(cl).Collection(cl=>cl.Flights).Load(); 
+	
+		(.Collection коли багато, Referense коли один)
+	
+	І тепер в cl є таблиця Clients і таблиця Flights
+	звертаємось:
+	
+	до кліентс -   cl?.name (одразу назву змінної після точки)
+	до Flights -   cl?.Flights.Count  (спочатку вказуємо обєкт, потім таблицю, а вже потім змінну)
+	
+	
+	
+	
+	
+	7. Агрегація (Count, Sum, Average, Min, Max)
+Count — кількість елементів:
+
+int count = context.PlaylistTracks.Count(pt => pt.PlaylistId == playlistId);
+
+
+	Sum — сума значень:
+
+int totalDuration = context.PlaylistTracks
+    .Where(pt => pt.PlaylistId == playlistId)
+    .Sum(pt => pt.Track.DurationSeconds);
+
+	
+	Average — середнє значення:	
+
+double avgRating = context.PlaylistTracks
+    .Where(pt => pt.PlaylistId == playlistId)
+    .Average(pt => pt.Track.Rating);
+	
+	
+	Min/Max — мінімальне/максимальне значення:
+
+int minRating = context.PlaylistTracks
+    .Where(pt => pt.PlaylistId == playlistId)
+    .Min(pt => pt.Track.Rating);
+
+int maxRating = context.PlaylistTracks
+    .Where(pt => pt.PlaylistId == playlistId)
+    .Max(pt => pt.Track.Rating);
+
+
+
+	8. Вибірка одного елемента (FirstOrDefault, SingleOrDefault)
+FirstOrDefault — повертає перший знайдений або null:
+
+var firstTrack = context.PlaylistTracks
+    .Where(pt => pt.PlaylistId == playlistId)
+    .Select(pt => pt.Track)
+    .FirstOrDefault();
+	
+	
+SingleOrDefault — повертає єдиний елемент або null:
+
+	var singleTrack = context.PlaylistTracks
+    .Where(pt => pt.PlaylistId == playlistId && pt.TrackId == trackId)
+    .Select(pt => pt.Track)
+    .SingleOrDefault();
+
+
+Приклад:
+
+var trackTitles = context.PlaylistTracks
+    .Where(pt => pt.PlaylistId == playlistId)
+    .Select(pt => pt.Track)
+    .OrderByDescending(t => t.Rating)
+    .Select(t => t.Title)
+    .ToList();
+	
+.Where(pt => pt.PlaylistId == playlistId) - 
+•	pt — це один елемент з колекції PlaylistTracks, тобто один об'єкт типу PlaylistTrack.
+•	Вираз pt => pt.PlaylistId == playlistId означає: "вибрати ті об'єкти PlaylistTrack, у яких поле PlaylistId дорівнює значенню playlistId".
+
+.Select(pt => pt.Track)
+•	З кожного відібраного pt (PlaylistTrack) береться його властивість Track (це об'єкт типу Track).
+•	Тепер у колекції — вже не PlaylistTrack, а Track.
+
+.OrderByDescending(t => t.Rating)
+•	t — це один елемент з колекції Track (яку отримали на попередньому кроці).
+•	Вираз t => t.Rating означає: "сортувати треки за рейтингом у спадному порядку".
+
+.Select(t => t.Title)
+•	З кожного треку (t) береться його властивість Title (назва треку).
+•	Тепер у колекції — вже не Track, а просто рядки (назви треків).
+
+.ToList()
+•	Перетворює результат у список назв треків.
+
+
+
+
+
+========================================================
+
+        _  _  _
+       | || || |
+     __| || || |
+    / _` || || |
+ _ | (_| || || |
+(_) \__,_||_||_|
+
+створюємо  класс library
+
+на солюшені нажимаєм правою і вибираємо ну гетс 
+і там вибираємо що куди
+
+Перетягуємо все крім програм в цей library
+всі класи в ентіті переробляєм на паблік
+
+на папку депендіс прав клік і там додати проект library
+
+в попередньому залишився програм. Можна і консольній і віконний
+
+
+одне місце має багато рейсів а в рейса одне місточок
+одне місто 1...* країну
+один літак 1......* 1 тип
+
+========================================================
+09_
+
+	Звязок 1...1  one to one
+	
+	
+	
+public class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Position { get; set; }
+
+    // Навігаційна властивість (один до одного)
+	\\ Клієнт може не мати паспорт
+    public Passport Passport { get; set; }
+	public int? PassportId { get; set; }
+}
+
+У головній таблиці пишем int?
+у залежній int
+
+
+public class Passport
+{
+    public int Id { get; set; }
+    public string PassportNumber { get; set; }
+
+    // Зовнішній ключ, паспорт обовязково має клієнта
+    public int EmployeeId { get; set; }
+    public Employee Employee { get; set; }
+}	
+
+
+
+		Fluent API (в OnModelCreating в ...DbContext.cs
+		
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+
+	....
+
+    modelBuilder.Entity<Employee>()
+        .HasOne(e => e.Passport)          // Employee має один Passport
+        .WithOne(p => p.Employee)         // Passport має одного Employee
+        .HasForeignKey<Passport>(p => p.EmployeeId); // FK у Passport
+		
+}
+
+У Fluent API тобі достатньо одного разу описати конфігурацію для зв’язку — EF Core автоматично зрозуміє обидві сторони (бо ти вже вказуєш .HasOne(...).WithOne(...)).
+
+
+Seeder
+
+    // Seeding Employees
+	
+    modelBuilder.Entity<Employee>().HasData(
+        new Employee { Id = 1, Name = "Іван Петренко", Position = "Менеджер" },
+        new Employee { Id = 2, Name = "Олена Коваль", Position = "Програміст" }
+    );
+
+    // Seeding Passports
+	
+    modelBuilder.Entity<Passport>().HasData(
+        new Passport { Id = 1, EmployeeId = 1, PassportNumber = "AA123456" },
+        new Passport { Id = 2, EmployeeId = 2, PassportNumber = "BB987654" }
+    );
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+
+
+System Programming
+  _____              _
+ / ____|            | |
+| (___   _   _  ___ | |_   ___  _ __ ___
+ \___ \ | | | |/ __|| __| / _ \| '_ ` _ \
+ ____) || |_| |\__ \| |_ |  __/| | | | | |
+|_____/  \__, ||___/ \__| \___||_| |_| |_|
+          __/ |
+         |___/
+ _____
+|  __ \
+| |__) | _ __   ___    __ _  _ __   __ _
+|  ___/ | '__| / _ \  / _` || '__| / _` |
+| |     | |   | (_) || (_| || |   | (_| |
+|_|     |_|    \___/  \__, ||_|    \__,_|
+                       __/ |
+                      |___/
+                       _
+                      (_)
+ _ __ ___   _ __ ___   _  _ __    __ _
+| '_ ` _ \ | '_ ` _ \ | || '_ \  / _` |
+| | | | | || | | | | || || | | || (_| |
+|_| |_| |_||_| |_| |_||_||_| |_| \__, |
+                                  __/ |
+                                 |___/
+
+
+========================================================
+01_System_Programming_Processes
+
+
+1) Що таке «процес» і чим він відрізняється від потоку
+
+Процес — це запущена програма + її власний адресний простір, дескриптори файлів, набір потоків і середовище виконання.
+
+Потік (thread) — одиниця планування всередині процесу; потоки ділять один адресний простір між собою.
+Різниця важлива: процеси ізольовані — потрібен IPC для обміну даними; потоки легше синхронізувати всередині одного процесу.
+
+
+
+
+	Новий юсінг
+using System.Diagnostics; - для роботи з процесами
+
+WPF Application - віконний додаток, створення:
+
+	Крок 1 — Створення проєкту та базова розмітка (файли й мінімум коду)
+1.1 Створити проєкт у Visual Studio
+File → New → Project → вибираєш WPF App (.NET).
+Дай ім’я, наприклад 02_TaskManager.
+Target framework: net8.0-windows (або net7.0-windows, якщо .NET 8 немає).
+
+Visual Studio створить .sln, .csproj, App.xaml/App.xaml.cs і MainWindow.xaml/MainWindow.xaml.cs.
+
+	1.2 Базовий XAML (MainWindow.xaml) — вставити цей мінімум
+
+<Window x:Class="_02_TaskManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_02_TaskManager"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <ToolBar DockPanel.Dock="Top">
+            <Button Click="Button_Click">Refresh</Button>
+            <Button Click="Kill_Click">Kill</Button>
+            <Button Click="ShowInfo_Click">Show Info</Button>
+            <TextBox Name="nameProc" Width="160" Margin="8,0"/>
+            <Button Click="Ok_Click">OK</Button>
+        </ToolBar>
+        <DataGrid Name="grid" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+             <DataGridTextColumn Header="Process Name" Binding="{Binding ProcessName}" />
+             <DataGridTextColumn Header="PID" Binding="{Binding Id}" />
+             <DataGridTextColumn Header="Total Processor Time" Binding="{Binding TotalProcessorTime}" />
+             <DataGridTextColumn Header="Priority" Binding="{Binding PriorityClass}" />
+             <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" />
+         </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>
+
+//<Window x:Class="TaskManager.MainWindow"> — прив’язує цей XAML до класу MainWindow у коді MainWindow.xaml.cs.
+
+	1.3 Базовий код бекенду (MainWindow.xaml.cs)
+	
+using System.Diagnostics;
+using System.Windows;
+
+namespace TaskManager
+{
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent(); - створює головне меню!
+        }
+
+        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            grid.ItemsSource = Process.GetProcesses();
+        }
+
+		private void Kill_Click(object sender, RoutedEventArgs e)
+		{
+			(grid.SelectedItem as Process)?.Kill();
+			grid.ItemsSource = Process.GetProcesses();
+		}
+		
+        private void ShowInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var proc = grid.SelectedItem as Process;
+            if (proc != null)
+            {
+                string info = $"Name: {proc.ProcessName}\nID: {proc.Id}\nMemory: {proc.WorkingSet64 / 1024 / 1024} MB";
+                MessageBox.Show(info, "Process Info");
+            }
+        }
+
+        private void Ok_Click(object sender, RoutedEventArgs e)
+        {
+            try { Process.Start(nameProc.Text); } catch { MessageBox.Show("Не вдалося запустити процес."); }
+        }
+
+    }
+}
+
+	1.4 Пояснення рядків у MainWindow.xaml.cs (покроково)
+
+using System.Diagnostics; — підключаємо простір імен, що містить Process (клас для роботи з процесами ОС).
+
+using System.Windows; — потрібен для WPF-типів (Window, RoutedEventArgs, MessageBox тощо).
+
+public partial class MainWindow : Window — клас в C# відповідає за логіку вікна; partial означає, що частина класу генерується з XAML.
+
+public MainWindow() { InitializeComponent(); } — коли вікно створюється, метод InitializeComponent() будує візуальні елементи з XAML і «зв’язує» їх з полями/методами класу.
+
+private void Button_Click(object sender, RoutedEventArgs e) — обробник події кліку кнопки Refresh. sender — об’єкт, що викликав подію (кнопка), RoutedEventArgs — аргументи події.
+
+grid.ItemsSource = Process.GetProcesses(); — коротко:
+
+Process.GetProcesses() повертає масив Process[] — усі запущені процеси в системі.
+
+grid.ItemsSource = ... — встановлює джерело даних для DataGrid. DataGrid автоматично згенерує колонки (через AutoGenerateColumns="True") з властивостей об’єктів Process (PID, ProcessName тощо).
+
+	Крок 2 — Process (що це і як ним користуватись)
+
+	1) Коротко про Process
+
+System.Diagnostics.Process — це клас .NET, який представляє процес в операційній системі. За допомогою цього класу можна:
+
+Отримати список процесів: Process.GetProcesses() → повертає Process[].
+
+Дізнатися властивості процесу: ProcessName, Id (PID), WorkingSet64 (пам’ять в байтах), TotalProcessorTime (навіть можна дивитись CPU time), StartTime, MainModule (дає шлях до exe — іноді недоступно).
+
+Керувати процесом: Kill(), CloseMainWindow() (посилає вікну запит на закриття), WaitForExit() тощо.
+
+Запустити процес: Process.Start("calc.exe").
+
+	2) Основні властивості, які ми використовуємо
+
+Process.ProcessName — ім’я процесу (без .exe).
+
+Process.Id — ідентифікатор процесу (PID).
+
+Process.WorkingSet64 — кількість байтів пам’яті (RSS).
+
+Process.TotalProcessorTime — сумарний час CPU, витрачений процесом.
+
+Process.StartTime — час старту (але може кинути Win32Exception для деяких процесів).
+
+Process.MainModule — інформація про виконуваний модуль (може кинути Win32Exception або бути недоступний через права).
+
+	Крок 2.1 — Простий (мінімальний) Kill — код і пояснення
+
+ Ось код, який потрібно вставити в MainWindow.xaml.cs (вже всередині класу MainWindow):
+
+private void Kill_Click(object sender, RoutedEventArgs e)
+{
+    (grid.SelectedItem as Process)?.Kill();
+    grid.ItemsSource = Process.GetProcesses();
+}
+
+Що саме робить кожний рядок
+
+(grid.SelectedItem as Process) — намагається привести SelectedItem з DataGrid до типу Process. Якщо привід не вдасться, результат буде null.
+
+?.Kill() — якщо результат не null, викликає Kill(); якщо null, нічого не станеться (операція безпечна).
+
+grid.ItemsSource = Process.GetProcesses(); — після виклику Kill() ми оновлюємо джерело даних DataGrid, щоб відобразити поточний список процесів (той, який вже не міститиме вбитого процесу).
+
+	Крок 3 — кнопка Show Info
+
+У MainWindow.xaml.cs додаємо метод:
+
+private void ShowInfo_Click(object sender, RoutedEventArgs e)
+{
+    var proc = grid.SelectedItem as Process;
+
+    if (proc != null)
+    {
+        string info = $"Name: {proc.ProcessName}\n" +
+                      $"ID: {proc.Id}\n" +
+                      $"Memory: {proc.WorkingSet64 / 1024 / 1024} MB";
+
+        MessageBox.Show(info, "Process Info");
+    }
+}
+
+var proc = grid.SelectedItem as Process;
+👉 отримуємо процес, який зараз виділений у таблиці. Якщо нічого не виділено — буде null.
+
+Запуск програми з вказаної в полі 
+
+        private void Ok_Click(object sender, RoutedEventArgs e)
+        {
+            try { Process.Start(nameProc.Text); } catch { MessageBox.Show("Не вдалося запустити процес."); }
+        }
+========================================================
+03_Threads
+
+ _______  _                             _
+|__   __|| |                           | |
+   | |   | |__   _ __   ___   __ _   __| | ___
+   | |   | '_ \ | '__| / _ \ / _` | / _` |/ __|
+   | |   | | | || |   |  __/| (_| || (_| |\__ \
+   |_|   |_| |_||_|    \___| \__,_| \__,_||___/
+
+
+
+Threads потоки
+
+	1) Що таке «процес» і чим він відрізняється від потоку
+
+Процес — це запущена програма + її власний адресний простір, дескриптори файлів, набір потоків і середовище виконання.
+
+Потік (thread) — одиниця планування всередині процесу; потоки ділять один адресний простір між собою.
+Різниця важлива: процеси ізольовані — потрібен IPC для обміну даними; потоки легше синхронізувати всередині одного процесу.
+
+Мейн це вже перши потік.
+
+Є потоки: 
+	основні 
+	другорядні
+	
+Коли закривається основний поток, закривається всі дочірні другорядні
+
+	Приклад:
+	
+using System;
+using System.Threading;
+
+class Program
+{
+    static void DoWork()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"Працює додатковий потік: {i}");
+            Thread.Sleep(500); // пауза 0.5 секунди
+        }
+    }
+
+    static void Main()
+    {
+        Thread t = new Thread(DoWork); // створюємо новий потік
+        t.Start(); // запускаємо його
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"Працює головний потік: {i}");
+            Thread.Sleep(500);
+        }
+    }
+}
+
+		Що буде?
+Одночасно працюватимуть два потоки:
+Main (головний)
+DoWork (новий)
+В консолі будуть вперемішку виводитись повідомлення.
+
+	Основні методи Thread
+Start() – запускає потік.
+Sleep(ms) – зупиняє потік на кілька мілісекунд.
+IsAlive – показує, чи ще працює потік.
+Join() – чекає завершення потоку.
+
+	Коли ти викликаєш t.Join(); у Main, відбувається ось що:
+
+Головний потік (Main) зупиняє свою роботу й чекає, доки потік t завершить виконання.
+
+Потік t при цьому продовжує працювати.
+
+Тобто у момент виклику Join Main "заморожується", а t працює далі.
+
+
+class Program
+{
+    static void DoWork()
+    {
+        Console.WriteLine("Почався додатковий потік...");
+        Thread.Sleep(2000);
+        Console.WriteLine("Додатковий потік завершився");
+    }
+
+    static void Main()
+    {
+        Thread t = new Thread(DoWork);
+        t.Start();
+
+        Console.WriteLine("Головний потік чекає завершення t...");
+        t.Join(); // тут Main зупиняється і чекає
+        Console.WriteLine("Продовження головного потоку після Join");
+    }
+}
+
+
+	Thread without params
+	
+Метод, який запускається потоком, не приймає параметрів
+        
+		static void Method()
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                Console.WriteLine($"\t\t\t{i} - Hello in thread");
+                Thread.Sleep(50);
+            }
+        }
+        static void Main(string[] args)
+        {
+			Thread t = new Thread(Method);
+
+	
+	Thread with params
+	
+Метод, який запускаєтсья потоком, приймає параметри
+
+        static void ThreadFunk(object? a)
+        {
+
+            string ID = (string)a;
+            for (int i = 0; i < 100; i++)
+            {
+                Console.WriteLine(ID + " " + i);
+                //Console.ReadKey();
+                Thread.Sleep(100);
+            }
+        }
+		
+        static void Main(string[] args)
+        {
+        
+		static void Main(string[] args)
+        {			
+			Thread t = new Thread(ThreadFunk);
+			T.Start("One");  
+			
+Тут уже поток приймає параметр, який передається методу
+
+	Thread in background
+	
+Thread t = new Thread(Method);
+t.Start("One"); 
+
+t.IsBackground = true; // default - false
+t.Start();
+
+t.Abort(); - thread forse quit  == kill
+
+
+
+========================================================
+04_Thread_Sync
+
+Кожен потік має свій реєстр. Копіює змінну собі в реєстр, внес зміни, зберіг оригінал змінною
+
+Для цього є Interlocked. Потік закриває оригінал поки не внесе зміни. Для цього є окремі класи, декремент і так далі
+
+Interlocked.Increment(ref Counter.count);
+
+А якщор багато змінних одночасно, використовуєм lock
+
+	lock(this)
+	{
+		++number;
+		
+	}
+
+
+
+========================================================
+05_Tasks
+
+TPL - Task Parallel Library
+
+Task у C# — це об’єкт, який представляє асинхронну або паралельну операцію.
+Його можна сприймати як "завдання", яке виконується окремо від основного потоку програми.
+
+		Головні моменти про Task:
+
+Належить до простору імен System.Threading.Tasks.
+
+Дозволяє запускати код у фоновому потоці без ручного створення Thread.
+
+Може повертати результат (Task<T>) або бути безрезультатним (Task).
+
+Підтримує очікування завершення через await або Wait().
+
+Використовується для побудови асинхронності (async/await) та паралельних обчислень.
+
+		приклад:	
+
+	Task task = Task.Run(() =>
+	{
+		Console.WriteLine("Виконується у фоновому потоці");
+	});
+
+
+	task.Wait(); - чекає поки таск закінчить таск, щоб мейн чекав і не виконувався далі
+
+	Task[] tasks = new ....
+
+	Task.WaitAll(tasks); - чекає поки виконуються всі таски
+	Task.WaitAny(tasks); - чекає виконання хоч одного таска
+
+task.ContiueWith(display).ContiueWith(Display2);
+task.Start();
+
+виконується як ланцюжок, task --> display --> Display2 
+
+Потік Thread  - не вертає нічого, void
+
+Task - може давати ретурн
+
+	Task<long> factorialTask = Task.Run(() =>
+	{
+		int n = 10;
+		long result = 1;
+		for (int i = 1; i <= n; i++)
+			result *= i;
+		return result;
+	});
+
+	long factorial = factorialTask.Result; // або await у async-методі
+	Console.WriteLine($"Факторіал: {factorial}");	
+
+або
+	таск з одним аргументом або багатьма
+	
+	Task<int> task1 = new Task<int>(()=> Factorial(5));
+	task1.Start();
+	Task<long> factorialTask = Task.Run(() => CalculateFactorial(n));
+
+	long result = factorialTask.Result;
+	Console.WriteLine($"Факторіал числа {n}: {result}");
+		
+	Console.WriteLine(task1.Resault); - аналогічно з Waite, поки таск не підпрацює, немає чого виводити
+
+
+
+Таски бувають вкладені, і по дефолту вони незалежні, але можна привязати їх
+
+            var outer = Task.Factory.StartNew(() =>      // outer task
+            {
+                Console.WriteLine("Outer task starting...");
+
+                var inner = Task.Factory.StartNew(() =>  // inner task
+                {
+                    Console.WriteLine("Inner task starting...");
+                    Thread.Sleep(2000);
+                    Console.WriteLine("Inner task finished.");
+
+                }, TaskCreationOptions.AttachedToParent); - якщо це додати то таски привязуються до кучі, і виконуються разом
+
+
+========================================================
+06_Async-Await
+    /\
+   /  \    ___  _   _  _ __    ___
+  / /\ \  / __|| | | || '_ \  / __|
+ / ____ \ \__ \| |_| || | | || (__
+/_/    \_\|___/ \__, ||_| |_| \___|
+                 __/ |
+                |___/
+                            _  _
+    /\                     (_)| |
+   /  \   __      __  __ _  _ | |_
+  / /\ \  \ \ /\ / / / _` || || __|
+ / ____ \  \ V  V / | (_| || || |_
+/_/    \_\  \_/\_/   \__,_||_| \__|
+
+
+Async Await у C# — це механізм асинхронного програмування, який дозволяє виконувати довгі або повільні операції (наприклад, завантаження файлу, роботу з базою, мережеві запити) без блокування основного потоку.
+
+Асинхронно - це послідовно, але не фрізить 
+Просто кажучи:
+
+async — помічає метод як асинхронний; він може всередині використовувати await. Він ділиться на частини. Якась частина запускається одразу, а як тільки авейк спрацює,  інша має доробитися.
+В середині має бути
+
+await — “чекає” завершення асинхронної операції, але не блокує потік.
+
+Поки виконується задача, інші частини програми можуть продовжувати працювати.
+
+Працює не псевдопаралельно - а асинхронно - йде послідовно але не фрізиться
+
+Асинхронні методи - вони завжди повертають таск
+
+ Приклад:
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.OutputEncoding = Encoding.UTF8;
+            await CopyAsync(from.Text, to.Text);
+            MessageBox.Show("Копіювання завершено!");
+        }
+
+        private Task CopyAsync(string from, string to)
+        {
+
+            return Task.Run(() => File.Copy(from, to, overwrite: true));
+        }
+    }
+
+CopyAsync, як і будь який асинк метод вертає Таски (так має бути щоб await (в Button_Click)  знав коли CopyAsync закінчить роботу 
+
+Це потрібно тому, що якщо ми будемо використовувати task.Wait(); то вікно буде фрізитись.
+
+А коли таск через await вікно не фрізиться.
+
+
+Binding  - привязка щоб вікно бачило код, на приклад щоб полоса загрузки  знає з коду 
+
+
+========================================================
+07_CopyFileManager
+
+
+матириал дизайн
+
+манаж Nuget material desing
+
+Додати try catch 
+
+========================================================
+07_Task_Parallel
+
+Tpl Parallel class  - 
+
+Parallel.Invoke( )    - вписуємо делегати, які треба псевдопаралельно виконати
+
+Щоб при старті запускалось все що додане не морочась з форіч і тд
+
+Parallel.For(1,20,Factorial) - діапазон числ (ввід 1 до 20) і функцію яку треба виконати. Те саме що звичайний фор, тільки коротше писати і псевдопаралельно
+
+ParrallelLoopResault resault = Parallel.ForEach(authors, AverageRating);
+
+if  resalt.IsComlited = true   - покаже тру коли всі таски виконані
+
+
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+
+
+07 Network Programming
+
+
+ _   _        _                           _
+| \ | |      | |                         | |
+|  \| |  ___ | |_ __      __  ___   _ __ | | __
+| . ` | / _ \| __|\ \ /\ / / / _ \ | '__|| |/ /
+| |\  ||  __/| |_  \ V  V / | (_) || |   |   <
+|_| \_| \___| \__|  \_/\_/   \___/ |_|   |_|\_\
+ _____
+|  __ \
+| |__) | _ __   ___    __ _  _ __   __ _
+|  ___/ | '__| / _ \  / _` || '__| / _` |
+| |     | |   | (_) || (_| || |   | (_| |
+|_|     |_|    \___/  \__, ||_|    \__,_|
+                       __/ |
+                      |___/
+                       _
+                      (_)
+ _ __ ___   _ __ ___   _  _ __    __ _
+| '_ ` _ \ | '_ ` _ \ | || '_ \  / _` |
+| | | | | || | | | | || || | | || (_| |
+|_| |_| |_||_| |_| |_||_||_| |_| \__, |
+                                  __/ |
+                                 |___/
+
+
++-------------------------+----------------------------+
+| TCP                     | UDP                        |
++-------------------------+----------------------------+
+| Захищений               | Небезпечний                |
+| Орієнтований на зєднання| Без встановлення з’єднання |
+| Повільний               | Швидкий                    |
+| Гарантована доставка    | Без гарантій доставки      |
+| Критичні застосунки     | Реальний час               |
+| Є порядок пакетів       | Немає порядку пакетів      |
+| Є керування потоком     | Немає керування потоком    |
+| Розширена перевірка     | Базова перевірка (checksum)|
+| Інфа про пакет 20 байт  | Інфа про пакет 8 байт      |    
+| Є підтвердження (ACK)   | Без підтверджень           |
+| Триетапне рукостискання | Без рукостискання          |
+| DNS, HTTPS, FTP, SMTP…  | DNS, DHCP, TFTP, SNMP…     |
++-------------------------+----------------------------+
+
+
+Udp   протокол для передачі пакета по мережі. Він просто пакети кідає, не перевіряючи чи вони дойшли, зато швидко
+
+TCP - медлініше, але перевіряє
+
+В процесі передачі все перетворюється в масив байтів
+
+
+
+					Клієнт:
+
+using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+
+namespace sync_client
+{
+    class Program
+    {
+        // адрес и порт сервера, к которому будем подключаться
+        static string address = "127.0.0.1"; // адрес сервера
+        static int port = 8080;             // порт сервера 1000....60 000
+        static void Main(string[] args)
+        {
+
+            try
+            {
+                IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
+                IPEndPoint remoteIpPoint = new IPEndPoint(IPAddress.Any, 0);
+
+
+                UdpClient client = new UdpClient();
+                string message = "";
+                while (message != "end")
+                {
+
+                    Console.Write("Enter a message: ");
+                    message = Console.ReadLine()!;
+                    byte[] data = Encoding.Unicode.GetBytes(message);
+
+
+
+                    client.Send(data, data.Length, ipPoint);
+
+                    data = client.Receive(ref remoteIpPoint);
+                    string response = Encoding.Unicode.GetString(data);
+
+                    Console.WriteLine("server response: " + response + " remote : " + remoteIpPoint);
+                }
+
+                client.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+    }
+}
+
+
+
+				Сервер:
+				
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_Server
+{
+    class Program
+    {
+        static string address = "127.0.0.1"; // поточний адрес
+        static int port = 8080;              // порт для приема входящих запросов
+
+        static void Main(string[] args)
+        {
+            // получаем адреса для запуска сокета
+            IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse(address), port);
+
+            // об'єкт для отримання адреси відправника
+
+            IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+
+
+            UdpClient listener = new UdpClient(ipPoint);
+            try
+            {
+
+                Console.WriteLine("Server started! Waiting for connection...");
+                while (true)
+                {
+
+                    byte[] data = listener.Receive(ref remoteEndPoint);
+                    string msg = Encoding.Unicode.GetString(data);
+                    Console.WriteLine($"{DateTime.Now.ToShortTimeString()}: {msg} from {remoteEndPoint}");
+
+
+                    string message = "Message was send!";
+                    data = Encoding.Unicode.GetBytes(message);
+
+                    listener.Send(data, data.Length, remoteEndPoint);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+            listener.Close();
+        }
+    }
+}
+
+
+========================================================
+02_Messenger_Client
+02_ServerApp
+
+Мессенджер сервер + клієнти
+
+
+========================================================
+03_ TPC
+
+Що таке TCP (дуже коротко)
+
+TCP — потокоорієнтований (stream), надійний, із гарантією доставки, порядку і без дублювань.
+
+UDP — датаграми (пакети), без гарантій. Для чату/запит-відповідь (як у тебе) — TCP.
+
+Потік, сокети і фреймінг
+
+TCP дає безперервний байтовий потік. Нема «повідомлень» за замовчуванням.
+
+Потрібен власний фреймінг: найпростіше — рядок + \n і читати ReadLine() / писати WriteLine().
+
+У C#: TcpListener приймає з’єднання → TcpClient.GetStream() дає NetworkStream.
+
+Зручно обгорнути NetworkStream у StreamReader/StreamWriter (UTF-8, AutoFlush = true).
+
+Мінімум, який треба в сервері
+
+Підняти слухач: TcpListener(IP, Port).Start().
+
+Прийняти 1 клієнта (у твоїй задачі): AcceptTcpClient().
+
+Отримати потік: client.GetStream().
+
+Читати рядок → обробляти → відповідати рядком у циклі.
+
+Реагувати на розрив (якщо ReadLineAsync() повернув null — клієнт закрився).
+
+Закрити StreamReader/Writer/Client, зупинити Listener.
+
+
+
+
+		Скелет сервера (одноклієнтний, .NET 8):
+
+using System.Net;                        // IPAddress, IPEndPoint
+using System.Net.Sockets;               // TcpListener, TcpClient
+using System.Text;                      // Encoding для UTF-8
+using System.Linq;                      // Для Any/All у валідації (за потреби)
+
+namespace DemoServer
+{
+    internal class Program
+    {
+        private const string BindIp = "127.0.0.1"; // Адреса, на якій слухаємо (локальна машина)
+        private const int Port = 4040;             // Порт сервера
+
+        static async Task Main(string[] args)      // Точка входу; async для await I/O
+        {
+            Console.OutputEncoding = Encoding.UTF8;                         // Коректне виведення символів у консолі
+            var listener = new TcpListener(IPAddress.Parse(BindIp), Port);  // Створюємо TCP-слухач на IP+порт
+            listener.Start();                                               // Починаємо слухати вхідні підключення
+            Console.WriteLine($"Server listening on {BindIp}:{Port}");      // Інформуємо користувача
+
+            using TcpClient client = listener.AcceptTcpClient();            // Блокуємося, поки один клієнт не підключиться
+            Console.WriteLine($"Client connected: {client.Client.RemoteEndPoint}"); // Лог підключення
+
+            using NetworkStream ns = client.GetStream();                    // Отримуємо мережевий потік TCP
+            using var reader = new StreamReader(ns, Encoding.UTF8, leaveOpen: true); // Обгортка для читання рядків (UTF-8)
+            using var writer = new StreamWriter(ns, Encoding.UTF8, leaveOpen: true)  // Обгортка для запису рядків (UTF-8)
+            { AutoFlush = true };                                           // Автоочищення буфера після кожного WriteLine
+
+            try                                                             // Основний цикл обробки запитів
+            {
+                while (true)                                                // Працюємо, доки клієнт не закриє з’єднання
+                {
+                    string? line = await reader.ReadLineAsync();            // Чекаємо рядок від клієнта (фреймінг по \n)
+                    if (line is null) break;                                // null → клієнт закрив з’єднання
+
+                    string normalized = Normalize(line);                    // Нормалізуємо вхід (trim + Upper)
+                    string response = Handle(normalized);                   // Бізнес-логіка (валидація/lookup/формування відповіді)
+
+                    await writer.WriteLineAsync(response);                  // Відправляємо відповідь рядком (із \n)
+                    Console.WriteLine($"Request: '{line}' -> '{response}'"); // Лог запиту/відповіді на сервері
+                }
+            }
+            catch (IOException)                                             // Раптовий обрив з’єднання/помилка I/O
+            {
+                // Для навчального прикладу: тихо ідемо у finally
+            }
+            finally
+            {
+                listener.Stop();                                            // Зупиняємо слухач (звільняємо порт)
+                Console.WriteLine("Server stopped.");                        // Лог завершення
+            }
+        }
+
+        private static string Normalize(string input)                        // Допоміжна нормалізація рядка
+        {
+            return (input ?? string.Empty).Trim().ToUpperInvariant();       // Прибираємо пробіли + у верхній регістр
+        }
+
+        private static string Handle(string input)                           // Місце для твоєї логіки
+        {
+            // ⬇️ Приклад: перевіримо, що рівно 2 латинські літери; інакше Unknown
+            if (input.Length != 2) return "Unknown";                         // Має бути рівно 2 символи
+            if (!IsLatinUpper(input[0]) || !IsLatinUpper(input[1]))          // Перевірка на [A..Z]
+                return "Unknown";
+
+            // Тут міг би бути словник/БД/алгоритм — поки повернемо заглушку
+            // return Regions.TryGetValue(input, out var region) ? region : "Unknown";
+            return "OK";                                                     // Заглушка відповіді (замінюй на свою)
+        }
+
+        private static bool IsLatinUpper(char c)                              // Перевірка: велика латинська літера
+            => c is >= 'A' and <= 'Z';
+    }
+}
+
+
+Мінімум, який треба в клієнті
+
+Підключитись: TcpClient.ConnectAsync("127.0.0.1", 4040).
+
+Отримати потік і обгортки: StreamReader/StreamWriter.
+
+В циклі: взяти введення, WriteLineAsync(input) → ReadLineAsync() → показати відповідь.
+
+Команда exit — вийти локально, не шлемо на сервер.
+
+Закрити ресурси (using усе закриє сам).
+
+Скелет клієнта (.NET 8):
+
+using System.Net.Sockets;                // TcpClient для підключення
+using System.Text;                       // Encoding для UTF-8
+
+namespace DemoClient
+{
+    internal class Program
+    {
+        private const string ServerIp = "127.0.0.1"; // Адреса сервера (локальна)
+        private const int ServerPort = 4040;         // Порт сервера
+
+        static async Task Main(string[] args)        // Точка входу; async для зручного await I/O
+        {
+            Console.OutputEncoding = Encoding.UTF8;  // Щоб консоль коректно показувала символи
+            Console.WriteLine("Type two-letter code (e.g., BK) or 'exit' to quit."); // Інструкція для користувача
+
+            using var client = new TcpClient();      // Створюємо TCP-клієнт; using закриє сокет автоматично
+            await client.ConnectAsync(ServerIp, ServerPort); // Асинхронно підключаємось до сервера
+
+            using NetworkStream ns = client.GetStream();    // Беремо мережевий потік TCP
+            using var reader = new StreamReader(ns, Encoding.UTF8, leaveOpen: true); // Читач рядків (UTF-8)
+            using var writer = new StreamWriter(ns, Encoding.UTF8, leaveOpen: true)  // Писач рядків (UTF-8)
+            { AutoFlush = true };                           // Автоматичний Flush після кожного WriteLine
+
+            while (true)                                    // Основний цикл взаємодії з користувачем
+            {
+                Console.Write("> ");                        // Промпт
+                string? input = Console.ReadLine();         // Читаємо введення користувача з консолі
+                if (input is null) break;                   // EOF (Ctrl+Z) → виходимо
+                input = input.Trim();                       // Прибираємо пробіли
+
+                if (string.Equals(input, "exit", StringComparison.OrdinalIgnoreCase))
+                    break;                                  // Команда на вихід — розриваємо цикл без відправки
+
+                await writer.WriteLineAsync(input);         // Надсилаємо рядок на сервер (фреймінг: \n наприкінці)
+                string? response = await reader.ReadLineAsync(); // Читаємо відповідь рядком (чекаємо \n)
+                if (response is null)                       // Якщо сервер закрив з’єднання
+                {
+                    Console.WriteLine("Server closed connection."); // Повідомляємо і...
+                    break;                                   // ...виходимо з циклу
+                }
+
+                Console.WriteLine(response);                // Показуємо відповідь у консоль
+            }
+            // Вихід із using-блоків закриє потік і сокет автоматично
+        }
+    }
+}
+
+
+Часті граблі (і як не наступити)
+
+Немає \n у повідомленні → ReadLine() на іншому боці висить. Рішення: завжди WriteLine(...) + AutoFlush = true.
+
+Зависання UI/блокування → у GUI завжди ConnectAsync/ReadLineAsync/WriteLineAsync. (У консолі — теж звично.)
+
+Розрив з’єднання: ReadLineAsync() повертає null — виходимо з циклу без винятків.
+
+Кодування: узгоджене UTF-8 на обох сторонах.
+
+Єдиний клієнт: якщо треба більше — обгортаєш кожен AcceptTcpClient() у Task.Run(HandleClient) і далі такий самий цикл.
+
+
++-------------------------+----------------------------+
+| TCP                     | UDP                        |
++-------------------------+----------------------------+
+| Захищений               | Небезпечний                |
+| Орієнтований на зєднання| Без встановлення з’єднання |
+| Повільний               | Швидкий                    |
+| Гарантована доставка    | Без гарантій доставки      |
+| Критичні застосунки     | Реальний час               |
+| Є порядок пакетів       | Немає порядку пакетів      |
+| Є керування потоком     | Немає керування потоком    |
+| Розширена перевірка     | Базова перевірка (checksum)|
+| Інфа про пакет 20 байт  | Інфа про пакет 8 байт      |    
+| Є підтвердження (ACK)   | Без підтверджень           |
+| Триетапне рукостискання | Без рукостискання          |
+| DNS, HTTPS, FTP, SMTP…  | DNS, DHCP, TFTP, SNMP…     |
++-------------------------+----------------------------+
+
+===========================
+        TCP (з'єднання)
+===========================
+
+   Sender                          Receiver
+     |                                 |
+     | -------- SYN ------------------> |   // 1. Запит на встановлення з'єднання
+     | <------- SYN + ACK ------------- |   // 2. Підтвердження прийому і запит
+     | -------- ACK ------------------> |   // 3. Остаточне підтвердження
+     |                                 |
+     |==== З'єднання встановлено ====>>|
+     |                                 |
+     | <---- Дані передаються ----->   |
+
+(Триетапне рукостискання: SYN → SYN/ACK → ACK)
+
+
+===========================
+         UDP (без з'єднання)
+===========================
+
+   Sender                          Receiver
+     |                                 |
+     | ===== REQUEST ========>          // Запит
+     | <==== RESPONSE =======           // Відповідь 1
+     | <==== RESPONSE =======           // Відповідь 2
+     | <==== RESPONSE =======           // Відповідь 3
+     |                                 |
+
+(Жодного рукостискання, просто надсилання пакетів)
+
+
+===========================
+Основна різниця:
+===========================
+TCP — встановлює надійне з’єднання перед передачею даних.  
+UDP — одразу надсилає пакети, не перевіряючи доставку.
+
+
+========================================================
+04_Mail_Protocols_SMTP
+
+SMTP (англ. Simple Mail Transfer Protocol) — це протокол передачі електронної пошти, який використовується для надсилання та отримання повідомлень електронної пошти в мережах TCP/IP. Він працює як «поштальйон», передаючи листи від одного поштового сервера до іншого. Для отримання листів клієнтські програми зазвичай використовують протоколи IMAP або POP3, а SMTP використовується лише для відправки. 
+
+
+SMTP - відправка з девайса на свій сервер і далі до сервера отримувача
+
+POP3/IMAP  - отримання отримувачем з його сервера
+
+
+using System;
+using System.ComponentModel;
+using System.IO;
+using System.Net;
+using System.Net.Mail;
+using System.Net.Sockets;
+using System.Windows.Forms;
+
+namespace MailSender
+{
+    public partial class Form1 : Form
+    {
+        string server= "smtp.gmail.com"; // sets the server address
+        int port = 587;                  // int.Parse(ConfigurationManager.AppSettings["gmail_port"]); //sets the server port
+
+        const string username = "lenailyshun@gmail.com";
+
+        const string password = "dqmq yyqu uxfb ikfc";
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            fromBox.Text = username;
+        }
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            // GMAIL - Allow less secure apps
+            // old - https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4MTRm8bMK7-4VvaGO5Ks_mRsfnKW3N7IHVwRioBJMo2SXMcP350EgzMWE8DHhVYavXsrIzpnmTjyDNROWK-Cojf4q1Qjg
+            // new - https://stackoverflow.com/questions/72547853/unable-to-send-email-in-c-sharp-less-secure-app-access-not-longer-available
+            
+            // create a message object
+            MailMessage message = new MailMessage(fromBox.Text, toBox.Text, themeBox.Text, bodyBox.Text);
+
+            
+            //// send HTML body
+            using (StreamReader sr = new StreamReader("mail.html"))
+            {
+                message.Body = sr.ReadToEnd();
+            }
+            message.IsBodyHtml = true;
+            
+
+            message.Priority = MailPriority.High; // important))
+          
+            message.Attachments.Add(new Attachment(@"Files/text.txt"));
+            message.Attachments.Add(new Attachment(@"Files/nuts.jpg"));
+         
+            // create a send object
+            SmtpClient client = new SmtpClient(server, port);
+            client.EnableSsl = true;
+
+            // settings for sending mail
+            client.Credentials = new NetworkCredential(username, password);
+
+     
+            client.SendCompleted  += Client_SendCompleted;
+            // call asynchronous message sending
+            client.SendAsync(message, message );
+
+          
+        }
+
+        private void Client_SendCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+           
+            var state = (MailMessage)e.UserState;
+           
+            MessageBox.Show($"Message was sent! Subject: {state.Subject}!");
+            //MessageBox.Show($"Message was sent! Subject: {e.UserState.ToString()}!");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // here you need to add a file selection dialog box and add the selected file to the MailMessage
+            // attachment collection and to the list on the form
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // here you need to clear all fields of the form and the content of the MailMessage object
+        }
+    }
+}
+
+
+_04_Mail_Client.LoginWindow
+<<<<<<< HEAD
+_04_Mail_Client.MainWindow
+=======
+_04_Mail_Client.MainWindow
+
+
+========================================================
+
+IMAP HTPP Protocol
+
+IMAP (Internet Message Access Protocol) — це протокол доступу до електронної пошти, який дозволяє користувачам переглядати та керувати повідомленнями на віддаленому сервері
+
+Встановлюємо NuGet Пакет MailKit і MimeKit
+
+SMTP клієнт від MailKit і MimeKit
+
+IMAP - Для того щоб втягнути з сервера на пк.
+
+
+
+
+folder = client.Getfolder(SpecialFolder.Sent….
+folder.Search(SearchQueqy.All
+folder.AddFlags(id,MessageFlags.Deleted.
+folder.Expunge()
+
+зліва папки, справа листи
+Повноцінний поштовий клієнт
+
+
+HTTP — протокол передачі даних, що використовується в комп'ютерних мережах. Назва скорочена від Hypertext Transfer Protocol, протокол передачі гіпертекстових документів (сайти, веб додатки)
+
+HTTP належить до протоколів моделі OSI 7-го прикладного рівня.
+
+Основним призначенням протоколу HTTP є передача вебсторінок (текстових файлів з розміткою HTML, зображень та застосунків), проте за його допомогою успішно передаються й інші файли (в цьому плані HTTP складає конкуренцію складнішому FTP).
+
+
+lenailyshun@gmail.com
+dqmq yyqu uxfb ikfc
+
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+========================================================
+
+
+ _______  ______            __  __
+|__   __||  ____|    /\    |  \/  |
+   | |   | |__      /  \   | \  / |
+   | |   |  __|    / /\ \  | |\/| |
+   | |   | |____  / ____ \ | |  | |
+   |_|   |______|/_/    \_\|_|  |_|
+
+
+ _____   _____    ____        _  ______   _____  _______
+|  __ \ |  __ \  / __ \      | ||  ____| / ____||__   __|
+| |__) || |__) || |  | |     | || |__   | |        | |
+|  ___/ |  _  / | |  | | _   | ||  __|  | |        | |
+| |     | | \ \ | |__| || |__| || |____ | |____    | |
+|_|     |_|  \_\ \____/  \____/ |______| \_____|   |_|
+
+
+
+	
+	ЕТАП 1 — Вимоги (Requirements)
+Мета:
+• Зібрати потреби користувачів і визначити межі продукту. (Elicit requirements, Define scope)
+• Зафіксувати обмеження — бюджет, терміни, стандарти. (Capture constraints)
+
+Основні дії:
+• Проведення інтерв’ю та робочих зустрічей зі стейкхолдерами. (Stakeholder interviews / workshops)
+• Опис сценаріїв використання мовою користувача. (Use cases / user stories)
+• Визначення нефункційних вимог — безпека, продуктивність, надійність. (Non-functional requirements)
+• Пріоритизація найважливіших вимог. (Requirements prioritization)
+
+Результати:
+• Специфікація вимог до програмного забезпечення. (Software Requirements Specification, SRS)
+• Критерії приймання функцій. (Acceptance criteria)
+
+	
+	ЕТАП 2 — Проєктування (Design)
+	
+Мета:
+• Побудувати архітектуру та структуру системи. (Define architecture)
+• Спроєктувати дані й інтерфейси. (Model data, Plan interfaces)
+
+Основні дії:
+• Вибір архітектурного підходу: шарова модель, мікросервіси тощо. (Architectural patterns)
+• Підбір технологій і інструментів. (Technology stack selection)
+• Моделювання даних і створення схем БД. (Data modeling)
+• Проєктування безпеки та доступів. (Security design)
+• Створення вайрфреймів або прототипів інтерфейсу. (UX wireframes / prototypes)
+
+Результати:
+• Архітектурний документ. (Software Architecture Document, SAD)
+• Специфікації API. (API specifications)
+• Прототип користувацького інтерфейсу. (UI prototype)
+
+
+	ЕТАП 3 — Реалізація (Implementation)
+	
+Мета:
+• Розробити програму згідно з архітектурою. (Construct the software)
+• Забезпечити якість і стабільність коду. (Ensure code quality)
+
+Основні дії:
+• Робота з системою контролю версій і код-рев’ю. (Version control workflow)
+• Дотримання стандартів коду та форматування. (Coding standards)
+• Написання модульних тестів. (Unit tests)
+• Налаштування безперервної інтеграції. (Continuous Integration, CI)
+• Робота з базою даних і міграціями. (Data storage & retrieval)
+
+Результати:
+• Вихідний код із тестами. (Source code)
+• Зібраний додаток або контейнер. (Build artifact)
+
+
+	ЕТАП 4 — Тестування (Verification / Testing)
+	
+Мета:
+• Перевірити, що система відповідає вимогам. (Verify conformance)
+• Виявити та усунути дефекти. (Detect defects)
+
+Основні дії:
+• Розроблення плану тестування. (Test planning)
+• Модульні, інтеграційні й системні тести. (Unit / Integration / System testing)
+• Приймальне тестування з користувачами. (User Acceptance Testing, UAT)
+• Керування знайденими помилками. (Defect management)
+
+Результати:
+• План і звіти про тестування. (Test plan / Test report)
+• Кандидат на реліз. (Release candidate)
+
+
+
+	ЕТАП 5 — Впровадження (Deployment)
+	
+Мета:
+• Розгорнути систему у робочому середовищі. (Deliver to target environment)
+• Забезпечити стабільну роботу після релізу. (Ensure operability)
+
+Основні дії:
+• Керування процесом релізів. (Release management)
+• Використання контейнеризації або IaC. (Infrastructure as Code)
+• План безпечного оновлення й відкату. (Rollback plan)
+• Налаштування моніторингу та логування. (Monitoring & logging)
+
+Результати:
+• Успішно розгорнута збірка. (Deployed build)
+• Робочі інструкції для адміністраторів. (Runbook)
+
+
+	ЕТАП 6 — Супровід (Maintenance)
+	
+Мета:
+• Підтримувати і покращувати систему. (Keep system healthy, Continuous improvement)
+
+Основні дії:
+• Усунення дефектів у продуктивній системі. (Corrective maintenance)
+• Оптимізація продуктивності й безпеки. (Performance tuning / Security patching)
+• Актуалізація залежностей і середовищ. (Preventive maintenance)
+• Планування подальших оновлень і функцій. (Roadmap updates)
+
+Результати:
+• Патчі та малі оновлення. (Minor releases)
+• Документація з підтримки. (Knowledge base)
+
+ПОПЕРЕЧНІ ПРАКТИКИ (Cross-cutting practices)
+• Управління проєктом і ризиками. (Project governance / Risk management)
+• Актуальна документація й записи архітектурних рішень. (Documentation / ADR)
+• Інтеграція безпеки в усі етапи. (DevSecOps)
+• Відповідність стандартам і законам. (Compliance)
+• Аналіз інцидентів і безперервне вдосконалення. (Continuous improvement)
+
+
+Scrum - це методологія на основі аджайла, яка передбачає для розробки проектів спрінти. При методології має артефакти (product backlog, spring backllog) 
+
+
+Замовник пише
+Product Backlog - функціонал що має реалізуватись, по важливості
+
+Daily meeting
+
+
+
+
+
+	SCRUM — КОРОТКИЙ ОПИС (Scrum Overview)
+• Робота ітераціями 1–4 тижні (Iterations / Sprints).
+• Основні принципи — прозорість, інспекція, адаптація (Transparency, Inspection, Adaptation).
+• Кожен спринт завершується готовим інкрементом продукту (Product Increment).
+
+
+	РОЛІ (Scrum Roles):
+	
+• Власник продукту — керує цінністю та беклогом (Product Owner).
+• Скрам-майстер — забезпечує дотримання процесу (Scrum Master).
+• Команда розробки — створює інкремент (Development Team).
+
+
+	АРТЕФАКТИ (Scrum Artifacts):
+	
+• Продуктовий беклог — перелік вимог і функцій (Product Backlog).
+• Спринт-беклог — вибрані елементи на поточний спринт (Sprint Backlog).
+• Інкремент — готова частина продукту, що відповідає стандартам якості (Increment).
+
+ПОТОК РОБОТИ (Flow):
+
+Власник продукту формує та впорядковує беклог (Product Owner refines backlog).
+
+Команда на плануванні обирає обсяг роботи (Sprint Planning).
+
+Починається спринт тривалістю 1–4 тижні (Sprint).
+
+Щодня проводиться коротка синхронізація (Daily Scrum).
+
+Після завершення — огляд результатів (Sprint Review).
+
+Потім — обговорення поліпшень процесу (Sprint Retrospective).
+
+КЛЮЧОВІ ПОДІЇ (Scrum Events):
+• Планування спринту — визначення цілі та задач (Sprint Planning).
+• Щоденна зустріч — 15 хвилин на синхронізацію (Daily Scrum).
+• Огляд — демонстрація готового інкремента (Sprint Review).
+• Ретроспектива — аналіз і вдосконалення процесу (Sprint Retrospective).
+
+ПРАВИЛА СПРИНТУ (Sprint Rules):
+• Тривалість незмінна, ціль не змінюється (Fixed duration and goal).
+• Команда самоорганізовується (Self-managing team).
+• Після кожного спринту — готовий, потенційно постачальний продукт (Potentially Shippable Product Increment).
+
+
+
+Я
+Іван 
+Влад
+Артем
+
+
+Cтворити дошку - канбан, додати учасників і прописати продукт беглок. 
+На дз скинути ссилку на дошку.
+ 
+1. Визначити тему курсової роботи
+2. Визначити функціональні вимоги
+3. Нефункціональні вимоги
+
+- месенджер
+- трекер калорій
+- поштовий клієнт
+- менеджер фінансів/витрат, паролів, працівників, продуктів
+- менеджер ресторану
+- гра(малоймовірно)
+- музичний плеєр
+- текстовий редактор
+- клавіатурний тренажер
+- помічник по трекеру часу(робочого часу та часу відпочинку)
+- файловий провідник
+- торент клієнт
+- менеджер завдань/нагадувань
+
+Product Backlog(UserStory) as user
+Sprint backlog
+In progress
+In review
+Done
+
+https://trello.com/b/P3t93zac/teamproject
+
+
+==================== GIT ШПАРГАЛКА ====================
+
+# Проверка состояния репозитория
+git status
+  Показывает изменённые, добавленные или удалённые файлы и текущую ветку.
+
+# Просмотр истории коммитов
+git log
+  Отображает историю изменений (коммитов).
+
+# Добавление изменений
+git add <имя_файла>
+  Добавляет конкретный файл в индекс (подготовка к коммиту).
+git add .
+  Добавляет все изменения в текущей папке.
+
+# Отмена изменений
+git restore <имя_файла>
+  Восстанавливает файл из последнего коммита (если случайно изменили или удалили).
+
+# Удаление файла из индекса и проекта
+git rm <имя_файла>
+  Удаляет файл и готовит это изменение к коммиту.
+
+# Создание коммита
+git commit -m "Описание изменений"
+  Фиксирует изменения с комментарием.
+
+# Проверка веток
+git branch
+  Показывает список веток, текущая отмечена звёздочкой.
+
+# Создание новой ветки
+git branch <имя_ветки>
+
+# Переключение между ветками
+git checkout <имя_ветки>
+
+# Создание новой ветки и сразу переход в неё
+git checkout -b <имя_ветки>
+
+# Объединение веток
+git merge <имя_ветки>
+  Объединяет указанную ветку в текущую.
+
+# Удаление ветки
+git branch -d <имя_ветки>
+
+# Проверка удалённого репозитория
+git remote -v
+  Показывает ссылки на сервер (например, GitHub).
+
+# Добавление удалённого репозитория
+git remote add origin https://github.com/username/repo.git
+
+# Отправка изменений на сервер (push)
+git push -u origin HEAD
+  Отправляет текущую ветку на сервер и связывает её с origin.
+
+# Получение изменений с сервера
+git pull
+  Загружает последние изменения из удалённого репозитория.
+
+# Клонирование репозитория
+git clone https://github.com/username/repo.git
+
+# Просмотр различий
+git diff
+  Показывает, какие строки изменились с момента последнего коммита.
+
+# Отмена последнего коммита (если не пушили)
+git reset --soft HEAD~1
+  Удаляет последний коммит, но оставляет изменения в файлах.
+
+# Настройка имени и почты (один раз)
+git config --global user.name "Alexander"
+git config --global user.email "youremail@example.com"
+
+# Проверка версии Git
+git --version
+
+========================================================
+Памятка:
+1. git add  — подготовить изменения
+2. git commit  — зафиксировать
+3. git push  — отправить на сервер
+4. git pull  — получить обновления
+========================================================
+
+
+
