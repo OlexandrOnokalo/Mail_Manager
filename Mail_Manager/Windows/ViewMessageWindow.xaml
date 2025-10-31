@@ -1,4 +1,4 @@
-﻿<Window x:Class="MailKit_usage.Windows.ViewMessageWindow"
+﻿<Window x:Class="Mail_Manager.Windows.ViewMessageWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Message" Height="520" Width="780" WindowStartupLocation="CenterOwner">
@@ -31,8 +31,8 @@
         <TextBox x:Name="txtBody" Grid.Row="4" Grid.ColumnSpan="2" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" IsReadOnly="True"/>
 
         <StackPanel Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
-            <Button Content="Reply" Width="90" Margin="0,0,8,0" Click="BtnReply_Click"/>
-            <Button Content="Close" Width="90" Click="BtnClose_Click"/>
+            <Button Content="Reply" Width="90" Margin="0,0,8,0"/>
+            <Button Content="Close" Width="90"/>
         </StackPanel>
     </Grid>
 </Window>

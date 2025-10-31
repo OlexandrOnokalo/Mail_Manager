@@ -18,7 +18,7 @@ namespace Mail_Manager.Windows
     /// <summary>
     /// Interaction logic for ViewMessageWindow.xaml
     /// </summary>
-    public partial class ViewMessageWindow : Page
+    public partial class ViewMessageWindow : Window
     {
         public ViewMessageWindow()
         {
