@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mail_Manager"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="250" Width="500">
+        Title="LoginWindow" Height="290" Width="550">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
@@ -37,6 +37,6 @@
         <Label FontSize="20" Grid.Row="2" Margin="20 0 0 5">Password :</Label>
         <TextBox Name="Email" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"></TextBox>
         <TextBox Name="Password" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"></TextBox>
-        <Button FontSize="30" Grid.Row="3" Grid.ColumnSpan="4">to confirm</Button>
+        <Button Click="ToConfirm" FontSize="30" Grid.Row="3" Grid.ColumnSpan="4">to confirm</Button>
     </Grid>
 </Window>
