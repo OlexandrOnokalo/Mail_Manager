@@ -23,9 +23,9 @@
         <TextBox x:Name="txtBody" Grid.Row="2" Grid.ColumnSpan="2" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap"/>
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
-            <Button Content="Attach files" Width="110" Margin="0,0,8,0" />
-            <Button Content="Send" Width="90" Margin="0,0,8,0" />
-            <Button Content="Cancel" Width="90" />
+            <Button Content="Attach files" Width="110" Margin="0,0,8,0" Click="BtnAttach_Click"/>
+            <Button Content="Send" Width="90" Margin="0,0,8,0" Click="BtnSend_Click"/>
+            <Button Content="Cancel" Width="90" Click="BtnCancel_Click"/>
         </StackPanel>
     </Grid>
 </Window>
