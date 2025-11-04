@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Mail_Manager.Windows;
+using System.Windows;
 
 namespace Mail_Manager
 {
@@ -18,5 +19,21 @@ namespace Mail_Manager
             password = loginWindow.TextPassword;
             if (email == null || password == null) { Close(); }
         }
+        private void BtnNew_Click(object sender, RoutedEventArgs e)
+        {
+            var compose = new ComposeWindow();
+            compose.Owner = this;
+            compose.ShowDialog();
+        }
+
+
+
+
+
     }
+
+
+
+
+
 }
