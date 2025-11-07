@@ -12,7 +12,6 @@ namespace Mail_Manager
         public LoginWindow()
         {
             InitializeComponent();
-
             Email.Text = "lenailyshun@gmail.com";
             Password.Text = "hadv dehd bsdf ocye";
         }
