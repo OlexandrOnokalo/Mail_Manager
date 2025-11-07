@@ -75,34 +75,14 @@ namespace Mail_Manager
                 }
             });
         }
-
-    }
-    class MyMessage
-    {
-
-        public string Id { get; set; }
-        public string Subject { get; set; }
-        public DateTimeOffset Date { get; set; }
-
-        public MyMessage()
-        {
-            Id = string.Empty;
-            Subject = string.Empty;
-            Date = DateTimeOffset.MinValue;
-
-        }
         private void BtnNew_Click(object sender, RoutedEventArgs e)
         {
             var compose = new ComposeWindow();
             compose.Owner = this;
             compose.ShowDialog();
         }
-
-
-
-
-
     }
+   
 
 
 
