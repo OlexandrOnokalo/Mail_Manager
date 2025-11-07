@@ -1,3 +1,4 @@
+
 ﻿using MailKit;
 using MailKit.Net.Imap;
 using MailKit.Search;
@@ -5,6 +6,9 @@ using MailKit.Security;
 using MimeKit;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+
+﻿using Mail_Manager.Windows;
+
 using System.Windows;
 
 namespace Mail_Manager
@@ -87,5 +91,21 @@ namespace Mail_Manager
             Date = DateTimeOffset.MinValue;
 
         }
+        private void BtnNew_Click(object sender, RoutedEventArgs e)
+        {
+            var compose = new ComposeWindow();
+            compose.Owner = this;
+            compose.ShowDialog();
+        }
+
+
+
+
+
     }
+
+
+
+
+
 }
