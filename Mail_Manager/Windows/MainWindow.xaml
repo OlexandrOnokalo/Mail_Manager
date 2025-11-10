@@ -41,6 +41,8 @@
             <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel>
+                        <TextBlock Text="{Binding From}"  Foreground="Black">
+                        </TextBlock>
                         <TextBlock Text="{Binding Date}"  Foreground="Black">
                         </TextBlock>
                         <TextBlock Text="{Binding Subject}" FontWeight="Bold" Foreground="Black">

@@ -13,7 +13,7 @@
             <Setter Property="Height" Value="19"></Setter>
             <Setter Property="Margin" Value="0 0 30 0"></Setter>
         </Style>
-        <Style TargetType="Button">
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Width" Value="200"></Setter>
             <Setter Property="Height" Value="60"></Setter>
