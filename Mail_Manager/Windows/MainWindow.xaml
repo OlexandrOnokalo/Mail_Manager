@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mail_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="950">
+        Title="MainWindow" Height="650" Width="950"
+        Style="{StaticResource MaterialDesignWindow}">
     <Grid Width="850" Height="600">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -35,14 +36,14 @@
         <Button Grid.Column="1" Grid.Row="1" Padding="30 5" Margin="0 0 5 0" Click="BtnNew_Click" >New</Button>
         <Button Grid.Column="2" Grid.Row="1" Padding="30 5" Margin="5 0">Open</Button>
         <Button Grid.Column="3" Grid.Row="1" Padding="30 5" Margin="5 0" Grid.ColumnSpan="2" >Delete</Button>
-        <ListBox Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="AliceBlue" Name="FolderBox" SelectionChanged="FolderBox_SelectionChanged"></ListBox>
+        <ListBox Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="AliceBlue" Name="FolderBox" SelectionChanged="FolderBox_SelectionChanged" Foreground="Black"></ListBox>
         <ListBox Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="7" Grid.RowSpan="2" Background="AliceBlue" Name="MsgBox" ItemsSource="{Binding}">
             <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel>
-                        <TextBlock Text="{Binding Date}" Background="Cyan">
+                        <TextBlock Text="{Binding Date}"  Foreground="Black">
                         </TextBlock>
-                        <TextBlock Text="{Binding Subject}" FontWeight="Bold">
+                        <TextBlock Text="{Binding Subject}" FontWeight="Bold" Foreground="Black">
                     </TextBlock>
                 </StackPanel>
             </DataTemplate>
