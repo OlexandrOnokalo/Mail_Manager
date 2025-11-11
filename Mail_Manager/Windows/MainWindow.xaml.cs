@@ -57,6 +57,7 @@ namespace Mail_Manager
         {
             msgTemp.Clear();
             var folder = FolderBox.SelectedItem as IMailFolder;
+            
             var temp = client.GetFolder(folder?.FullName);
             temp.Open(FolderAccess.ReadOnly);
              await getMessagesAsync(temp);
@@ -71,6 +72,7 @@ namespace Mail_Manager
                     //messages.Add(new MyMessage(ms.MessageId, ms.Subject, ms.Date));
                     Application.Current.Dispatcher.Invoke(() => {
                         msgTemp.Add(ms);
+                        
                     });
                 }
             });

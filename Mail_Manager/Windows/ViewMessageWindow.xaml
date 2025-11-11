@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mail_Manager.Windows"
         mc:Ignorable="d"
+        Style="{StaticResource MaterialDesignWindow}"
         Title="ViewMessageWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
