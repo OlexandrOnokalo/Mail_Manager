@@ -5,58 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mail_Manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="650" Width="950"
+        Title="MainWindow" Height="950" Width="1300"
         Style="{StaticResource MaterialDesignWindow}">
-    <Grid Width="850" Height="600">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="70"/>
-            <ColumnDefinition Width="40"/>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition  Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Button Grid.Column="1" Grid.Row="1" Padding="30 5" Margin="0 0 5 0" Click="BtnNew_Click" >New</Button>
-        <Button Grid.Column="2" Grid.Row="1" Padding="30 5" Margin="5 0">Open</Button>
-        <Button Grid.Column="3" Grid.Row="1" Padding="30 5" Margin="5 0" Grid.ColumnSpan="2" >Delete</Button>
-        <ListBox Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" Background="AliceBlue" Name="FolderBox" SelectionChanged="FolderBox_SelectionChanged" Foreground="Black"></ListBox>
-        <ListBox Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="7" Grid.RowSpan="2" Background="AliceBlue" Name="MsgBox" ItemsSource="{Binding}">
-            <ListBox.ItemTemplate>
-            <DataTemplate>
-                <StackPanel>
-                        <TextBlock Text="{Binding From}"  Foreground="Black">
-                        </TextBlock>
-                        <TextBlock Text="{Binding Date}"  Foreground="Black">
-                        </TextBlock>
-                        <TextBlock Text="{Binding Subject}" FontWeight="Bold" Foreground="Black">
-                    </TextBlock>
-                </StackPanel>
-            </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Grid.Column="10" Grid.Row="6" Margin="5 0">Preview</Button>
-        <Button Grid.Column="11" Grid.Row="6"  Margin="5 0 0 0">Next</Button>
-        <Label Grid.Column="6" Grid.Row="1">Current Folder:</Label>
-        <Label Grid.Column="7" Grid.Row="1"></Label> <!-- Current folder-->
-        <Label Grid.Column="8" Grid.Row="1">Page:</Label>
-        <Label Grid.Column="9" Grid.Row="1"></Label> <!-- Page number -->
 
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="8">
+            <Button Content="New" Width="80" Margin="0,0,8,0" Click="BtnNew_Click"/>
+            <Button Content="Open" Width="80" Margin="0,0,8,0" Click="BtnOpen_Click"/>
+            <Button Content="Delete" Width="80" Margin="0,0,8,0" Click="BtnDelete_Click"/>
+            <TextBlock Text="Current Folder:" Margin="16,0,8,0" VerticalAlignment="Center"/>
+            <TextBlock x:Name="txtCurrentFolder" VerticalAlignment="Center" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Margin="24,0,0,0">
+                <TextBlock Text="Page:" VerticalAlignment="Center" Margin="0,0,6,0"/>
+                <TextBlock x:Name="txtPage" VerticalAlignment="Center" FontWeight="Bold"/>
+            </StackPanel>
+        </StackPanel>
+
+
+        <GroupBox Header="Folders" Grid.Row="1" Grid.Column="0" Margin="8">
+            <ListBox x:Name="lstFolders" DisplayMemberPath="FullName" SelectionChanged="LstFolders_SelectionChanged"/>
+        </GroupBox>
+
+
+        <GroupBox Header="Messages" Grid.Row="1" Grid.Column="1" Margin="8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <ListView x:Name="lstMessages" Grid.Row="0" SelectionMode="Single">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="From" Width="260" DisplayMemberBinding="{Binding From}"/>
+                            <GridViewColumn Header="Subject" Width="460" DisplayMemberBinding="{Binding Subject}"/>
+                            <GridViewColumn Header="Date" Width="180" DisplayMemberBinding="{Binding Date}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,8,0,0">
+                    <Button Content="Prev" Width="80" Margin="0,0,8,0" Click="BtnPrev_Click"/>
+                    <Button Content="Next" Width="80" Click="BtnNext_Click"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+
+
+        <StatusBar Grid.Row="2" Grid.ColumnSpan="2">
+            <StatusBarItem Content="Ready" />
+        </StatusBar>
     </Grid>
 </Window>

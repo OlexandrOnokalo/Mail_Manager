@@ -1,29 +1,59 @@
-﻿using System.Windows;
+﻿using Mail_Manager.Models;
+using Mail_Manager.Services;
+using Org.BouncyCastle.Crypto;
+using System.Windows;
+using System.Windows.Input;
+
 
 namespace Mail_Manager
 {
-    /// <summary>
-    /// Interaction logic for LoginWindow.xaml
-    /// </summary>
     public partial class LoginWindow : Window
     {
-        public string? TextEmail { get; set; }
-        public string? TextPassword { get; set; }
         public LoginWindow()
         {
             InitializeComponent();
+
+
             Email.Text = "lenailyshun@gmail.com";
-            Password.Text = "hadv dehd bsdf ocye";
+            Password.Text = "dqmq yyqu uxfb ikfc";
         }
-        private void ToConfirm(object sender, RoutedEventArgs e)
+
+        private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (Email.Text == "lenailyshun@gmail.com" && Password.Text == "hadv dehd bsdf ocye")
+            var email = Email.Text.Trim();
+            var password = Password.Text;
+
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                TextEmail = Email.Text;
-                TextPassword = Password.Text;
-                Close();
+                MessageBox.Show("Please enter both Email and Password.", "Validation", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
-            else { MessageBox.Show("Incorrect email address or password"); }
+
+            var imap = new ImapService();
+            try
+            {
+                this.IsEnabled = false;
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
+
+                await imap.ConnectAsync(email, password);
+
+
+                SessionState.Email = email;
+                SessionState.Password = password;
+
+                var main = new MainWindow(imap);
+                main.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Login failed.\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                this.IsEnabled = true;
+                Mouse.OverrideCursor = null;
+            }
         }
     }
 }
