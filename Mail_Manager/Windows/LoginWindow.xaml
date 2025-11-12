@@ -13,12 +13,7 @@
             <Setter Property="Height" Value="19"></Setter>
             <Setter Property="Margin" Value="0 0 30 0"></Setter>
         </Style>
-        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="Height" Value="60"></Setter>
-            <Setter Property="Margin" Value="5"></Setter>
-        </Style>
+
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -38,6 +33,6 @@
         <Label FontSize="20" Grid.Row="2" Margin="20 0 0 5">Password :</Label>
         <TextBox Name="Email" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"></TextBox>
         <TextBox Name="Password" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"></TextBox>
-        <Button Click="ToConfirm" FontSize="30" Grid.Row="3" Grid.ColumnSpan="4">LOGIN</Button>
+        <Button Click="BtnLogin_Click" FontSize="30" Grid.Row="3" Width="200" Height="60"  Grid.ColumnSpan="4">LOGIN</Button>
     </Grid>
 </Window>

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Mail_Manager.Models;
+using Mail_Manager.Services;
+using Microsoft.Win32;
+using MimeKit;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
-using Microsoft.Win32;
-using MimeKit;
 using System.Windows.Input;
-using Mail_Manager.Services;
 
 
 namespace Mail_Manager.Windows
@@ -52,10 +53,14 @@ namespace Mail_Manager.Windows
         {
             try
             {
-                var from = "lenailyshun@gmail.com";
-                var password = "dqmq yyqu uxfb ikfc";
+                var from = SessionState.Email;
+                var password = SessionState.Password;
 
-
+                if (string.IsNullOrWhiteSpace(from) || string.IsNullOrWhiteSpace(password))
+                {
+                    MessageBox.Show("Session is missing credentials. Please login again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
                 var to = txtTo.Text.Trim();
                 if (string.IsNullOrWhiteSpace(to))
@@ -86,7 +91,7 @@ namespace Mail_Manager.Windows
                 message.Body = builder.ToMessageBody();
 
                 this.IsEnabled = false;
-                
+                Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
 
                 await SmtpService.SendAsync(from, password, message);
 
@@ -100,7 +105,7 @@ namespace Mail_Manager.Windows
             finally
             {
                 this.IsEnabled = true;
-                
+                Mouse.OverrideCursor = null;
             }
         }
     }
