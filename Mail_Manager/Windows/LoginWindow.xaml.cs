@@ -1,7 +1,6 @@
 ﻿using Mail_Data_Access;
 using Mail_Manager.Models;
 using Mail_Manager.Services;
-using Org.BouncyCastle.Crypto;
 using System.Windows;
 using System.Windows.Input;
 
@@ -18,9 +17,7 @@ namespace Mail_Manager
             db = new MailDbContext();
             Email.Text = "lenailyshun@gmail.com";
             Password.Text = "dqmq yyqu uxfb ikfc";
-            MessageBox.Show(db.Users.Count().ToString());
         }
-
         private async void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             var email = Email.Text.Trim();
@@ -43,7 +40,6 @@ namespace Mail_Manager
 
                     await imap.ConnectAsync(email, password);
 
-
                     SessionState.Email = email;
                     SessionState.Password = password;
 
@@ -61,7 +57,7 @@ namespace Mail_Manager
                     Mouse.OverrideCursor = null;
                 }
             }
-        
+            else { MessageBox.Show($"Login failed.\nThere is no user with this email address.", "Error", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
     }
 }
