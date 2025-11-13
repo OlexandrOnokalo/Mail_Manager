@@ -49,7 +49,7 @@ namespace Mail_Manager
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Login failed.\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Error connecting to the server.\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 finally
                 {
