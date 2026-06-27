@@ -17,6 +17,7 @@ namespace Mail_Manager
         private IList<IMailFolder> _folders = new List<IMailFolder>();
         private IMailFolder? _currentFolder;
         private int _pageIndex = 0;
+        // 20 листів на сторінці — компроміс між швидкістю запиту і комфортом перегляду
         private const int PageSize = 20;
 
         public MainWindow(ImapService imap)
@@ -39,7 +40,7 @@ namespace Mail_Manager
                 _folders = await _imap.GetAllSelectableFoldersAsync();
                 lstFolders.ItemsSource = _folders.OrderBy(f => f.FullName).ToList();
 
-
+                // автоматично вибираю INBOX — щоб запуск не видавав порожню папку
                 var inbox = _folders.FirstOrDefault(f => f == _imap.Client.Inbox || f.FullName.Equals("INBOX", StringComparison.OrdinalIgnoreCase));
                 if (inbox != null)
                 {
@@ -57,6 +58,7 @@ namespace Mail_Manager
             if (lstFolders.SelectedItem is IMailFolder folder)
             {
                 _currentFolder = folder;
+                // скидаю на нуль, бо в новій папці своя пагінація — без цього відкриється не перша сторінка
                 _pageIndex = 0;
                 txtCurrentFolder.Text = folder.FullName;
                 await LoadPageAsync();
@@ -92,6 +94,7 @@ namespace Mail_Manager
         {
             if (_currentFolder == null) return;
 
+            // свідомо не перевіряю кінець: GetPageAsync поверне порожній список і ListView очиститься
             _pageIndex++;
             await LoadPageAsync();
         }

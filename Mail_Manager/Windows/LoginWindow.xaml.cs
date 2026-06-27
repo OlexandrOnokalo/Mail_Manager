@@ -15,6 +15,7 @@ namespace Mail_Manager
             InitializeComponent();
 
             db = new MailDbContext();
+            // хардкод credentials для зручності тестування — не треба вводити щоразу вручну
             Email.Text = "lenailyshun@gmail.com";
             Password.Text = "dqmq yyqu uxfb ikfc";
         }
@@ -28,8 +29,10 @@ namespace Mail_Manager
                 MessageBox.Show("Please enter both Email and Password.", "Validation", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
+            // спочатку перевіряю в БД — тільки зареєстровані юзери можуть підключитись
+            // якщо null — далі навіть не намагаюсь стукати в IMAP
             var user = db.Users.Where((user) => user.Mail == email && user.Password == password).FirstOrDefault();
-          
+
             if (user != null)
             {
                 var imap = new ImapService();
@@ -40,6 +43,8 @@ namespace Mail_Manager
 
                     await imap.ConnectAsync(email, password);
 
+                    // зберігаю в SessionState після успішного connect —
+                    // тільки тут знаю, що credentials валідні і з'єднання живе
                     SessionState.Email = email;
                     SessionState.Password = password;
 

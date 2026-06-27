@@ -19,6 +19,7 @@ namespace Mail_Manager.Windows
     {
         private readonly List<string> _attachments = new();
 
+        // конструктор приймає to/subject для режиму Reply: усі поля вже заповнені — користувач тільки дописує тіло
         public ComposeWindow(string to = "", string subject = "")
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace Mail_Manager.Windows
             {
                 foreach (var file in dlg.FileNames)
                 {
+                    // перевіряю File.Exists на всяк випадок, бо dlg може повернути неіснуючий шлях при race condition
                     if (File.Exists(file))
                         _attachments.Add(file);
                 }
@@ -53,6 +55,7 @@ namespace Mail_Manager.Windows
         {
             try
             {
+                // читаю credentials з SessionState — не передаючи пароль через конструктор
                 var from = SessionState.Email;
                 var password = SessionState.Password;
 
@@ -74,6 +77,7 @@ namespace Mail_Manager.Windows
                 message.To.Add(MailboxAddress.Parse(to));
                 message.Subject = txtSubject.Text;
 
+                // BodyBuilder — MimeKit-спосіб збудувати multipart/mixed (текст + вкладення) за один виклик
                 var builder = new BodyBuilder
                 {
                     TextBody = txtBody.Text

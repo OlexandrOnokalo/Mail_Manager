@@ -36,6 +36,7 @@ namespace Mail_Manager.Windows
             txtTo.Text = _message.To?.ToString() ?? "";
             txtSubject.Text = _message.Subject ?? "";
             txtDate.Text = _message.Date.ToString();
+            // TextBody — перевага; HtmlBody — запасний варіант (іноді повідомлення не має plain text)
             txtBody.Text = _message.TextBody ?? _message.HtmlBody ?? "(no text)";
         }
 
@@ -46,6 +47,7 @@ namespace Mail_Manager.Windows
 
         private void BtnReply_Click(object sender, RoutedEventArgs e)
         {
+            // ReplyTo може відрізнятись від From (наприклад у розсилках), тому беру його першим; якщо нема — падаюв на From
             var replyTo = _message.ReplyTo?.FirstOrDefault() ?? _message.From?.FirstOrDefault();
             var toAddress = replyTo?.ToString() ?? "";
             var subject = _message.Subject ?? "";
